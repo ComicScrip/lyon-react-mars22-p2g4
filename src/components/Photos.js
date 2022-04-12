@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// API Call parameter
 const apiKey = 'e7ed8a4e38d857a80dd85827ac1012b4';
-const accuracy = '8';
+const radius = '0.1';
+const safeSearch = '1';
+const contentType = '1';
+const minUploadDate = '1420066800';
+const perPage = '100';
 let lat;
 let lon;
-const perPage = '5';
 
 navigator.geolocation.getCurrentPosition((position) => {
   lat = position.coords.latitude;
@@ -33,7 +37,7 @@ export default function Photos() {
     // Send the request
     axios
       .get(
-        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&accuracy=${accuracy}&safe_search=1&content_type=1&lat=${lat}&lon=${lon}&per_page=${perPage}&format=json&nojsoncallback=1`
+        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&format=json&nojsoncallback=1`
       )
       // Extract the DATA from the received response
       .then((response) => response.data)
@@ -45,13 +49,15 @@ export default function Photos() {
   return (
     <div>
       <p> Photos</p>
-      {photosList.map((p) => (
-        <img
-          key={p.id}
-          src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg`}
-          alt=""
-        />
-      ))}
+      <div className="displayPhotos">
+        {photosList.map((p) => (
+          <img
+            key={p.id}
+            src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}_z.jpg`}
+            alt=""
+          />
+        ))}
+      </div>
 
       <button type="button" onClick={getPhotos}>
         Get Photos
