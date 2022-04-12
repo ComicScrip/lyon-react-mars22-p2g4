@@ -7,7 +7,7 @@ const radius = '0.1';
 const safeSearch = '1';
 const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
-const perPage = '50';
+const perPage = '100';
 const tags = 'street_art';
 let lat;
 let lon;
@@ -16,7 +16,6 @@ let lon;
 navigator.geolocation.getCurrentPosition((position) => {
   lat = position.coords.latitude;
   lon = position.coords.longitude;
-  console.log(lat, lon);
 });
 
 // Defaut list of photos
@@ -26,18 +25,27 @@ const defaultPhotosList = [
     owner: '32215553@N02',
     secret: '8e04c402f9',
     server: '65535',
-    farm: 66,
     title: 'Lyon - Place des Jacobins',
-    ispublic: 1,
-    isfriend: 0,
-    isfamily: 0,
   },
 ];
 
+const pickRandomPics = (picsList, picsNb) => {
+  const newPicsList = [];
+  for (let i = 0; i < picsNb; i += 1) {
+    const randomIndex = Math.floor(Math.random() * picsList.length);
+    newPicsList.push(picsList[randomIndex]);
+  }
+  return newPicsList;
+};
+
 export default function Photos() {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
+  const [loadingError, setLoadingError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const getPhotos = () => {
+    setLoadingError('');
+    setIsLoading(true);
     // Send the request
     axios
       .get(
@@ -47,13 +55,20 @@ export default function Photos() {
       .then((response) => response.data)
       // Use this data to update the state
       .then((data) => data.photos)
-      .then((photos) => setPhotosList(photos.photo));
+      .then((photos) => pickRandomPics(photos.photo, 1))
+      .then((randomPhotosList) => setPhotosList(randomPhotosList))
+      .catch((err) => {
+        console.error(err);
+        setLoadingError("Impossible de charger les photos depuis l'API");
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
     <div>
       <p> Photos</p>
-
+      {loadingError && <p>{loadingError}</p>}
+      {isLoading && <p>Chargement en cours...</p>}
       <button type="button" onClick={getPhotos}>
         Get Photos
       </button>
