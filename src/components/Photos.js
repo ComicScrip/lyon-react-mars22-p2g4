@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
+import apiKey from '../secret';
 
 // API Call parameter
-const apiKey = 'e7ed8a4e38d857a80dd85827ac1012b4';
 const radius = '1';
 const safeSearch = '1';
 const contentType = '1';
