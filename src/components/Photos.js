@@ -5,7 +5,7 @@ import parse from 'html-react-parser';
 import apiKey from '../secret';
 
 // API Call parameter
-const radius = '1';
+const radius = '0.1';
 const safeSearch = '1';
 const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
