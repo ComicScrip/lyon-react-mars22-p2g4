@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
-import apiKey from '../secret';
 
 // API Call parameter
+const apiKey = process.env.REACT_APP_FLICKR_APIKEY;
 const radius = '0.1';
 const safeSearch = '1';
 const contentType = '1';
