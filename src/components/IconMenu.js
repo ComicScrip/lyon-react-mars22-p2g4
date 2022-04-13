@@ -6,10 +6,10 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import Typography from '@mui/material/Typography';
-import ContentCut from '@mui/icons-material/ContentCut';
-import ContentCopy from '@mui/icons-material/ContentCopy';
-import ContentPaste from '@mui/icons-material/ContentPaste';
-import Cloud from '@mui/icons-material/Cloud';
+import Home from '@mui/icons-material/Home';
+import EditRoad from '@mui/icons-material/EditRoad';
+import MenuBook from '@mui/icons-material/MenuBook';
+import Info from '@mui/icons-material/Info';
 
 export default function IconMenu() {
   return (
@@ -17,38 +17,45 @@ export default function IconMenu() {
       <MenuList>
         <MenuItem>
           <ListItemIcon>
-            <ContentCut fontSize="small" />
+            <Home fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Cut</ListItemText>
+          <ListItemText>Home</ListItemText>
           <Typography variant="body2" color="text.secondary">
             ⌘X
           </Typography>
         </MenuItem>
+
         <MenuItem>
           <ListItemIcon>
-            <ContentCopy fontSize="small" />
+            <EditRoad fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Copy</ListItemText>
+          <ListItemText>Road</ListItemText>
           <Typography variant="body2" color="text.secondary">
             ⌘C
           </Typography>
         </MenuItem>
+
         <MenuItem>
           <ListItemIcon>
-            <ContentPaste fontSize="small" />
+            <MenuBook fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Paste</ListItemText>
+          <ListItemText>Journal</ListItemText>
           <Typography variant="body2" color="text.secondary">
             ⌘V
           </Typography>
         </MenuItem>
-        <Divider />
+
         <MenuItem>
           <ListItemIcon>
-            <Cloud fontSize="small" />
+            <Info fontSize="small" />
           </ListItemIcon>
-          <ListItemText>Web Clipboard</ListItemText>
+          <ListItemText>About</ListItemText>
+          <Typography variant="body2" color="text.secondary">
+            ⌘F
+          </Typography>
         </MenuItem>
+
+        <Divider />
       </MenuList>
     </Paper>
   );

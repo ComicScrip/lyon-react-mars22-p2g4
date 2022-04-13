@@ -8,6 +8,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { red } from 'material-ui-colors';
 import { CloudQueue } from '@mui/icons-material';
+import IceSkatingIcon from '@mui/icons-material/IceSkating';
 
 export default function ButtonAppBar() {
   return (
@@ -24,6 +25,7 @@ export default function ButtonAppBar() {
           >
             Pic'n'Move
           </Typography>
+          <IceSkatingIcon fontSize="large" />
 
           <IconButton
             size="large"
