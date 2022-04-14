@@ -11,14 +11,16 @@ const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
 const perPage = '100';
 const tags = 'street_art';
-let lat;
-let lon;
+const currentPosition = { lat: 45.746156, lon: 4.827308 };
 
 // Get geolocalisation (logitude, latitude)
-navigator.geolocation.getCurrentPosition((position) => {
-  lat = position.coords.latitude;
-  lon = position.coords.longitude;
-});
+let geolocationActived = true;
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    currentPosition.lat = position.coords.latitude;
+    currentPosition.lon = position.coords.longitude;
+  });
+} else geolocationActived = false;
 
 // Defaut list of photos
 const defaultPhotosList = [
@@ -54,7 +56,7 @@ export default function Photos() {
     // Send the request
     axios
       .get(
-        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
+        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${currentPosition.lat}&lon=${currentPosition.lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
       )
       // Extract the DATA from the received response
       .then((response) => response.data)
@@ -73,6 +75,9 @@ export default function Photos() {
     <div>
       <p> Photos</p>
       {loadingError && <p>{loadingError}</p>}
+      {!geolocationActived && (
+        <p>Erreur, la géolocalisation n'est pas activée</p>
+      )}
       {isLoading && <p>Chargement en cours...</p>}
       <button type="button" onClick={getPhotos}>
         Get Photos
