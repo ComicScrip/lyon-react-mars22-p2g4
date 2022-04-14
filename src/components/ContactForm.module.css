@@ -1,0 +1,32 @@
+input,
+textarea {
+  border-radius: 5px;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+textarea::placeholder {
+  text-align: center;
+}
+
+:placeholder-shown {
+  border-color: silver;
+}
+
+textarea {
+  width: 75%;
+  size: 25%;
+}
+
+.submitBtn {
+  margin-bottom: 5%;
+  background-color: red;
+  border-radius: 15px;
+  border: 1px solid black;
+  height: 3vh;
+  font-family: 'Inter';
+  font-weight: bold;
+  cursor: pointer;
+}

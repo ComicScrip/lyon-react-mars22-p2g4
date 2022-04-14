@@ -10,13 +10,14 @@
 }
 
 .title {
-  font-size: 120%;
+  font-size: 3vh;
   font-family: 'Permanent Marker';
 }
 
 .text {
   font-family: 'Inter';
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 .cadre {
@@ -26,10 +27,27 @@
   font-size: 100%;
 }
 
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  text-align: center;
+}
+
 @media screen and (min-width: 700px) {
   .cadre {
     width: 50%;
     height: 92%;
     margin-top: 2%;
+  }
+  .boxes {
+    display: flex;
+  }
+  .box {
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
   }
 }
