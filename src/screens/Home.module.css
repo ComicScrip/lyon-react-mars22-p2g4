@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
+
+.title {
+  font-family: 'Permanent Marker';
+  font-size: 2vh;
+}
+
+.text {
+  font-family: 'Inter';
+  font-size: 2vh;
+}
+
+.boxes {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50vh;
+  margin-bottom: 5vh;
+}
