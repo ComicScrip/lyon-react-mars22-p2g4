@@ -21,3 +21,13 @@
   margin-top: 50vh;
   margin-bottom: 5vh;
 }
+
+@media screen and (min-width: 700px) {
+  .title {
+    font-size: 5vh;
+  }
+  .container {
+    margin-top: 0;
+    margin-bottom: 3vh;
+  }
+}
