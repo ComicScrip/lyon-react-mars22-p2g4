@@ -14,10 +14,13 @@ const theme = createTheme({
 
 export default function Home() {
   return (
-    <ThemeProvider theme={theme}>
-      <Button variant="contained" size="large">
-        Let's GO !
-      </Button>
-    </ThemeProvider>
+    <div>
+      <h1>Bienvenue sur Pic'N'Move</h1>
+      <ThemeProvider theme={theme}>
+        <Button variant="contained" size="large">
+          Let's GO !
+        </Button>
+      </ThemeProvider>
+    </div>
   );
 }
