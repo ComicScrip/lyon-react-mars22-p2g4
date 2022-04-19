@@ -1,0 +1,62 @@
+.InformationsRaceMainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.InformationsRaceContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  width: 90%;
+  border: 1px solid;
+  border-color: black;
+  border-radius: 10px;
+  margin: 10px 0px;
+}
+
+.nameRace {
+  grid-column: 2 / 4;
+  grid-row: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageCourse {
+  grid-column: 1 / 3;
+  grid-row: 1 / 3;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  margin: 1px;
+}
+
+.distanceRace {
+  grid-column: 1;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.timeRace {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.calorieRace {
+  grid-column: 3;
+  grid-row: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
