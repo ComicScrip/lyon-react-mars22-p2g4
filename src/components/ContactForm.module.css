@@ -1,6 +1,8 @@
 input,
 textarea {
   border-radius: 5px;
+  width: 75%;
+  size: 25%;
 }
 
 input::placeholder {
@@ -13,11 +15,6 @@ textarea::placeholder {
 
 :placeholder-shown {
   border-color: silver;
-}
-
-textarea {
-  width: 75%;
-  size: 25%;
 }
 
 .submitBtn {

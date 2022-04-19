@@ -4,13 +4,21 @@ import dev2 from '../components/assets/dev2.jpg';
 import dev3 from '../components/assets/dev3.jpg';
 import dev4 from '../components/assets/dev4.jpg';
 import dev5 from '../components/assets/dev5.jpg';
+import background from '../components/assets/background2.jpg';
 import DevMember from '../components/DevMember';
 import ContactForm from '../components/ContactForm';
 import style from './About.module.css';
 
 export default function About() {
   return (
-    <div className={style.boxes}>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+      className={style.boxes}
+    >
       <div className={style.cadre}>
         <h1 className={style.title}>Notre Equipe</h1>
         <div className={style.item}>

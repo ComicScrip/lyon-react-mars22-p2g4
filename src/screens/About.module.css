@@ -36,6 +36,16 @@
   text-align: center;
 }
 
+.boxes {
+  height: 100%;
+  padding: 10px;
+  /*background: url("../components/assets/background.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+}
+
 @media screen and (min-width: 700px) {
   .cadre {
     width: 50%;
