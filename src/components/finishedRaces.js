@@ -1,6 +1,4 @@
-import React from 'react';
-
-const finishedRaces = React.useState([
+const finishedRaces = [
   {
     title: 'Lyon',
     imageOfCourse:
@@ -36,6 +34,6 @@ const finishedRaces = React.useState([
     distance: '12km',
     time: '1h25',
   },
-]);
+];
 
 export default finishedRaces;
