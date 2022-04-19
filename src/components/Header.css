@@ -1,0 +1,88 @@
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  min-height: 75px;
+  padding: 1rem;
+  background-color: red;
+  color: white;
+}
+
+.navbar_links {
+  display: flex;
+}
+
+.navbar_link {
+  padding: 0 0.3rem;
+  color: inherit;
+}
+
+.navbar_burger {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  display: none;
+}
+
+@media screen and (max-width: 700px) {
+  .navbar_links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    padding: 2rem;
+    background-color: red;
+  }
+
+  .navbar_link {
+    display: block;
+    padding: 1.5rem;
+    font-size: 5vw;
+  }
+
+  .navbar_burger {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .navbar_burger:hover {
+    cursor: pointer;
+  }
+
+  .burger_bar,
+  .burger_bar::before,
+  .burger_bar::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background-color: white;
+  }
+
+  .burger_bar::before,
+  .burger_bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .burger_bar::before {
+    transform: translateY(-12px);
+  }
+
+  .burger_bar::after {
+    transform: translateY(12px);
+  }
+}
