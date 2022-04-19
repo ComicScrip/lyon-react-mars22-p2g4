@@ -6,12 +6,12 @@ import TestGeoJSON from '../ressources/lyon_touristic.json';
 
 // API Call parameter
 const apiKey = process.env.REACT_APP_FLICKR_APIKEY;
-const radius = '0.1';
+const radius = '0.2';
 const safeSearch = '1';
 const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
 const perPage = '100';
-const tags = 'street_art';
+const tags = 'street-art';
 const currentPosition = { lat: 45.746156, lon: 4.827308 };
 
 // Get geolocalisation (logitude, latitude)
@@ -37,12 +37,9 @@ const defaultPhotosList = [
   },
 ];
 
-const pickRandomPics = (picsList, picsNb) => {
-  const newPicsList = [];
-  for (let i = 0; i < picsNb; i += 1) {
-    const randomIndex = Math.floor(Math.random() * picsList.length);
-    newPicsList.push(picsList[randomIndex]);
-  }
+const pickRandomPic = (picsList) => {
+  const randomIndex = Math.floor(Math.random() * picsList.length);
+  const newPicsList = picsList[randomIndex];
   return newPicsList;
 };
 
@@ -56,47 +53,59 @@ const getRandomPathPoints = (GeoJSONFile, pointsNb = 1) => {
   return randomCoordinatesTab;
 };
 
+const reducePathPoints = (GeoJSONFile, factor = 10) => {
+  const CoordinatesTab = [];
+  const coordinatesPathTab = GeoJSONFile.features[0].geometry.coordinates;
+  for (let i = 0; i < coordinatesPathTab.length / factor; i += 1) {
+    CoordinatesTab.push(coordinatesPathTab[factor * i]);
+  }
+  return CoordinatesTab;
+};
+
 export default function PhotosWIP() {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
-  const [currentPhoto, setCurrentPhoto] = useState(defaultPhotosList);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const getPhoto = (lat, lon) => {
-    setLoadingError('');
-    setIsLoading(true);
-    // Send the request
-    axios
-      .get(
-        `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
-      )
-      // Extract the DATA from the received response
-      .then((response) => response.data)
-      // Use this data to update the state
-      .then((data) => data.photos)
-      .then((photos) => pickRandomPics(photos.photo, 1))
-      .then((randomPhotosList) => setCurrentPhoto(randomPhotosList))
-      .catch((err) => {
-        console.error(err);
-        setLoadingError("Impossible de charger les photos depuis l'API");
-      })
-      .finally(() => setIsLoading(false));
+  const photoIsNotUndefined = (photo) => {
+    if (photo !== undefined) {
+      setPhotosList([...photosList, photo]);
+    } else setPhotosList([...photosList]);
   };
 
-  const getPhotosTab = () => {
-    const randomCoordinatesTab = getRandomPathPoints(TestGeoJSON, 1);
-    console.log(randomCoordinatesTab);
-    const newphotosList = [];
+  const getPhotos = () => {
+    setLoadingError('');
+    setIsLoading(true);
 
+    const randomCoordinatesTab = getRandomPathPoints(TestGeoJSON, 5);
+    const newPhotosList = [];
     for (let i = 0; i < randomCoordinatesTab.length; i += 1) {
       const lat = randomCoordinatesTab[i][1];
-      console.log(lat);
       const lon = randomCoordinatesTab[i][0];
-      getPhoto(lat, lon);
-      newphotosList.push(currentPhoto);
+      // Send the request
+
+      setTimeout(() => {
+        axios
+          .get(
+            `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
+          )
+          // Extract the DATA from the received response
+          .then((response) => response.data)
+          // Use this data to update the state
+          .then((data) => data.photos)
+          .then((photos) => pickRandomPic(photos.photo))
+          .then((randomPhoto) => {
+            if (randomPhoto !== undefined) newPhotosList.push(randomPhoto);
+          })
+          .catch((err) => {
+            console.error(err);
+            setLoadingError("Impossible de charger les photos depuis l'API");
+          })
+          .finally(() => setIsLoading(false));
+      }, 2000);
+      setPhotosList(newPhotosList);
     }
-    console.log(newphotosList);
-    setPhotosList(newphotosList);
+    console.log(photosList);
   };
 
   return (
@@ -107,7 +116,7 @@ export default function PhotosWIP() {
         <p>Erreur, la géolocalisation n'est pas activée</p>
       )}
       {isLoading && <p>Chargement en cours...</p>}
-      <button type="button" onClick={getPhotosTab}>
+      <button type="button" onClick={getPhotos}>
         Get Photos
       </button>
 
