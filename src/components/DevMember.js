@@ -1,7 +1,7 @@
 import React from 'react';
-import style from './DevMembers.module.css';
+import style from './DevMember.module.css';
 
-export default function DevMembers({ firstName, lastName, avatarUrl }) {
+export default function DevMember({ firstName, lastName, avatarUrl }) {
   return (
     <div className={style.container}>
       <h2 className={style.dev}>{firstName}</h2>
