@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 
 const apiKey = 'b9a0c0a87d7845a4ed3bd3a5841bb88e';
 
-function GetCurrentIconMeteoData() {
+function CurrentIconMeteoData() {
   const [currentIconMeteoData, setCurrentIconMeteoData] = useState('');
   useEffect(() => {
     axios
@@ -29,4 +29,4 @@ function GetCurrentIconMeteoData() {
   );
 }
 
-export default GetCurrentIconMeteoData;
+export default CurrentIconMeteoData;

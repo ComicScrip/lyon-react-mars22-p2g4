@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const apiKey = 'b9a0c0a87d7845a4ed3bd3a5841bb88e';
 
-function GetMeteoData() {
+function CurrentMeteoData() {
   const [results, setResult] = useState('');
   useEffect(() => {
     axios
@@ -27,4 +27,4 @@ function GetMeteoData() {
   );
 }
 
-export default GetMeteoData;
+export default CurrentMeteoData;

@@ -4,7 +4,7 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-named-as-default */
 import './App.css';
-import Meteo from './components/Meteo';
+import Meteo from './components/CurrentMeteo';
 import MeteoForecast from './components/MeteoForecast+1';
 import MeteoForecastIcon from './components/MeteoForecastIcon+1';
 import MeteoTemp from './components/MeteoTemp';
