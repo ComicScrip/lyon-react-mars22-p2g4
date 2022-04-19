@@ -3,6 +3,7 @@ textarea {
   border-radius: 5px;
   width: 75%;
   size: 25%;
+  padding: 1vh;
 }
 
 input::placeholder {
@@ -20,10 +21,18 @@ textarea::placeholder {
 .submitBtn {
   margin-bottom: 5%;
   background-color: red;
-  border-radius: 15px;
-  border: 1px solid black;
-  height: 3vh;
+  border-radius: 20px;
+  border: 2px solid black;
+  height: 6vh;
+  width: 20vh;
   font-family: 'Inter';
   font-weight: bold;
+  font-size: 3vh;
   cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+  .submitBtn {
+    margin-top: 5vh;
+  }
 }

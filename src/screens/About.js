@@ -16,6 +16,7 @@ export default function About() {
         backgroundImage: `url(${background})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
       className={style.boxes}
     >

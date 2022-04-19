@@ -25,6 +25,7 @@
   border-radius: 10px;
   text-align: center;
   font-size: 100%;
+  background-color: rgba(221, 212, 212, 0.562);
 }
 
 .form {
@@ -39,11 +40,6 @@
 .boxes {
   height: 100%;
   padding: 10px;
-  /*background: url("../components/assets/background.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
 }
 
 @media screen and (min-width: 700px) {
@@ -59,5 +55,8 @@
     width: 50%;
     margin-top: auto;
     margin-bottom: auto;
+  }
+  .title {
+    margin-bottom: 5vh;
   }
 }
