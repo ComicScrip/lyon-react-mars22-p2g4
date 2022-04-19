@@ -53,25 +53,25 @@ const getRandomPathPoints = (GeoJSONFile, pointsNb = 1) => {
   return randomCoordinatesTab;
 };
 
-const reducePathPoints = (GeoJSONFile, factor = 10) => {
-  const CoordinatesTab = [];
-  const coordinatesPathTab = GeoJSONFile.features[0].geometry.coordinates;
-  for (let i = 0; i < coordinatesPathTab.length / factor; i += 1) {
-    CoordinatesTab.push(coordinatesPathTab[factor * i]);
-  }
-  return CoordinatesTab;
-};
+// const reducePathPoints = (GeoJSONFile, factor = 10) => {
+//   const CoordinatesTab = [];
+//   const coordinatesPathTab = GeoJSONFile.features[0].geometry.coordinates;
+//   for (let i = 0; i < coordinatesPathTab.length / factor; i += 1) {
+//     CoordinatesTab.push(coordinatesPathTab[factor * i]);
+//   }
+//   return CoordinatesTab;
+// };
 
 export default function PhotosWIP() {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const photoIsNotUndefined = (photo) => {
-    if (photo !== undefined) {
-      setPhotosList([...photosList, photo]);
-    } else setPhotosList([...photosList]);
-  };
+  // const photoIsNotUndefined = (photo) => {
+  //   if (photo !== undefined) {
+  //     setPhotosList([...photosList, photo]);
+  //   } else setPhotosList([...photosList]);
+  // };
 
   const getPhotos = () => {
     setLoadingError('');
