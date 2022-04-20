@@ -1,15 +1,12 @@
-/* eslint-disable eol-last */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
-const apiKey = 'b9a0c0a87d7845a4ed3bd3a5841bb88e';
 
 function CurrentIconMeteoData() {
   const [currentIconMeteoData, setCurrentIconMeteoData] = useState('');
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=45,75939&lon=4,82898&exclude=minutely,hourly&appid=${apiKey}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=45,75939&lon=4,82898&exclude=minutely,hourly&appid=${process.env.REACT_APP_SECRET_API_KEY}`
       )
       .then((response) => response.data)
       .then((data) => data.current)
