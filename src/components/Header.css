@@ -1,3 +1,14 @@
+.logo {
+  height: 60px;
+  width: 60px;
+  margin-left: 36px;
+}
+
+.meteo {
+  height: 60px;
+  width: 60px;
+}
+
 .navbar {
   display: flex;
   flex-wrap: wrap;
@@ -49,6 +60,19 @@
     visibility: visible;
   }
 
+  .navbar_items::after {
+    content: '';
+    display: block;
+    margin: 0 auto;
+    width: 3vw;
+    height: 1px;
+    background: white;
+  }
+
+  .navbar_items:last-child::after {
+    display: none;
+  }
+
   .navbar_link {
     display: block;
     padding: 1.5rem;
@@ -75,6 +99,7 @@
     position: relative;
     border-radius: 3px;
     background-color: white;
+    transition: all 0.5s ease-in-out;
   }
 
   .burger_bar::before,
@@ -90,5 +115,17 @@
 
   .burger_bar::after {
     transform: translateY(12px);
+  }
+
+  .show-nav .burger_bar {
+    width: 0;
+    background: transparent;
+  }
+  .show-nav .burger_bar::before {
+    transform: rotate(45deg);
+  }
+
+  .show-nav .burger_bar::after {
+    transform: rotate(-45deg);
   }
 }

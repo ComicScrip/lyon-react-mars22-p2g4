@@ -8,7 +8,10 @@ function Header() {
   };
   return (
     <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-      <div className="navbar_logo">Logo</div>
+      <div className="navbar_logo">
+        <img className="meteo" alt="" src="meteo.png" />
+        <img className="logo" alt="" src="shoe.png" />
+      </div>
       <ul className="navbar_links">
         <li className="navbar_items">
           <a href="/" className="navbar_link">
