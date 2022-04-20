@@ -1,4 +1,5 @@
 import React from 'react';
+import homeBackground from '../components/assets/home-background.png';
 import Button from '@mui/material/Button';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
@@ -17,7 +18,15 @@ const theme = createTheme({
 
 export default function Home() {
   return (
-    <div className={style.boxes}>
+    <div
+      style={{
+        backgroundImage: `url(${homeBackground})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+      className={style.boxes}
+    >
       <div className={style.container}>
         <h1 className={style.title}>Bienvenue sur Pic'N'Move</h1>
         <p className={style.text}>
