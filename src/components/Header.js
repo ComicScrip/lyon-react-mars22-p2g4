@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Header.css';
 
 function Header() {
+  const [showLinks, setShowLinks] = useState(false);
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks);
+  };
   return (
-    <nav className="navbar">
+    <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
       <div className="navbar_logo">Logo</div>
       <ul className="navbar_links">
         <li className="navbar_items">
@@ -11,7 +15,6 @@ function Header() {
             Accueil
           </a>
         </li>
-
         <li className="navbar_items">
           <a href="/" className="navbar_link">
             Créer un parcours
@@ -36,7 +39,7 @@ function Header() {
           </a>
         </li>
       </ul>
-      <button type="button" className="navbar_burger">
+      <button type="button" className="navbar_burger" onClick={handleShowLinks}>
         <span className="burger_bar" />
       </button>
     </nav>
