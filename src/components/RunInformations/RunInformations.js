@@ -41,6 +41,20 @@ export default function RunInformations() {
   return (
     <div className="run-infos">
       <Timer time={time} />
+      <div className="flex flex-row justify-between space-x-10 align-center">
+        <div className="flex flex-col">
+          <div className="text-xl">0 km</div>
+          <div> Distance</div>
+        </div>
+        <div className="flex flex-col">
+          <div className="text-xl">0 Cal</div>
+          <div> Calorie</div>
+        </div>
+        <div className="flex flex-col">
+          <div className="text-xl">0 km/h</div>
+          <div> Rythme</div>
+        </div>
+      </div>
       <ControlButtons
         active={isActive}
         isPaused={isPaused}

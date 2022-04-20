@@ -10,8 +10,7 @@ export default function Liveview({ path, position }) {
 
     interval = setInterval(() => {
       setCurrentPath([...currentPath, [position.lat, position.lon]]);
-      console.log(currentPath);
-    }, 200);
+    }, 10000);
     return () => {
       clearInterval(interval);
     };
@@ -25,7 +24,7 @@ export default function Liveview({ path, position }) {
         path={path}
         currentPath={currentPath}
         position={position}
-        zoom={16}
+        zoom={20}
       />
 
       <RunInformations />
