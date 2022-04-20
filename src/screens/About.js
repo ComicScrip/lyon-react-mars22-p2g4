@@ -30,12 +30,19 @@ export default function About() {
           <DevMember firstName={'Christelle'} avatarUrl={dev5} />
         </div>
         <p className={style.text}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam libero
-          perspiciatis eum veritatis et nisi temporibus blanditiis, labore id
-          eveniet voluptates dolore quod animi ut fugit reiciendis non rerum
-          quaerat!Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id
-          incidunt tempore quidem nihil veniam officiis porro consequuntur
-          maxime dignissimos modi dolor rem.
+          Heureux de faire votre connaissance ! Nous espérons que vous avez eu
+          autant de plaisir à utiliser l'application "Pic'n'Move" que l'équipe
+          en a eu à la créer ! Si ce n est pas encore le cas nous sommes à votre
+          écoute pour vous aider à en profiter pleinement ; n'hésitez pas à nous
+          contacter, nous vous répondrons dans les meilleurs délais ! Car
+          Pic'n'Move c'est avant tout une équipe, des passions et la rencontre
+          de plusieurs univers. Nous comptons dans nos rangs des sportifs, des
+          ingénieurs, des photographes et même une amoureuse des chats ! Notre
+          but est de faciliter la pratique du sport pour le plus grand nombre et
+          dans les meilleurs conditions. "Pic'n'move" vous offre une solution
+          digitale sur mesure qui vous accompagne à la découverte
+          d’environnements extraordinaires pour des souvenirs inoubliables à
+          partager ! Salutations sportives !
         </p>
       </div>
       <div className={style.box}>
