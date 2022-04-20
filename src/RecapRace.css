@@ -1,3 +1,11 @@
+.RecapRaceMainContainer {
+  background-attachment: fixed;
+  background-image: url('components/assets/backgroundRecapRace.png');
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+
 .InformationsRaceMainContainer {
   display: flex;
   flex-direction: column;
@@ -13,7 +21,8 @@
   border: 1px solid;
   border-color: black;
   border-radius: 10px;
-  margin: 10px 0px;
+  margin: 50px 0px 10px 0px;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .nameRace {

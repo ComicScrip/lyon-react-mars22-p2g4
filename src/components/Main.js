@@ -6,6 +6,7 @@ import Journal from '../screens/Journal';
 import Road from '../screens/Road';
 import LiveVieuw from '../screens/LiveView';
 import Summary from '../screens/Summary';
+import RecapRace from '../screens/RecapRace';
 
 export default function Main() {
   return (
@@ -17,6 +18,7 @@ export default function Main() {
         <Route path="/road" element={<Road />} />
         <Route path="/liveVieuw" element={<LiveVieuw />} />
         <Route path="/summary" element={<Summary />} />
+        <Route path="/recapRace" element={<RecapRace />} />
       </Routes>
     </main>
   );
