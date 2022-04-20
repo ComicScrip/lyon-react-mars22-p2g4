@@ -18,8 +18,6 @@ export default function Liveview({ path, position }) {
 
   return (
     <div className="flex-auto flex-col items-center justify-center m-5">
-      <div>Titre du parcours </div>
-
       <DisplayMapLive
         path={path}
         currentPath={currentPath}
