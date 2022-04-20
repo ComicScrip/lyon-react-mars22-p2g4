@@ -5,8 +5,8 @@ import '../RecapRace.css';
 
 export default function RecapRace() {
   return (
-    <div className="RecapRace">
-      <div className="InformationsRaceMainContainer">
+    <div className="RecapRaceMainContainer">
+      <div className="RecapRaceContainer">
         <PropsInformationsRace
           title={informationsRace.title}
           distance={informationsRace.distance}
