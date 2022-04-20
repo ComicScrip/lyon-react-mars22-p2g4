@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Header.css';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const [showLinks, setShowLinks] = useState(false);
@@ -14,32 +15,44 @@ function Header() {
       </div>
       <ul className="navbar_links">
         <li className="navbar_items">
-          <a href="/" className="navbar_link">
+          {/* <a href="/" className="navbar_link">
             Accueil
-          </a>
+          </a> */}
+          <Link to="/" className="navbar_link">
+            Accueil
+          </Link>
         </li>
         <li className="navbar_items">
-          <a href="/" className="navbar_link">
+          <Link to="/road" className="navbar_link">
+            Parcours
+          </Link>
+          {/* <a href="/" className="navbar_link">
             Créer un parcours
-          </a>
+          </a> */}
         </li>
 
-        <li className="navbar_items">
+        {/* <li className="navbar_items">
           <a href="/" className="navbar_link">
             Partir courir
           </a>
-        </li>
+        </li> */}
 
         <li className="navbar_items">
-          <a href="/" className="navbar_link">
+          <Link to="/journal" className="navbar_link">
+            Journal
+          </Link>
+          {/* <a href="/" className="navbar_link">
             Mon historique
-          </a>
+          </a> */}
         </li>
 
         <li className="navbar_items">
-          <a href="/" className="navbar_link">
+          <Link to="/about" className="navbar_link">
+            À propos
+          </Link>
+          {/* <a href="/" className="navbar_link">
             Contact
-          </a>
+          </a> */}
         </li>
       </ul>
       <button type="button" className="navbar_burger" onClick={handleShowLinks}>
