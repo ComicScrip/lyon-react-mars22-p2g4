@@ -4,7 +4,7 @@ import dev2 from '../components/assets/dev2.jpg';
 import dev3 from '../components/assets/dev3.jpg';
 import dev4 from '../components/assets/dev4.jpg';
 import dev5 from '../components/assets/dev5.jpg';
-import background from '../components/assets/aboutBackground.jpg';
+import aboutBackground from '../components/assets/aboutBackground.jpg';
 import DevMember from '../components/DevMember';
 import ContactForm from '../components/ContactForm';
 import style from './About.module.css';
@@ -13,7 +13,7 @@ export default function About() {
   return (
     <div
       style={{
-        backgroundImage: `url(${background})`,
+        backgroundImage: `url(${aboutBackground})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
