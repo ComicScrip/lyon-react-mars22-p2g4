@@ -9,7 +9,7 @@ export default function Header() {
         <Link to="/about">À propos</Link>
         <Link to="/journal">Journal</Link>
         <Link to="/road">Parcours</Link>
-        <Link to="/liveview">Parcours</Link>
+        <Link to="/liveview">LiveView</Link>
       </nav>
     </header>
   );
