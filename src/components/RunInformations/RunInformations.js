@@ -35,6 +35,7 @@ export default function RunInformations() {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
+    window.location.href = '/journal';
   };
 
   return (

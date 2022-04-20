@@ -4,9 +4,11 @@ import {
   TileLayer,
   GeoJSON,
   Marker,
+  Polyline,
 } from 'react-leaflet';
 
-export default function DisplayMapLive({ path, position, zoom }) {
+// eslint-disable-next-line object-curly-newline
+export default function DisplayMapLive({ path, currentPath, position, zoom }) {
   return (
     <div className="map m-1 p-1 flex justify-center items-center">
       <LeafletMap center={position} zoom={zoom} scrollWheelZoom={false}>
@@ -15,6 +17,7 @@ export default function DisplayMapLive({ path, position, zoom }) {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <GeoJSON data={path} />
+        <Polyline positions={currentPath} pathOptions={{ color: 'red' }} />
         <Marker position={position} />
       </LeafletMap>
     </div>

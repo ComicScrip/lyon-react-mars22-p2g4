@@ -9,9 +9,9 @@ export default function Liveview({ path, position }) {
     let interval = null;
 
     interval = setInterval(() => {
-      setCurrentPath([...currentPath, position]);
+      setCurrentPath([...currentPath, [position.lat, position.lon]]);
       console.log(currentPath);
-    }, 20000);
+    }, 200);
     return () => {
       clearInterval(interval);
     };
@@ -21,7 +21,12 @@ export default function Liveview({ path, position }) {
     <div className="flex-auto flex-col items-center justify-center m-5">
       <div>Titre du parcours </div>
 
-      <DisplayMapLive path={path} position={position} zoom={16} />
+      <DisplayMapLive
+        path={path}
+        currentPath={currentPath}
+        position={position}
+        zoom={16}
+      />
 
       <RunInformations />
     </div>
