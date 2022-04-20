@@ -4,32 +4,55 @@
 .title {
   font-family: 'Permanent Marker';
   font-size: 2vh;
+  letter-spacing: 0.5vh;
+  border-top: 3px solid white;
+  border-radius: 10px;
+  width: 45vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
 }
 
 .text {
   font-family: 'Inter';
+  font-weight: bold;
   font-size: 2vh;
+  margin-bottom: 2vh;
+  letter-spacing: 0.5vh;
 }
 
 .boxes {
   text-align: center;
-  height: 100%;
-  padding: 10%;
+  background: url('../components/assets/home-background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  bottom: 35vh;
+  top: 5.5vh;
+  right: 0;
+  left: 0;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 50vh;
-  margin-bottom: 5vh;
+  margin-top: 56.5vh;
 }
 
 @media screen and (min-width: 700px) {
   .title {
     font-size: 5vh;
+    border-top: 0;
+    background-color: transparent;
+    width: auto;
   }
   .container {
     margin-top: 0;
     margin-bottom: 3vh;
+  }
+  .boxes {
+    bottom: 3.9vh;
+    top: 3.9vh;
   }
 }
