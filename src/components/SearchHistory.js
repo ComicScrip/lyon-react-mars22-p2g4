@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import '../History.css';
-import finishedRaces from './finishedRaces';
+import finishedRaces from './FinishedRaces';
 
 export default function SearchHistory() {
   return (

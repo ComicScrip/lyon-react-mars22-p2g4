@@ -1,8 +1,8 @@
 import React from 'react';
 import SearchHistory from '../components/SearchHistory';
-import PropsHistory from '../components/propsHistory';
+import PropsHistory from '../components/PropsHistory';
 import '../History.css';
-import finishedRaces from '../components/finishedRaces';
+import finishedRaces from '../components/FinishedRaces';
 
 export default function History() {
   return (
