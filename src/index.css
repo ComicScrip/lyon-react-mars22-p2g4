@@ -1,0 +1,26 @@
+html,
+body,
+#root {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  height: 100%;
+}
+
+header,
+footer {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+main {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+nav a {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
+}
