@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Timer from './Timer/Timer';
 import ControlButtons from './ControlButtons/ControlButtons';
+import './RunInformations.css';
 
 export default function RunInformations() {
   const [isActive, setIsActive] = useState(false);
@@ -20,7 +21,7 @@ export default function RunInformations() {
     return () => {
       clearInterval(interval);
     };
-  }, [isActive, isPaused]);
+  });
 
   const handleStart = () => {
     setIsActive(true);
@@ -37,7 +38,7 @@ export default function RunInformations() {
   };
 
   return (
-    <div className="stop-watch">
+    <div className="run-infos">
       <Timer time={time} />
       <ControlButtons
         active={isActive}

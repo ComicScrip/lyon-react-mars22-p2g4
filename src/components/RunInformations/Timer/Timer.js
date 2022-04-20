@@ -1,8 +1,9 @@
 import React from 'react';
+import './Timer.css';
 
 export default function Timer({ time }) {
   return (
-    <div className="timer flex justify-center items-center">
+    <div className="timer">
       <span className="digits">
         {`0${Math.floor((time / 60000) % 60)}`.slice(-2)}:
       </span>

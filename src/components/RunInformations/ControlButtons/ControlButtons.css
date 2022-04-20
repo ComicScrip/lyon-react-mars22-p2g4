@@ -1,4 +1,4 @@
-<pre > .Control-Buttons {
+.Control-Buttons {
   margin: 3rem 0;
   width: 100%;
   box-sizing: border-box;
@@ -15,7 +15,7 @@
 
 .btn {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 10vw;
+  width: 25vw;
   height: 5vh;
   border-radius: 14px;
   margin: 0px 6px;
@@ -24,7 +24,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #f5f5f5;
+  color: #000000;
 }
 
 .btn-one {
