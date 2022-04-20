@@ -6,7 +6,7 @@ import finishedRaces from '../components/FinishedRaces';
 
 export default function History() {
   return (
-    <div className="History">
+    <div className="history">
       <div className="searchHistoryContainer">
         <SearchHistory />
       </div>
