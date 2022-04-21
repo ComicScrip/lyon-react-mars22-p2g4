@@ -13,6 +13,12 @@ const theme = createTheme({
   typography: {
     fontSize: 20,
   },
+  drawerWidth: {
+    width: 15,
+    '@media (min-width:700px)': {
+      width: 50,
+    },
+  },
 });
 
 export default function Home() {
