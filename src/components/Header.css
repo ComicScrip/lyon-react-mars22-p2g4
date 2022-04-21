@@ -1,7 +1,25 @@
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+  margin-top: 12px;
+}
+
+.navbar_links:hover {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+}
+
+.navbar_logo {
+  display: flex;
+  align-items: center;
+}
+
 .logo {
   height: 60px;
   width: 60px;
-  margin-left: 36px;
 }
 
 .meteo {
@@ -24,11 +42,14 @@
 
 .navbar_links {
   display: flex;
+  justify-content: flex-start;
 }
 
 .navbar_link {
   padding: 0 0.3rem;
-  color: inherit;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'Permanent Marker', cursive;
 }
 
 .navbar_burger {
@@ -40,7 +61,11 @@
   display: none;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 800px) {
+  .navbar_logo {
+    display: flex;
+    margin-right: 150px;
+  }
   .navbar_links {
     flex-direction: column;
     justify-content: center;
@@ -51,6 +76,7 @@
     height: 100vh;
     padding: 2rem;
     visibility: hidden;
+    color: black;
     background-color: red;
   }
 
@@ -58,15 +84,6 @@
     width: 100vw;
     right: 0;
     visibility: visible;
-  }
-
-  .navbar_items::after {
-    content: '';
-    display: block;
-    margin: 0 auto;
-    width: 3vw;
-    height: 1px;
-    background: white;
   }
 
   .navbar_items:last-child::after {
@@ -86,10 +103,6 @@
     right: 1rem;
   }
 
-  .navbar_burger:hover {
-    cursor: pointer;
-  }
-
   .burger_bar,
   .burger_bar::before,
   .burger_bar::after {
@@ -98,7 +111,7 @@
     height: 3px;
     position: relative;
     border-radius: 3px;
-    background-color: white;
+    background-color: black;
     transition: all 0.5s ease-in-out;
   }
 
@@ -121,6 +134,7 @@
     width: 0;
     background: transparent;
   }
+
   .show-nav .burger_bar::before {
     transform: rotate(45deg);
   }
