@@ -37,6 +37,18 @@
   margin-top: 60vh;
 }
 
+button {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  border: 0;
+  height: 7vh;
+  width: 20vh;
+  border-radius: 5px;
+  font-size: 3vh;
+  font-weight: bold;
+}
+
 @media screen and (min-width: 700px) {
   .title {
     font-size: 5vh;
@@ -51,5 +63,10 @@
   .boxes {
     position: static;
     height: 100%;
+  }
+  button {
+    height: 10vh;
+    width: 25vh;
+    font-size: 4vh;
   }
 }

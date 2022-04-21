@@ -1,25 +1,5 @@
 import React from 'react';
-import Button from '@mui/material/Button';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { red } from '@mui/material/colors';
 import style from './Home.module.css';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: red[700],
-    },
-  },
-  typography: {
-    fontSize: 20,
-  },
-  drawerWidth: {
-    width: 15,
-    '@media (min-width:700px)': {
-      width: 50,
-    },
-  },
-});
 
 export default function Home() {
   return (
@@ -31,11 +11,7 @@ export default function Home() {
           la météo pour vous aider.
         </p>
       </div>
-      <ThemeProvider theme={theme}>
-        <Button variant="contained" size="large">
-          LET'S GO !
-        </Button>
-      </ThemeProvider>
+      <button type="submit">LET'S GO !</button>
     </div>
   );
 }
