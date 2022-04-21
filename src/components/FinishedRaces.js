@@ -1,35 +1,35 @@
 const finishedRaces = [
   {
-    title: 'Lyon',
-    imageOfCourse:
+    title: 'Lyon - Lyon',
+    raceMap:
       'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png',
     distance: '12km',
     time: '1h25',
   },
   {
-    title: 'Marseille',
-    imageOfCourse:
+    title: 'Marseille - Marseille',
+    raceMap:
       'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png',
     distance: '12km',
     time: '1h25',
   },
   {
-    title: 'Paris',
-    imageOfCourse:
+    title: 'Paris - Paris',
+    raceMap:
       'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png',
     distance: '12km',
     time: '1h25',
   },
   {
-    title: 'Bordeaux',
-    imageOfCourse:
+    title: 'Bordeaux - Bordeaux',
+    raceMap:
       'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png',
     distance: '12km',
     time: '1h25',
   },
   {
-    title: 'Annecy',
-    imageOfCourse:
+    title: 'Annecy - Annecy',
+    raceMap:
       'https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png',
     distance: '12km',
     time: '1h25',
