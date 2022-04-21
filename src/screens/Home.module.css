@@ -7,7 +7,7 @@
   letter-spacing: 0.5vh;
   border-top: 3px solid white;
   border-radius: 10px;
-  width: 45vh;
+  width: 42vh;
   margin-left: auto;
   margin-right: auto;
   background-color: white;
@@ -26,18 +26,15 @@
   background: url('../components/assets/home-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  position: absolute;
-  bottom: 35vh;
-  top: 5.5vh;
-  right: 0;
-  left: 0;
+  background-position: top;
+  position: fixed;
+  height: 63vh;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 56.5vh;
+  margin-top: 60vh;
 }
 
 @media screen and (min-width: 700px) {
