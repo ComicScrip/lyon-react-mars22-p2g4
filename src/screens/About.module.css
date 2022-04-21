@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
+.avatarUrl {
+  border-radius: 5px;
+}
+
 .item {
   display: flex;
   flex-wrap: wrap;
@@ -18,10 +22,12 @@
   font-family: 'Inter';
   margin-top: 5%;
   margin-bottom: 10%;
+  padding-left: 2vh;
+  padding-right: 2vh;
 }
 
 .cadre {
-  border: 2px solid black;
+  border: 2px solid transparent;
   border-radius: 10px;
   text-align: center;
   font-size: 100%;

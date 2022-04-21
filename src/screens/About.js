@@ -32,7 +32,7 @@ export default function About() {
         <p className={style.text}>
           Heureux de faire votre connaissance ! Nous espérons que vous avez eu
           autant de plaisir à utiliser l'application "Pic'n'Move" que l'équipe
-          en a eu à la créer ! Si ce n est pas encore le cas nous sommes à votre
+          en a eu à la créer ! Si ce n'est pas encore le cas nous sommes à votre
           écoute pour vous aider à en profiter pleinement ; n'hésitez pas à nous
           contacter, nous vous répondrons dans les meilleurs délais ! Car
           Pic'n'Move c'est avant tout une équipe, des passions et la rencontre
@@ -46,7 +46,7 @@ export default function About() {
         </p>
       </div>
       <div className={style.box}>
-        <h2 className={style.title}>Formulaire Contact</h2>
+        <h2 className={style.title}>Contact</h2>
         <div className={style.form}>
           <ContactForm />
         </div>

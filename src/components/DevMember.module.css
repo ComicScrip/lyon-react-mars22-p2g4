@@ -1,5 +1,6 @@
 .avatar {
   width: 12vh;
+  border-radius: 5px;
 }
 
 .dev {
