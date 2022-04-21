@@ -1,20 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
+
 .historyMainContainer {
   background-image: url('components/assets/backgroundHistory.png');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   height: 100%;
+  font-family: 'Inter';
+}
+
+.searchBarContainer h1 {
+  font-size: 3vh;
+  font-family: 'Permanent Marker';
 }
 
 .searchBarContainer {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
 }
 
 .searchBar {
   width: 75%;
   height: 40px;
-  margin: 50px 0px;
+  margin: 20px 0px;
   background-color: rgba(255, 255, 255, 0.8);
   font-size: large;
   border-radius: 10px;
@@ -24,7 +35,7 @@
 
 .searchBar:focus {
   border: 3px solid;
-  border-color: red;
+  border-color: #f71735;
   outline: none;
 }
 
@@ -32,6 +43,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 40px;
 }
 
 .alertFilter {
@@ -39,6 +51,10 @@
   justify-content: center;
   width: 90%;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border: 2px solid;
+  border-color: #011627;
 }
 
 .propsHistoryContainer {
@@ -54,7 +70,7 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.nameRace {
+.namePath {
   grid-column: 3 / 5;
   grid-row: 1;
   display: flex;
@@ -64,7 +80,7 @@
   font-size: medium;
 }
 
-.raceMap {
+.pathMap {
   grid-column: 1 / 3;
   grid-row: 1 / 3;
   height: 100px;
@@ -75,7 +91,7 @@
   margin: 1px;
 }
 
-.distanceRace {
+.distancePath {
   grid-column: 3;
   grid-row: 2;
   display: flex;
@@ -84,7 +100,7 @@
   text-align: center;
 }
 
-.timeRace {
+.timePath {
   grid-column: 4;
   grid-row: 2;
   display: flex;
@@ -92,3 +108,36 @@
   align-items: center;
   text-align: center;
 }
+
+@media screen and (min-width: 1025px) {
+  .searchBarContainer h1 {
+    padding-left: 50px;
+  }
+
+  .searchBarContainer {
+    align-items: initial;
+  }
+
+  .searchBar {
+    width: 40%;
+    height: 50px;
+  }
+
+  .alertFilter {
+    width: 100%;
+  }
+
+  .historyContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0px 60px;
+  }
+
+  .propsHistoryContainer {
+    width: 22%;
+    margin: 20px 0px;
+    height: 100px;
+  }
+} ;

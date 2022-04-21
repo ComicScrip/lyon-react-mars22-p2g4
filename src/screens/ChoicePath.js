@@ -1,26 +1,26 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
-import '../History.css';
-import finishedRaces from '../components/FinishedRaces';
-import PropsHistory from '../components/PropsHistory';
+import '../ChoicePath.css';
+import predefinedPaths from '../components/PredefinedPaths';
+import PropsChoicePath from '../components/PropsChoicePath';
 
-export default function History() {
+export default function ChoicePath() {
   const [title, setTitle] = React.useState('');
 
-  const [foundRaces, setFoundRaces] = React.useState(finishedRaces);
+  const [foundPaths, setFoundPaths] = React.useState(predefinedPaths);
 
   const filter = (e) => {
     const keyword = e.target.value;
 
     if (keyword !== '') {
-      const results = finishedRaces.filter((finishedRace) => {
-        return finishedRace.title
+      const results = predefinedPaths.filter((predefinedPath) => {
+        return predefinedPath.title
           .toLowerCase()
           .startsWith(keyword.toLowerCase());
       });
-      setFoundRaces(results);
+      setFoundPaths(results);
     } else {
-      setFoundRaces(finishedRaces);
+      setFoundPaths(predefinedPaths);
     }
 
     setTitle(keyword);
@@ -29,6 +29,9 @@ export default function History() {
   return (
     <div className="historyMainContainer">
       <div className="searchBarContainer">
+        <div>
+          <h1>Choix du parcours</h1>
+        </div>
         <input
           type="search"
           value={title}
@@ -38,13 +41,13 @@ export default function History() {
         />
       </div>
       <div className="historyContainer">
-        {foundRaces && foundRaces.length > 0 ? (
-          foundRaces.map((race) => (
-            <PropsHistory
-              title={race.title}
-              raceMap={race.raceMap}
-              distance={race.distance}
-              time={race.time}
+        {foundPaths && foundPaths.length > 0 ? (
+          foundPaths.map((path) => (
+            <PropsChoicePath
+              title={path.title}
+              pathMap={path.pathMap}
+              distance={path.distance}
+              time={path.time}
             />
           ))
         ) : (
