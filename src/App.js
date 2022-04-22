@@ -1,10 +1,10 @@
 import './App.css';
-import PhotosWIP from './components/PhotosWIP';
+import Photos from './components/Photos';
 
 function App() {
   return (
     <div className="App">
-      <PhotosWIP />
+      <Photos />
     </div>
   );
 }
