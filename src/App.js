@@ -14,6 +14,11 @@ if (navigator.geolocation) {
   });
 } else geolocationActived = false;
 
+navigator.geolocation.watchPosition((position) => {
+  currentPosition.lat = position.coords.latitude;
+  currentPosition.lon = position.coords.longitude;
+});
+
 function App() {
   return (
     <>
