@@ -10,7 +10,7 @@ export default function Liveview({ path, position }) {
 
     interval = setInterval(() => {
       setCurrentPath([...currentPath, [position.lat, position.lon]]);
-    }, 10000);
+    }, 4000);
     return () => {
       clearInterval(interval);
     };

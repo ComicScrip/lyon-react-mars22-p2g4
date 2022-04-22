@@ -3,23 +3,31 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 import lyonTouristic from './ressources/lyon_touristic.json';
 import Main from './components/Main';
+import { useState } from 'react';
 
-// Get geolocalisation (logitude, latitude)
-const currentPosition = { lat: 45.746156, lon: 4.827308 };
+let lat = 0;
+let lon = 0;
+
 let geolocationActived = true;
 if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition((position) => {
-    currentPosition.lat = position.coords.latitude;
-    currentPosition.lon = position.coords.longitude;
+  navigator.geolocation.getCurrentPosition((p) => {
+    lat = p.coords.latitude;
+    lon = p.coords.longitude;
   });
 } else geolocationActived = false;
 
-navigator.geolocation.watchPosition((position) => {
-  currentPosition.lat = position.coords.latitude;
-  currentPosition.lon = position.coords.longitude;
-});
-
 function App() {
+  const [currentPosition, setCurrentPosition] = useState({
+    lat,
+    lon,
+  });
+
+  navigator.geolocation.watchPosition((p) => {
+    lat = p.coords.latitude;
+    lon = p.coords.longitude;
+    setCurrentPosition({ lat, lon });
+  });
+
   return (
     <>
       <Header />
