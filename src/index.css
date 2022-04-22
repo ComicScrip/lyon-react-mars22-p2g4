@@ -6,13 +6,13 @@ body,
   margin: 0;
   height: 100%;
 }
-
+/* 
 header,
 footer {
   background-color: black;
   color: white;
   padding: 10px;
-}
+} */
 
 main {
   flex-grow: 1;

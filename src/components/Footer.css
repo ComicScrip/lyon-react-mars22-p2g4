@@ -1,0 +1,12 @@
+.container {
+  width: 100%;
+  padding: 10px;
+  background-color: red;
+}
+
+.rezof {
+  display: flex;
+  margin-left: 850px;
+  width: 180px;
+  height: 60px;
+}
