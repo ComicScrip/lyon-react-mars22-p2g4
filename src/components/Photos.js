@@ -116,8 +116,7 @@ export default function Photos() {
   }, []);
 
   return (
-    <div className="container flex flex-col">
-      <p> Photos</p>
+    <div className="flex flex-col">
       {loadingError && <p>{loadingError}</p>}
       {!geolocationActived && (
         <p>Erreur, la géolocalisation n'est pas activée</p>
@@ -126,12 +125,7 @@ export default function Photos() {
       {isLoading && <p>Chargement en cours...</p>}
 
       {!isLoading && (
-        <div
-          className="carousel"
-          style={{
-            backgroundImage: `url(https://live.staticflickr.com/${photosList[photoIndex].server}/${photosList[photoIndex].id}_${photosList[photoIndex].secret}_z.jpg)`,
-          }}
-        >
+        <div className="flex flex-row justify-center items-center max-w-xl">
           <button
             type="button"
             className="text-5xl font-bold"

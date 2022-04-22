@@ -1,10 +1,8 @@
-.carousel  {
+.carousel-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(100px);
-  border: 3rem solid black;
 }
 
 .photo-container {
