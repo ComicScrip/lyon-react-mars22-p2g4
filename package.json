@@ -20,6 +20,7 @@
     "react-leaflet": "^4.0.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.0",
+    "react-toastify": "^8.2.0",
     "styled-components": "^5.3.5",
     "stylis": "^4.1.0",
     "stylis-plugin-rtl": "^2.1.1",

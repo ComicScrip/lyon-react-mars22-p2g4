@@ -1,0 +1,21 @@
+.avatar {
+  width: 12vh;
+  border-radius: 5px;
+}
+
+.dev {
+  font-size: 90%;
+  text-align: center;
+}
+
+.container {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+@media screen and (min-width: 700px) {
+  .container {
+    margin-left: 8%;
+    margin-right: 8%;
+  }
+}
