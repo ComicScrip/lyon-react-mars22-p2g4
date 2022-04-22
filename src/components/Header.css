@@ -132,8 +132,8 @@ h1 {
   .navbar_burger {
     display: block;
     position: fixed;
-    top: 1rem;
-    right: 1rem;
+    top: 2.5rem;
+    right: 2rem;
   }
 
   .burger_bar,
