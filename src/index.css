@@ -15,9 +15,21 @@ body {
   background-position: right 45% bottom 45%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header,
+footer {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+
+main {
+  flex-grow: 1;
+}
+
+nav a {
+  margin-right: 10px;
+  color: white;
+  text-decoration: none;
 }
 
 .leaflet-container {
