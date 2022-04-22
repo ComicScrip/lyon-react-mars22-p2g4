@@ -56,7 +56,7 @@ export default function PathDetails({ path, position }) {
 
       <button
         type="button"
-        className="text-black rounded-md bg-red-500 hover:bg-red-700 h-10 w-60"
+        className="text-black rounded-md bg-[#F71735] hover:bg-red-900 h-10 w-60"
         onClick={handleLetsGo}
       >
         Let's GO !
