@@ -18,7 +18,14 @@ export default function PathDetails({ path, position }) {
         omnis.
       </div>
 
-      <div>Choix de la date </div>
+      <div>
+        <input
+          type="datetime-local"
+          value="2022-04-22T19:30"
+          min="2022-04-22T19:30"
+          max="2022-04-30T19:30"
+        />
+      </div>
       <div>Meteo </div>
 
       <button
