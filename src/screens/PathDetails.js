@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import DisplayMap from '../components/DisplayMap';
 
 export default function PathDetails({ path, position }) {
@@ -52,7 +52,7 @@ export default function PathDetails({ path, position }) {
       </div>
 
       <div className="w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
-        <NavLink to="/liveview">Let's Go !</NavLink>
+        <Link to="/liveview">Let's Go !</Link>
       </div>
     </div>
   );
