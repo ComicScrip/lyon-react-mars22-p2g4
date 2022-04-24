@@ -128,7 +128,7 @@ export default function Photos() {
         <div className="flex flex-row justify-center items-center max-w-xl">
           <button
             type="button"
-            className="text-5xl font-bold"
+            className="text-5xl font-bold text-black"
             onClick={handlePhotoIndexLeft}
           >
             {'<'}
@@ -143,7 +143,7 @@ export default function Photos() {
           </div>
           <button
             type="button"
-            className="text-5xl font-bold"
+            className="text-5xl font-bold text-black"
             onClick={handlePhotoIndexRight}
           >
             {'>'}
