@@ -4,8 +4,9 @@ import About from '../screens/About';
 import Home from '../screens/Home';
 import Journal from '../screens/Journal';
 import Road from '../screens/Road';
-import LiveVieuw from '../screens/LiveView';
+import LiveView from '../screens/LiveView';
 import Summary from '../screens/Summary';
+import PathDetails from '../screens/PathDetails';
 
 export default function Main() {
   return (
@@ -15,7 +16,8 @@ export default function Main() {
         <Route path="/about" element={<About />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/road" element={<Road />} />
-        <Route path="/liveVieuw" element={<LiveVieuw />} />
+        <Route path="/pathdetails" element={<PathDetails />} />
+        <Route path="/liveview" element={<LiveView />} />
         <Route path="/summary" element={<Summary />} />
       </Routes>
     </main>
