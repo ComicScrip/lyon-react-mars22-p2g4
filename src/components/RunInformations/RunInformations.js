@@ -21,7 +21,7 @@ export default function RunInformations() {
     return () => {
       clearInterval(interval);
     };
-  });
+  }, [isActive, isPaused, time]);
 
   const handleStart = () => {
     setIsActive(true);
@@ -35,7 +35,6 @@ export default function RunInformations() {
   const handleReset = () => {
     setIsActive(false);
     setTime(0);
-    window.location.href = '/recaprace';
   };
 
   return (

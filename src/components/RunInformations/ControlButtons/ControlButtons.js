@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 import './ControlButtons.css';
 
@@ -15,9 +16,11 @@ export default function ControlButtons({
   );
   const ActiveButtons = (
     <div className="btn-grp">
-      <div className="btn btn-two" onClick={handleReset}>
-        Reset
-      </div>
+      <Link to="/summary">
+        <div className="btn btn-two" onClick={handleReset}>
+          Stop
+        </div>
+      </Link>
       <div className="btn btn-one" onClick={handlePauseResume}>
         {isPaused ? 'Resume' : 'Pause'}
       </div>
