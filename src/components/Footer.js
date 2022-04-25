@@ -4,7 +4,9 @@ import './Footer.css';
 export default function Footer() {
   return (
     <nav className="containerf">
-      <img className="rezof" alt="" src="rezo.jpg" />
+      <a href="https://www.facebook.com/runinmarrakech/">
+        <img className="rezof" alt="" src="rezo.jpg" />
+      </a>
     </nav>
   );
 }

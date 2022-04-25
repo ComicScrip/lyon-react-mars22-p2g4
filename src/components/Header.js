@@ -58,7 +58,9 @@ function Header() {
             </NavLink>
           </li>
           <img className="meteo2" alt="" src="meteo.png" />
-          <img className="rezo" alt="" src="rezo.jpg" />
+          <a href="https://www.facebook.com/runinmarrakech/">
+            <img className="rezo" alt="" src="rezo.jpg" />
+          </a>
         </ul>
         <button
           type="button"

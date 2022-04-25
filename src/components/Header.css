@@ -51,7 +51,6 @@ h1 {
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  /* position: fixed; */
   width: 100%;
   min-height: 75px;
   padding: 1rem;
@@ -138,7 +137,7 @@ h1 {
   .navbar_burger {
     display: block;
     position: fixed;
-    top: 2.5rem;
+    top: 1.5rem;
     right: 2rem;
   }
 
