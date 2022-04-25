@@ -1,0 +1,38 @@
+input,
+textarea {
+  border-radius: 5px;
+  width: 75%;
+  size: 25%;
+  padding: 1vh;
+}
+
+input::placeholder {
+  text-align: center;
+}
+
+textarea::placeholder {
+  text-align: center;
+}
+
+:placeholder-shown {
+  border-color: silver;
+}
+
+.submitBtn {
+  margin-bottom: 5%;
+  background-color: red;
+  border-radius: 20px;
+  border: 2px solid black;
+  height: 6vh;
+  width: 20vh;
+  font-family: 'Inter';
+  font-weight: bold;
+  font-size: 3vh;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 700px) {
+  .submitBtn {
+    margin-top: 5vh;
+  }
+}
