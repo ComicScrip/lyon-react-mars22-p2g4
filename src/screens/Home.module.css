@@ -23,7 +23,7 @@
 
 .boxes {
   text-align: center;
-  background: url('../components/assets/home-background.png');
+  background: url('../components/assets/jog.gif');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -34,10 +34,10 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 60vh;
+  margin-top: 61vh;
 }
 
-button {
+.button {
   cursor: pointer;
   background-color: red;
   color: white;
@@ -65,6 +65,7 @@ button {
     height: 100%;
   }
   button {
+    margin-top: 40vh;
     height: 10vh;
     width: 25vh;
     font-size: 4vh;
