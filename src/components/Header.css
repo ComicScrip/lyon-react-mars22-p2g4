@@ -1,0 +1,184 @@
+.all {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  color: black;
+  margin-top: 12px;
+}
+
+.navbar_links:hover {
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.navbar_logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 60px;
+  width: 60px;
+}
+
+.meteo {
+  height: 60px;
+  width: 60px;
+  margin-left: 20px;
+}
+
+.meteo2 {
+  height: 60px;
+  width: 60px;
+  display: none;
+}
+
+.rezo {
+  height: 60px;
+  width: 180px;
+  display: none;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 75px;
+  padding: 1rem;
+  background-color: red;
+  color: white;
+  z-index: 1;
+}
+
+.navbar_links {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar_link {
+  padding: 0 0.3rem;
+  color: black;
+  font-size: 1.5rem;
+  font-family: 'Permanent Marker', cursive;
+  margin-left: 20px;
+}
+
+.navbar_burger {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  color: inherit;
+  display: none;
+}
+
+@media screen and (max-width: 850px) {
+  .navbar_logo {
+    display: flex;
+    margin-right: 150px;
+  }
+
+  .meteo {
+    display: none;
+  }
+
+  .meteo2 {
+    height: 60px;
+    width: 60px;
+    display: block;
+    margin-top: 50px;
+  }
+
+  .rezo {
+    height: 60px;
+    width: 180px;
+    display: block;
+    margin-top: 200px;
+  }
+
+  .navbar_links {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: -100vw;
+    bottom: 0;
+    height: 100vh;
+    padding: 2rem;
+    visibility: hidden;
+    color: black;
+    background-color: red;
+  }
+
+  .show-nav .navbar_links {
+    width: 100vw;
+    right: 0;
+    visibility: visible;
+  }
+
+  .navbar_items:last-child::after {
+    display: none;
+  }
+
+  .navbar_link {
+    display: block;
+    padding: 1.5rem;
+    font-size: 5vw;
+  }
+
+  .navbar_burger {
+    display: block;
+    position: fixed;
+    top: 1.5rem;
+    right: 2rem;
+  }
+
+  .burger_bar,
+  .burger_bar::before,
+  .burger_bar::after {
+    display: block;
+    width: 40px;
+    height: 3px;
+    position: relative;
+    border-radius: 3px;
+    background-color: black;
+    transition: all 0.5s ease-in-out;
+  }
+
+  .burger_bar::before,
+  .burger_bar::after {
+    content: '';
+    position: absolute;
+    left: 0;
+  }
+
+  .burger_bar::before {
+    transform: translateY(-12px);
+  }
+
+  .burger_bar::after {
+    transform: translateY(12px);
+  }
+
+  .show-nav .burger_bar {
+    width: 0;
+    background: transparent;
+  }
+
+  .show-nav .burger_bar::before {
+    transform: rotate(45deg);
+  }
+
+  .show-nav .burger_bar::after {
+    transform: rotate(-45deg);
+  }
+}
