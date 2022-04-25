@@ -1,6 +1,6 @@
 .RecapRaceMainContainer {
   background-attachment: fixed;
-  background-image: url('components/assets/backgroundRecapRace.png');
+  background-image: url('../components/assets/backgroundRecapRace.png');
   background-size: cover;
   background-position: center;
   height: 100%;
@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .InformationsRaceContainer {
@@ -34,11 +35,10 @@
 }
 
 .imagesRace {
+  display: flex;
+  justify-content: center;
   grid-column: 1 / 5;
   grid-row: 2;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   border-radius: 10px;
   margin: 1px;
 }

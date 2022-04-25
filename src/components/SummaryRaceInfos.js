@@ -1,24 +1,18 @@
 import React from 'react';
-import '../RecapRace.css';
+import '../screens/Summary.css';
 import { RestartAlt, Done } from '@mui/icons-material';
+import Photos from './Photos';
+import { Link } from 'react-router-dom';
 
-export default function PropsInformationsRace({
-  title,
-  distance,
-  time,
-  calorie,
-}) {
+// eslint-disable-next-line object-curly-newline
+export default function SummaryRaceInfos({ title, distance, time, calorie }) {
   return (
     <div className="InformationsRaceMainContainer">
       <div className="InformationsRaceContainer">
         <h1 className="nameRace">{title}</h1>
-        <div
-          style={{
-            backgroundImage:
-              'url("https://upload.wikimedia.org/wikipedia/en/a/aa/Bart_Simpson_200px.png")',
-          }}
-          className="imagesRace"
-        />
+        <div className="imagesRace">
+          <Photos />
+        </div>
         <p className="distanceRace">
           Distance : <br />
           {distance}
@@ -37,12 +31,16 @@ export default function PropsInformationsRace({
         </p>
       </div>
       <div className="buttonRecapRaceContainer">
-        <button className="buttonRecapRace" type="button">
-          <Done fontSize="large" />
-        </button>
-        <button className="buttonRecapRace" type="button">
-          <RestartAlt fontSize="large" />
-        </button>
+        <Link to="/journal">
+          <button className="buttonRecapRace" type="button">
+            <Done fontSize="large" />
+          </button>
+        </Link>
+        <Link to="/road">
+          <button className="buttonRecapRace" type="button">
+            <RestartAlt fontSize="large" />
+          </button>
+        </Link>
       </div>
     </div>
   );
