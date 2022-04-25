@@ -34,7 +34,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 61vh;
+  margin-top: 60vh;
 }
 
 .button {
@@ -44,7 +44,7 @@
   border: 0;
   height: 7vh;
   width: 20vh;
-  border-radius: 5px;
+  border-radius: 6px;
   font-size: 3vh;
   font-weight: bold;
 }
