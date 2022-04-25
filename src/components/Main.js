@@ -19,7 +19,10 @@ export default function Main({ currentPosition, path, geolocationActived }) {
         <Route path="/about" element={<About />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/road" element={<Road />} />
-        <Route path="/pathdetails" element={<PathDetails />} />
+        <Route
+          path="/pathdetails"
+          element={<PathDetails path={path} position={currentPosition} />}
+        />
         <Route
           path="/liveview"
           element={<LiveView path={path} position={currentPosition} />}

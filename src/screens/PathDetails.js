@@ -35,6 +35,7 @@ export default function PathDetails({ path, position }) {
           <input
             className="m-2"
             id="datetime"
+            onChange={() => 'Cette fonctionne devra modifier la météo'}
             type="datetime-local"
             value="2022-04-22T19:30"
             min="2022-04-22T19:30"
