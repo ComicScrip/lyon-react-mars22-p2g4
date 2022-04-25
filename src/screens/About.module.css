@@ -20,18 +20,18 @@
 
 .text {
   font-family: 'Inter';
-  margin-top: 5%;
-  margin-bottom: 10%;
+  margin-top: 3%;
+  margin-bottom: 7%;
   padding-left: 2vh;
   padding-right: 2vh;
 }
 
 .cadre {
-  border: 2px solid transparent;
   border-radius: 10px;
   text-align: center;
   font-size: 100%;
   background-color: rgba(221, 212, 212, 0.562);
+  padding-bottom: 1vh;
 }
 
 .form {
@@ -54,6 +54,7 @@
     height: 92%;
     margin-top: 2%;
     margin-left: 2vh;
+    padding-bottom: 0;
   }
   .boxes {
     display: flex;

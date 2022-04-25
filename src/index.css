@@ -11,13 +11,6 @@ body,
   height: 100%;
 }
 
-header,
-footer {
-  background-color: black;
-  color: white;
-  padding: 10px;
-}
-
 main {
   flex-grow: 1;
 }
@@ -26,4 +19,14 @@ nav a {
   margin-right: 10px;
   color: white;
   text-decoration: none;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.leaflet-container {
+  width: 20rem;
+  height: 20rem;
 }

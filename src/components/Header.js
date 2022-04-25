@@ -1,15 +1,77 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+/* eslint-disable consistent-return */
+import React, { useState } from 'react';
+import './Header.css';
+import { NavLink } from 'react-router-dom';
 
-export default function Header() {
+const getActiveLinkStyle = ({ isActive }) => {
+  if (isActive) return { color: 'white' };
+};
+function Header() {
+  const [showLinks, setShowLinks] = useState(false);
+  const handleShowLinks = () => {
+    setShowLinks(!showLinks);
+  };
   return (
-    <header>
-      <nav>
-        <Link to="/">Accueil</Link>
-        <Link to="/about">À propos</Link>
-        <Link to="/journal">Journal</Link>
-        <Link to="/road">Parcours</Link>
+    <nav className="all">
+      <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
+        <div className="navbar_logo">
+          <div className="container">
+            <img className="logo" alt="" src="shoe.svg" />
+            <h1>PIC 'N' MOVE</h1>
+            <img className="meteo" alt="" src="meteo.png" />
+          </div>
+        </div>
+
+        <ul className="navbar_links">
+          <li className="navbar_items">
+            <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
+              Accueil
+            </NavLink>
+          </li>
+          <li className="navbar_items">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/road"
+              className="navbar_link"
+            >
+              Parcours
+            </NavLink>
+          </li>
+
+          <li className="navbar_items">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/journal"
+              className="navbar_link"
+            >
+              Journal
+            </NavLink>
+          </li>
+
+          <li className="navbar_items">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/about"
+              className="navbar_link"
+            >
+              À propos
+            </NavLink>
+          </li>
+          <img className="meteo2" alt="" src="meteo.png" />
+          <a href="https://www.facebook.com/runinmarrakech/">
+            <img className="rezo" alt="" src="rezo.jpg" />
+          </a>
+        </ul>
+        <button
+          type="button"
+          className="navbar_burger"
+          onClick={handleShowLinks}
+        >
+          <span className="burger_bar" />
+        </button>
       </nav>
-    </header>
+    </nav>
   );
 }
+
+export default Header;
