@@ -18,7 +18,7 @@ function CurrentMeteoData() {
   return (
     <div>
       <p>
-        <h2> Météo actuelle</h2>{' '}
+        <h2> </h2>{' '}
       </p>
       <ul>{results}</ul>
     </div>
