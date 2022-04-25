@@ -1,11 +1,19 @@
 import React from 'react';
-import Photos from '../components/Photos';
+import informationsRace from '../components/InformationsRace';
+import './Summary.css';
+import SummaryRaceInfos from '../components/SummaryRaceInfos';
 
 export default function Summary() {
   return (
-    <div>
-      <h2> Récap du parcours</h2>
-      <Photos />
+    <div className="RecapRaceMainContainer">
+      <div className="RecapRaceContainer">
+        <SummaryRaceInfos
+          title={informationsRace.title}
+          distance={informationsRace.distance}
+          time={informationsRace.time}
+          calorie={informationsRace.calorie}
+        />
+      </div>
     </div>
   );
 }
