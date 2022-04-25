@@ -1,12 +1,16 @@
 /* eslint-disable object-curly-newline */
 import React from 'react';
-import '../ChoicePath.css';
+import '../screens/Paths.css';
 
-export default function PropsChoicePath({ title, pathMap, distance, time }) {
+export default function PathCard({ title, pathMap, distance, time }) {
   return (
-    <div className="propsHistoryContainer">
+    <div className="cardHistoryContainer">
       <h1 className="namePath">{title}</h1>
-      <div style={{ backgroundImage: `url(${pathMap})` }} className="pathMap" />
+      <img
+        src={pathMap}
+        className="pathMap w-50 h-20"
+        alt={`map of ${title}`}
+      />
       <p className="distancePath">
         Distance : <br />
         {distance}

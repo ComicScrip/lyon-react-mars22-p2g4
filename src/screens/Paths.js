@@ -1,10 +1,10 @@
 /* eslint-disable arrow-body-style */
 import React from 'react';
-import '../ChoicePath.css';
+import './Paths.css';
 import predefinedPaths from '../components/PredefinedPaths';
-import PropsChoicePath from '../components/PropsChoicePath';
+import PathCard from '../components/PathCard';
 
-export default function ChoicePath() {
+export default function Paths() {
   const [title, setTitle] = React.useState('');
 
   const [foundPaths, setFoundPaths] = React.useState(predefinedPaths);
@@ -43,7 +43,7 @@ export default function ChoicePath() {
       <div className="historyContainer">
         {foundPaths && foundPaths.length > 0 ? (
           foundPaths.map((path) => (
-            <PropsChoicePath
+            <PathCard
               title={path.title}
               pathMap={path.pathMap}
               distance={path.distance}

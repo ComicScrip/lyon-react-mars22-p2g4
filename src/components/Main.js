@@ -5,7 +5,7 @@ import Home from '../screens/Home';
 import Journal from '../screens/Journal';
 import LiveView from '../screens/LiveView';
 import Summary from '../screens/Summary';
-import ChoicePath from '../screens/ChoicePath';
+import Paths from '../screens/Paths';
 
 export default function Main({ currentPosition, path, geolocationActived }) {
   return (
@@ -22,7 +22,7 @@ export default function Main({ currentPosition, path, geolocationActived }) {
           element={<LiveView path={path} position={currentPosition} />}
         />
         <Route path="/summary" element={<Summary />} />
-        <Route path="/paths" element={<ChoicePath />} />
+        <Route path="/paths" element={<Paths />} />
       </Routes>
     </main>
   );
