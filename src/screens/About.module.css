@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
+
+.avatarUrl {
+  border-radius: 5px;
+}
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Inter';
+}
+
+.title {
+  font-size: 3vh;
+  font-family: 'Permanent Marker';
+}
+
+.text {
+  font-family: 'Inter';
+  margin-top: 5%;
+  margin-bottom: 10%;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+.cadre {
+  border: 2px solid transparent;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 100%;
+  background-color: rgba(221, 212, 212, 0.562);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  text-align: center;
+}
+
+.boxes {
+  height: 100%;
+  padding: 10px;
+}
+
+@media screen and (min-width: 700px) {
+  .cadre {
+    width: 50%;
+    height: 92%;
+    margin-top: 2%;
+    margin-left: 2vh;
+  }
+  .boxes {
+    display: flex;
+  }
+  .box {
+    width: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  .title {
+    margin-bottom: 1vh;
+  }
+}
