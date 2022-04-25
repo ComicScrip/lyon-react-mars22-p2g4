@@ -12,55 +12,62 @@ function Header() {
     setShowLinks(!showLinks);
   };
   return (
-    <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
-      <div className="navbar_logo">
-        <div className="container">
-          <img className="logo" alt="" src="shoe.svg" />
-          <h1>PIC 'N' MOVE</h1>
+    <nav className="all">
+      <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
+        <div className="navbar_logo">
+          <div className="container">
+            <img className="logo" alt="" src="shoe.svg" />
+            <h1>PIC 'N' MOVE</h1>
+            <img className="meteo" alt="" src="meteo.png" />
+          </div>
         </div>
-      </div>
-      <img className="meteo" alt="" src="meteo.png" />
-      <ul className="navbar_links">
-        <li className="navbar_items">
-          <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
-            Accueil
-          </NavLink>
-        </li>
-        <li className="navbar_items">
-          <NavLink
-            style={getActiveLinkStyle}
-            to="/road"
-            className="navbar_link"
-          >
-            Parcours
-          </NavLink>
-        </li>
 
-        <li className="navbar_items">
-          <NavLink
-            style={getActiveLinkStyle}
-            to="/journal"
-            className="navbar_link"
-          >
-            Journal
-          </NavLink>
-        </li>
+        <ul className="navbar_links">
+          <li className="navbar_items">
+            <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
+              Accueil
+            </NavLink>
+          </li>
+          <li className="navbar_items">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/road"
+              className="navbar_link"
+            >
+              Parcours
+            </NavLink>
+          </li>
 
-        <li className="navbar_items">
-          <NavLink
-            style={getActiveLinkStyle}
-            to="/about"
-            className="navbar_link"
-          >
-            À propos
-          </NavLink>
-        </li>
-        <img className="meteo2" alt="" src="meteo.png" />
-        <img className="rezo" alt="" src="rezo.jpg" />
-      </ul>
-      <button type="button" className="navbar_burger" onClick={handleShowLinks}>
-        <span className="burger_bar" />
-      </button>
+          <li className="navbar_items">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/journal"
+              className="navbar_link"
+            >
+              Journal
+            </NavLink>
+          </li>
+
+          <li className="navbar_items">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/about"
+              className="navbar_link"
+            >
+              À propos
+            </NavLink>
+          </li>
+          <img className="meteo2" alt="" src="meteo.png" />
+          <img className="rezo" alt="" src="rezo.jpg" />
+        </ul>
+        <button
+          type="button"
+          className="navbar_burger"
+          onClick={handleShowLinks}
+        >
+          <span className="burger_bar" />
+        </button>
+      </nav>
     </nav>
   );
 }

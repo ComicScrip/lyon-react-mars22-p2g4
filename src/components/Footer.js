@@ -3,7 +3,7 @@ import './Footer.css';
 
 export default function Footer() {
   return (
-    <nav className="container">
+    <nav className="containerf">
       <img className="rezof" alt="" src="rezo.jpg" />
     </nav>
   );
