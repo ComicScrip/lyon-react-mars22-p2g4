@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
+
+.title {
+  font-family: 'Permanent Marker';
+  font-size: 2vh;
+  letter-spacing: 0.5vh;
+  border-top: 3px solid white;
+  border-radius: 10px;
+  width: 42vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
+
+.text {
+  font-family: 'Inter';
+  font-weight: bold;
+  font-size: 2vh;
+  margin-bottom: 2vh;
+  letter-spacing: 0.5vh;
+}
+
+.boxes {
+  text-align: center;
+  background: url('../components/assets/jog.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+  position: fixed;
+  height: 63vh;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60vh;
+}
+
+.button {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  border: 0;
+  height: 7vh;
+  width: 20vh;
+  border-radius: 6px;
+  font-size: 3vh;
+  font-weight: bold;
+}
+
+@media screen and (min-width: 700px) {
+  .title {
+    font-size: 5vh;
+    border-top: 0;
+    background-color: transparent;
+    width: auto;
+  }
+  .container {
+    margin-top: 0;
+    margin-bottom: 3vh;
+  }
+  .boxes {
+    position: static;
+    height: 100%;
+  }
+  button {
+    margin-top: 40vh;
+    height: 10vh;
+    width: 25vh;
+    font-size: 4vh;
+  }
+}
