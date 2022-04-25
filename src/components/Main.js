@@ -3,10 +3,10 @@ import { Route, Routes } from 'react-router-dom';
 import About from '../screens/About';
 import Home from '../screens/Home';
 import Journal from '../screens/Journal';
-import Road from '../screens/Road';
 import LiveView from '../screens/LiveView';
 import Summary from '../screens/Summary';
 import PathDetails from '../screens/PathDetails';
+import Paths from '../screens/Paths';
 
 export default function Main({ currentPosition, path, geolocationActived }) {
   return (
@@ -18,7 +18,6 @@ export default function Main({ currentPosition, path, geolocationActived }) {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/journal" element={<Journal />} />
-        <Route path="/road" element={<Road />} />
         <Route
           path="/pathdetails"
           element={<PathDetails path={path} position={currentPosition} />}
@@ -28,6 +27,7 @@ export default function Main({ currentPosition, path, geolocationActived }) {
           element={<LiveView path={path} position={currentPosition} />}
         />
         <Route path="/summary" element={<Summary />} />
+        <Route path="/paths" element={<Paths />} />
       </Routes>
     </main>
   );

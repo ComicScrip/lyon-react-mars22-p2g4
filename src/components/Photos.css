@@ -7,8 +7,8 @@
 
 .photo-container {
   margin: auto;
-  width: 500px;
-  height: 500px;
+  width: 40vw;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
