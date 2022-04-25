@@ -13,7 +13,9 @@ export default function Home() {
         </p>
       </div>
       <Link to="/road">
-        <button type="submit">LET'S GO !</button>
+        <button className={style.button} type="submit">
+          LET'S GO !
+        </button>
       </Link>
     </div>
   );
