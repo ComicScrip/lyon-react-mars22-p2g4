@@ -20,12 +20,16 @@ function Header() {
           <div className="container">
             <img className="logo" alt="" src="shoe.svg" />
             <h1>PIC 'N' MOVE</h1>
-            <div className="meteoDesktop" />
-            <CurrentMeteoIcon />
-            <MeteoTemp />
+          </div>
+          <div className="meteoAll">
+            <div className="meteoDesktop">
+              <CurrentMeteoIcon />
+            </div>
+            <div className="meteoTemp">
+              <MeteoTemp />
+            </div>
           </div>
         </div>
-
         <ul className="navbar_links">
           <li className="navbar_items">
             <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
