@@ -1,0 +1,7 @@
+.backgroundElement {
+  background-image: url('../../public/run_bg.jpg');
+  background-position: right 45% bottom 45%;
+  margin: 0;
+  background-repeat: 'no-repeat';
+  background-size: 'cover';
+}
