@@ -1,6 +1,4 @@
 .containerf {
-  width: 100%;
-  padding: 10px;
   background-color: red;
   display: flex;
   justify-content: center;
@@ -8,8 +6,7 @@
 
 .rezof {
   display: flex;
-  width: 20vh;
-  height: 5vh;
+  height: 7vh;
 }
 
 @media screen and (max-width: 850px) {
