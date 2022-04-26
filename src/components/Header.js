@@ -31,7 +31,7 @@ function Header() {
           <li className="navbar_items">
             <NavLink
               style={getActiveLinkStyle}
-              to="/road"
+              to="/paths"
               className="navbar_link"
             >
               Parcours

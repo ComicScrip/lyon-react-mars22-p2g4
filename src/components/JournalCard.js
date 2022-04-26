@@ -1,10 +1,10 @@
 /* eslint-disable object-curly-newline */
 import React from 'react';
-import '../screens/Paths.css';
+import '../screens/Journal.css';
 
-export default function PathCard({ title, pathMap, distance, time }) {
+export default function JournalCard({ title, pathMap, distance, time }) {
   return (
-    <div className="cardPathContainer">
+    <div className="cardJournalContainer">
       <h1 className="namePath">{title}</h1>
       <img
         src={pathMap}
