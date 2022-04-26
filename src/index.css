@@ -20,3 +20,13 @@ nav a {
   color: white;
   text-decoration: none;
 }
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.leaflet-container {
+  width: 20rem;
+  height: 20rem;
+}

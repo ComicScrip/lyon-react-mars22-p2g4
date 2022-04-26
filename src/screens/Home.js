@@ -12,8 +12,10 @@ export default function Home() {
           la météo pour vous aider.
         </p>
       </div>
-      <Link to="/road">
-        <button type="submit">LET'S GO !</button>
+      <Link to="/paths">
+        <button className={style.button} type="submit">
+          LET'S GO !
+        </button>
       </Link>
     </div>
   );
