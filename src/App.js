@@ -29,7 +29,7 @@ function App() {
   });
 
   return (
-    <>
+    <div className="App">
       <Header />
       <Main
         geolocationActived={geolocationActived}
@@ -37,7 +37,7 @@ function App() {
         path={lyonTouristic}
       />
       <Footer />
-    </>
+    </div>
   );
 }
 
