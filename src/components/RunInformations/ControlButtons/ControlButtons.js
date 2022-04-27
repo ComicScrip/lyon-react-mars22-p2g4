@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 import './ControlButtons.css';
+import { PlayArrow, Stop, Pause } from '@mui/icons-material';
 
 export default function ControlButtons({
   handleStart,
@@ -11,18 +12,18 @@ export default function ControlButtons({
 }) {
   const StartButton = (
     <div className="btn btn-one btn-start" onClick={handleStart}>
-      Start
+      <PlayArrow fontSize="large" />
     </div>
   );
   const ActiveButtons = (
     <div className="btn-grp">
       <Link to="/summary">
         <div className="btn btn-two" onClick={handleReset}>
-          Stop
+          <Stop fontSize="large" />
         </div>
       </Link>
       <div className="btn btn-one" onClick={handlePauseResume}>
-        {isPaused ? 'Resume' : 'Pause'}
+        {isPaused ? <PlayArrow fontSize="large" /> : <Pause fontSize="large" />}
       </div>
     </div>
   );

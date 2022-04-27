@@ -15,9 +15,9 @@
 
 .btn {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  width: 25vw;
-  height: 5vh;
-  border-radius: 14px;
+  width: 20vw;
+  height: 20vw;
+  border-radius: 50%;
   margin: 0px 6px;
   display: flex;
   border: 2px solid #e42a2a;
@@ -29,4 +29,11 @@
 
 .btn-one {
   background-color: #e42a2a;
+}
+
+@media screen and (min-width: 1025px) {
+  .btn {
+    width: 5vw;
+    height: 5vw;
+  }
 }
