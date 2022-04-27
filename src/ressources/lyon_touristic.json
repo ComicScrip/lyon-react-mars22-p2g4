@@ -1,20 +1,7 @@
 {
-  "type": "FeatureCollection",
   "features": [
     {
       "type": "Feature",
-      "properties": {
-        "identifiant": 0,
-        "nom": "Visite de Lyon",
-        "commune_depart": "Lyon",
-        "depart": "Lyon Bellecour",
-        "difficulte": "facile",
-        "temps_parcours": "NA",
-        "longueur": "NA",
-        "denivele": "NA",
-        "xdepart": "NA",
-        "ydepart": "NA"
-      },
       "geometry": {
         "type": "LineString",
         "coordinates": [
