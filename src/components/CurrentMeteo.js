@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-// Get geolocalisation (logitude, latitude)
 const currentPosition = { lat: 45.746156, lon: 4.827308 };
 let geolocationActived = true;
 if (navigator.geolocation) {
