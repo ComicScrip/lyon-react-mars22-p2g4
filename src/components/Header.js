@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
+import CurrentMeteoIcon from './CurrentMeteoIcon';
+import MeteoTemp from './MeteoTemp';
 
 const getActiveLinkStyle = ({ isActive }) => {
   if (isActive) return { color: 'white' };
@@ -18,10 +20,16 @@ function Header() {
           <div className="container">
             <img className="logo" alt="" src="shoe.svg" />
             <h1>PIC 'N' MOVE</h1>
-            <img className="meteo" alt="" src="meteo.png" />
+          </div>
+          <div className="meteoAll">
+            <div className="meteoDesktop">
+              <CurrentMeteoIcon />
+            </div>
+            <div className="meteoTemp">
+              <MeteoTemp />
+            </div>
           </div>
         </div>
-
         <ul className="navbar_links">
           <li className="navbar_items">
             <NavLink
@@ -65,7 +73,10 @@ function Header() {
               À propos
             </NavLink>
           </li>
-          <img className="meteo2" alt="" src="meteo.png" />
+          <div className="meteoBurger">
+            <CurrentMeteoIcon />
+            Lyon, <MeteoTemp />
+          </div>
           <a href="https://www.facebook.com/runinmarrakech/">
             <img className="rezo" alt="" src="rezo.jpg" />
           </a>
