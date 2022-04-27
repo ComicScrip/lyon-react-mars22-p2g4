@@ -1,12 +1,22 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
+// Get geolocalisation (logitude, latitude)
+const currentPosition = { lat: 45.746156, lon: 4.827308 };
+let geolocationActived = true;
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition((position) => {
+    currentPosition.lat = position.coords.latitude;
+    currentPosition.lon = position.coords.longitude;
+  });
+} else geolocationActived = false;
+
 function CurrentMeteoData() {
   const [results, setResult] = useState('');
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=45,75939&lon=4,82898&lang=fr&exclude=minutely&appid=${process.env.REACT_APP_SECRET_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${currentPosition.lat}&lon=${currentPosition.lon}&appid=${process.env.REACT_APP_SECRET_API_KEY}`
       )
       .then((response) => response.data)
       .then((data) => data.current)
@@ -17,6 +27,10 @@ function CurrentMeteoData() {
 
   return (
     <div>
+      {!geolocationActived && (
+        <p> Erreur, la géolocalisation n'est pas activée</p>
+      )}
+      ;
       <p>
         <h2> </h2>{' '}
       </p>
