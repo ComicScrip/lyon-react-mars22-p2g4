@@ -1,30 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import style from './ContactForm.module.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import emailjs from '@emailjs/browser';
 
 function ContactForm() {
+  const form = useRef();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
   function handleChangeName(e) {
-    e.preventDefault();
     setName(e.target.value);
   }
 
   function handleChangeEmail(e) {
-    e.preventDefault();
     setEmail(e.target.value);
   }
 
   function handleChangeMessage(e) {
-    e.preventDefault();
     setMessage(e.target.value);
   }
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
+
+    emailjs.sendForm(
+      'process.env.REACT_APP_YOUR_SERVICE_ID',
+      'process.env.REACT_APP_YOUR_TEMPLATE_ID',
+      form.current,
+      'process.env.REACT_APP_YOUR_PUBLIC_KEY'
+    );
     toast(
       'Merci de votre partage, nous reviendrons vers vous le plus rapidement possible !',
       {
@@ -40,11 +46,12 @@ function ContactForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form ref={form} onSubmit={sendEmail}>
         <label htmlFor="name">
           <input
             onChange={handleChangeName}
             value={name}
+            name="name"
             id="name"
             type="text"
             placeholder="Dupont"
@@ -57,6 +64,7 @@ function ContactForm() {
           <input
             onChange={handleChangeEmail}
             value={email}
+            name="email"
             id="email"
             type="email"
             placeholder="dupont@gmail.com"
@@ -69,6 +77,7 @@ function ContactForm() {
           <textarea
             onChange={handleChangeMessage}
             value={message}
+            name="message"
             id="message"
             rows="10"
             type="text"
