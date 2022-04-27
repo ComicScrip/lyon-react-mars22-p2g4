@@ -12,11 +12,13 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
     "html-react-parser": "^1.4.10",
     "images": "^3.2.4",
     "jss-rtl": "^0.3.0",
     "leaflet": "^1.8.0",
     "material-ui-colors": "^1.0.0",
+    "nodemailer": "^6.7.3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-leaflet": "^4.0.0",
@@ -74,5 +76,18 @@
     "*.{js,jsx,ts,tsx}": [
       "eslint --quiet --cache --fix"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ComicScrip/lyon-react-mars22-p2g4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ComicScrip/lyon-react-mars22-p2g4/issues"
+  },
+  "homepage": "https://github.com/ComicScrip/lyon-react-mars22-p2g4#readme"
 }
