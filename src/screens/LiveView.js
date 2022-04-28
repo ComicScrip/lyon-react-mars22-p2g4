@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React, { useEffect, useState } from 'react';
 import DisplayMapLive from '../components/DisplayMapLive';
 import RunInformations from '../components/RunInformations/RunInformations';
@@ -10,7 +11,8 @@ export default function Liveview({ path, position }) {
 
     interval = setInterval(() => {
       setCurrentPath([...currentPath, [position.lat, position.lon]]);
-    }, 4000);
+    }, 5000);
+
     return () => {
       clearInterval(interval);
     };
@@ -25,7 +27,7 @@ export default function Liveview({ path, position }) {
         zoom={20}
       />
 
-      <RunInformations />
+      <RunInformations currentPath={currentPath} />
     </div>
   );
 }

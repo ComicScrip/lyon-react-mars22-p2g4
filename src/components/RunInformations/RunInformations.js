@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Timer from './Timer/Timer';
 import ControlButtons from './ControlButtons/ControlButtons';
 import './RunInformations.css';
+import L from 'leaflet';
 
-export default function RunInformations() {
+export default function RunInformations({ currentPath }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
+  let speed = `${0}kmh`;
 
   useEffect(() => {
     let interval = null;
@@ -37,6 +39,13 @@ export default function RunInformations() {
     setTime(0);
   };
 
+  if (currentPath.length >= 2) {
+    const from = L.latLng(currentPath.at(-2));
+    const to = L.latLng(currentPath.at(-1));
+    const distance = from.distanceTo(to).toFixed(0) / 1000;
+    speed = `${distance * 720}kmh`;
+  }
+
   return (
     <div className="run-infos">
       <Timer time={time} />
@@ -50,7 +59,7 @@ export default function RunInformations() {
           <div> Calorie</div>
         </div>
         <div className="flex flex-col">
-          <div className="text-xl">0 km/h</div>
+          <div className="text-xl">{speed}</div>
           <div> Rythme</div>
         </div>
       </div>

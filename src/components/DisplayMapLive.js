@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import L from 'leaflet';
 import {
@@ -12,7 +13,7 @@ import {
 export default function DisplayMapLive({ path, currentPath, position, zoom }) {
   const curseur = L.icon({
     iconUrl: 'curseur.png',
-    iconSize: [50, 50],
+    iconSize: [25, 25],
   });
 
   return (
