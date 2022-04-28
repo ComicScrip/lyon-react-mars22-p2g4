@@ -8,7 +8,7 @@ export default function PathDetails({ path, position }) {
   return (
     <div className="backgroundElement p-5">
       <div className="pathCard flex flex-col items-center justify-center  p-5 rounded-xl border-2 bg-white bg-opacity-80">
-        <div className="pathTitle text-xl">Titre du parcours </div>
+        <div className="pathTitle text-xl">Lyon, tour de la presqu'ile </div>
 
         <div className="pathInfos flex flex-row items-center justify-around m-2 text-center">
           <div className="pathDistance m-2">
@@ -25,7 +25,7 @@ export default function PathDetails({ path, position }) {
           </div>
         </div>
         <div className="pathMapContainer">
-          <DisplayMap path={path} position={position} className="m-2" />
+          <DisplayMap path={path} position={position} />
         </div>
 
         <div className="pathDescription text-justify m-2 p-2">
@@ -57,7 +57,7 @@ export default function PathDetails({ path, position }) {
           <img
             src="https://cdn-icons-png.flaticon.com/512/66/66275.png"
             alt="meteo icon"
-            className="w-10 h-10"
+            className=" w-10 h-10"
           />
           <span className="text-2xl">12 °C</span>
         </div>

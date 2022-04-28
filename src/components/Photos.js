@@ -124,10 +124,10 @@ export default function Photos() {
       {isLoading && <p>Chargement en cours...</p>}
 
       {!isLoading && (
-        <div className="flex flex-row justify-center items-center max-w-xl">
+        <div className="photoMaincomponent">
           <button
             type="button"
-            className="text-5xl font-bold text-black"
+            className="photoButton text-5xl font-bold text-black"
             onClick={handlePhotoIndexLeft}
           >
             {'<'}
@@ -142,7 +142,7 @@ export default function Photos() {
           </div>
           <button
             type="button"
-            className="text-5xl font-bold text-black"
+            className="photoButton text-5xl font-bold text-black"
             onClick={handlePhotoIndexRight}
           >
             {'>'}
