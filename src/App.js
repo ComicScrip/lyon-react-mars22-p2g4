@@ -29,15 +29,16 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <>
       <Header />
       <Main
         geolocationActived={geolocationActived}
         currentPosition={currentPosition}
         path={lyonTouristic}
       />
+
       <Footer />
-    </div>
+    </>
   );
 }
 

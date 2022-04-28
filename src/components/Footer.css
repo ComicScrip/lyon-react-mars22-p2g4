@@ -6,7 +6,7 @@
 
 .rezof {
   display: flex;
-  height: 7vh;
+  height: 5vh;
 }
 
 @media screen and (max-width: 850px) {
