@@ -25,12 +25,22 @@ function ContactForm() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm(
-      'process.env.REACT_APP_YOUR_SERVICE_ID',
-      'process.env.REACT_APP_YOUR_TEMPLATE_ID',
-      form.current,
-      'process.env.REACT_APP_YOUR_PUBLIC_KEY'
-    );
+    emailjs
+      .sendForm(
+        'service_vgct3c7',
+        'template_mjg66ve',
+        form.current,
+        'SGQHou40wvB7ycDiU'
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+
     toast(
       'Merci de votre partage, nous reviendrons vers vous le plus rapidement possible !',
       {
