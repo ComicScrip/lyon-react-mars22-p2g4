@@ -32,7 +32,12 @@ function Header() {
         </div>
         <ul className="navbar_links">
           <li className="navbar_items">
-            <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/"
+              className="navbar_link"
+              onClick={handleShowLinks}
+            >
               Accueil
             </NavLink>
           </li>
@@ -41,6 +46,7 @@ function Header() {
               style={getActiveLinkStyle}
               to="/paths"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               Parcours
             </NavLink>
@@ -51,6 +57,7 @@ function Header() {
               style={getActiveLinkStyle}
               to="/journal"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               Journal
             </NavLink>
@@ -61,6 +68,7 @@ function Header() {
               style={getActiveLinkStyle}
               to="/about"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               À propos
             </NavLink>

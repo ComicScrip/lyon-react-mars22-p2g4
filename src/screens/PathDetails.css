@@ -1,0 +1,63 @@
+.backgroundElement {
+  background-image: url('../../public/run_bg.jpg');
+  background-position: right 45% bottom 45%;
+  margin: 0;
+  background-repeat: 'no-repeat';
+  background-size: 'cover';
+}
+
+.pathPics {
+  display: none;
+}
+
+@media screen and (min-width: 700px) {
+  .backgroundElement {
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .pathCard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    height: 100%;
+  }
+
+  .pathTitle {
+    text-align: center;
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .pathMapContainer {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .pathInfos {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  .pathDescription {
+    grid-column: 2;
+    grid-row: 3;
+  }
+
+  .pathPics {
+    grid-column: 2;
+    grid-row: 1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pathMeteo,
+  .pathDate,
+  .pathButton {
+    display: none;
+  }
+}
