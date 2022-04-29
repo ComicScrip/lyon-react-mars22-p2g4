@@ -59,7 +59,7 @@
 }
 
 @media screen and (min-width: 865px) {
-  .historyMainContainer {
+  .pathsMainContainer {
     display: flex;
     flex-direction: column;
     height: 100%;

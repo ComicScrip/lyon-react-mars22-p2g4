@@ -28,7 +28,7 @@ export default function Paths() {
   }, [foundPaths, keyword]);
 
   return (
-    <div className="historyMainContainer">
+    <div className="pathsMainContainer">
       {loadingError && <p>{loadingError}</p>}
       {isLoading && <p>Chargement en cours...</p>}
       {!isLoading && (
@@ -45,7 +45,7 @@ export default function Paths() {
               placeholder="Rechercher..."
             />
           </div>
-          <div className="historyContainer">
+          <div className="pathsContainer">
             {foundPaths && foundPaths.length > 0 ? (
               foundPaths.map((path) => (
                 <PathCard

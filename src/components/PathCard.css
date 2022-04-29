@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
-.cardHistoryContainer {
+.cardContainer {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,7 +25,8 @@
 .pathCardInfo {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  padding: 10px;
   width: 100%;
   height: 100%;
 }
@@ -42,6 +43,8 @@
 }
 
 .distancePath {
+  grid-column: 1;
+  grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,6 +52,8 @@
 }
 
 .elevationPath {
+  grid-column: 2;
+  grid-row: 2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -63,7 +68,7 @@
 }
 
 @media screen and (min-width: 865px) {
-  .cardHistoryContainer {
+  .cardContainer {
     flex-direction: column;
     max-width: 300px;
     margin: 10px;

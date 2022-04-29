@@ -13,7 +13,7 @@ export default function PathCard({
   startLon,
 }) {
   return (
-    <Link to={`/pathdetails/${id}`} className="cardHistoryContainer">
+    <Link to={`/pathdetails/${id}`} className="cardContainer">
       <img
         src={`https://api.mapbox.com/styles/v1/mapbox/satellite-streets-v11/static/${startLon},${startLat},13,0/400x400?before_layer=airport-label&access_token=${accessToken}`}
         alt={`parcours : ${title}`}
