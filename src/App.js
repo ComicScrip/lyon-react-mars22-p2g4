@@ -17,7 +17,7 @@ if (navigator.geolocation) {
 } else geolocationActived = false;
 
 function App() {
-  const [paths, setPaths] = useState([]);
+  const [paths, setPaths] = useState();
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [currentPosition, setCurrentPosition] = useState({

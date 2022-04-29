@@ -1,42 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
+import axios from 'axios';
 
-export default function PathDetails({ path, position }) {
+export default function PathDetails({ position }) {
+  const [path, setPath] = useState();
+  const [loadingError, setLoadingError] = useState();
+  const [isLoading, setIsLoading] = useState(false);
+  const { id } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://lyon-react-mars22-p2g4-api.comicscrip.duckdns.org/api/paths/${id}`
+      )
+      .then((response) => response.data)
+      .then((pathDetails) => setPath(pathDetails))
+      .catch(() => {
+        setLoadingError("Impossible de charger les parcours depuis l'API");
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
+
   return (
     <div className="backgroundElement p-5">
       <div className="pathCard flex flex-col items-center justify-center  p-5 rounded-xl border-2 bg-white bg-opacity-80">
-        <div className="pathTitle text-xl">Lyon, tour de la presqu'ile </div>
+        <div className="pathTitle text-xl">{path.title}</div>
 
         <div className="pathInfos flex flex-row items-center justify-around m-2 text-center">
           <div className="pathDistance m-2">
-            <div>12 km</div>
+            <div>{path.length} km</div>
             <div className="text-xs">Distance</div>
           </div>
           <div className="pathHeightDiff m-2">
-            <div>100 m</div>
+            <div>{path.elevation} m</div>
             <div className="text-xs">Dénivelé</div>
           </div>
           <div className="pathPicsNb m-2">
-            <div>10 </div>
-            <div className="text-xs">Photos à découvrir</div>
+            <div>{path.difficulty} / 5</div>
+            <div className="text-xs">Difficulté</div>
           </div>
         </div>
         <div className="pathMapContainer">
-          <DisplayMap path={path} position={position} />
+          <DisplayMap path={path.trace} position={position} />
         </div>
 
         <div className="pathDescription text-justify m-2 p-2">
-          Lorem ipsum dolor sit amet. Et quia fugit in sint inventore rem nihil
-          quo odit atque et nesciunt architecto non minus quam qui nesciunt
-          dicta? Ea necessitatibus iusto et eaque sunt 33 neque quae est sunt
-          fugit.
+          {path.description}
         </div>
 
         <div className="pathPics">
-          <Photos />
+          <Photos path={path} />
         </div>
 
         <div className="pathDate flex flex-row justify-center m-2">
@@ -63,9 +79,11 @@ export default function PathDetails({ path, position }) {
         </div>
 
         <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
-          <Link to="/liveview">Let's Go !</Link>
+          <Link to={`/liveview/${id}`}>Let's Go !</Link>
         </div>
       </div>
+      {loadingError && <p>{loadingError}</p>}
+      {isLoading && <p>Chargement en cours...</p>}
     </div>
   );
 }

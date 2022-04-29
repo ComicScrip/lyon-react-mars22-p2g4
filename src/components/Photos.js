@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
-import TestGeoJSON from '../ressources/lyon_touristic.json';
 import './Photos.css';
 
 // API Call parameter
@@ -13,16 +12,6 @@ const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
 const perPage = '100';
 const tags = 'street-art';
-const currentPosition = { lat: 45.746156, lon: 4.827308 };
-
-// Get geolocalisation (logitude, latitude)
-let geolocationActived = true;
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition((position) => {
-    currentPosition.lat = position.coords.latitude;
-    currentPosition.lon = position.coords.longitude;
-  });
-} else geolocationActived = false;
 
 // Defaut list of photos
 const defaultPhotosList = [
@@ -53,7 +42,7 @@ const reducePathPoints = (GeoJSONFile, factor = 10) => {
   return CoordinatesTab;
 };
 
-export default function Photos() {
+export default function Photos({ path }) {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +66,7 @@ export default function Photos() {
     setLoadingError('');
     setIsLoading(true);
 
-    const coordinatesTab = reducePathPoints(TestGeoJSON);
+    const coordinatesTab = reducePathPoints(path);
     const promisesList = [];
 
     for (let i = 0; i < coordinatesTab.length; i += 1) {
@@ -117,9 +106,6 @@ export default function Photos() {
   return (
     <div className="flex flex-col">
       {loadingError && <p>{loadingError}</p>}
-      {!geolocationActived && (
-        <p>Erreur, la géolocalisation n'est pas activée</p>
-      )}
 
       {isLoading && <p>Chargement en cours...</p>}
 
