@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
-.historyMainContainer {
+.pathsMainContainer {
   background-image: url('../components/assets/backgroundHistory.png');
   background-attachment: fixed;
   background-size: cover;
@@ -40,7 +40,7 @@
   outline: none;
 }
 
-.historyContainer {
+.pathsContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +66,7 @@
     padding-bottom: 80px;
   }
 
-  .historyContainer {
+  .pathsContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

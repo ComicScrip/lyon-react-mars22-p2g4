@@ -23,11 +23,31 @@ export default function About() {
       <div className={style.cadre}>
         <h1 className={style.title}>Notre Equipe</h1>
         <div className={style.item}>
-          <DevMember firstName={'Florent'} avatarUrl={dev1} />
-          <DevMember firstName={'Simon'} avatarUrl={dev2} />
-          <DevMember firstName={'Ismael'} avatarUrl={dev3} />
-          <DevMember firstName={'Jean-Marie'} avatarUrl={dev4} />
-          <DevMember firstName={'Christelle'} avatarUrl={dev5} />
+          <DevMember
+            firstName={'Florent'}
+            avatarUrl={dev1}
+            gitHubUrl="https://github.com/fflachat"
+          />
+          <DevMember
+            firstName={'Simon'}
+            avatarUrl={dev2}
+            gitHubUrl="https://github.com/Sim-guy"
+          />
+          <DevMember
+            firstName={'Ismael'}
+            avatarUrl={dev3}
+            gitHubUrl="https://github.com/Isma69"
+          />
+          <DevMember
+            firstName={'Jean-Marie'}
+            avatarUrl={dev4}
+            gitHubUrl="https://github.com/jmj69"
+          />
+          <DevMember
+            firstName={'Christelle'}
+            avatarUrl={dev5}
+            gitHubUrl="https://github.com/ChrichriR"
+          />
         </div>
         <p className={style.text}>
           Heureux de faire votre connaissance ! Nous espérons que vous avez eu
