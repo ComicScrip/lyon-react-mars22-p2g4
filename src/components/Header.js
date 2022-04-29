@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import './Header.css';
 import { NavLink } from 'react-router-dom';
+import CurrentMeteoIcon from './CurrentMeteoIcon';
+import MeteoTemp from './MeteoTemp';
 
 const getActiveLinkStyle = ({ isActive }) => {
   if (isActive) return { color: 'white' };
@@ -18,13 +20,24 @@ function Header() {
           <div className="container">
             <img className="logo" alt="" src="shoe.svg" />
             <h1>PIC 'N' MOVE</h1>
-            <img className="meteo" alt="" src="meteo.png" />
+          </div>
+          <div className="meteoAll">
+            <div className="meteoDesktop">
+              <CurrentMeteoIcon />
+            </div>
+            <div className="meteoTemp">
+              <MeteoTemp />
+            </div>
           </div>
         </div>
-
         <ul className="navbar_links">
           <li className="navbar_items">
-            <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/"
+              className="navbar_link"
+              onClick={handleShowLinks}
+            >
               Accueil
             </NavLink>
           </li>
@@ -33,6 +46,7 @@ function Header() {
               style={getActiveLinkStyle}
               to="/paths"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               Parcours
             </NavLink>
@@ -43,6 +57,7 @@ function Header() {
               style={getActiveLinkStyle}
               to="/journal"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               Journal
             </NavLink>
@@ -53,11 +68,15 @@ function Header() {
               style={getActiveLinkStyle}
               to="/about"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               À propos
             </NavLink>
           </li>
-          <img className="meteo2" alt="" src="meteo.png" />
+          <div className="meteoBurger">
+            <CurrentMeteoIcon />
+            Lyon, <MeteoTemp />
+          </div>
           <a href="https://www.facebook.com/runinmarrakech/">
             <img className="rezo" alt="" src="rezo.jpg" />
           </a>

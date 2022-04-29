@@ -104,8 +104,7 @@ export default function Photos() {
     Promise.all(promisesList)
       .then((randomPhotos) => randomPhotos.filter((p) => p !== null))
       .then((photos) => setPhotosList(photos))
-      .catch((err) => {
-        console.error(err);
+      .catch(() => {
         setLoadingError("Impossible de charger les photos depuis l'API");
       })
       .finally(() => setIsLoading(false));

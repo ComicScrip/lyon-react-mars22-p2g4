@@ -44,6 +44,7 @@ export default function Paths() {
         {foundPaths && foundPaths.length > 0 ? (
           foundPaths.map((path) => (
             <PathCard
+              key={path.id}
               title={path.title}
               pathMap={path.pathMap}
               distance={path.distance}
