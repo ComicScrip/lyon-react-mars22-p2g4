@@ -17,7 +17,6 @@ function GetMeteoDataTemp() {
   return (
     <div>
       <p>
-        {' '}
         <ul>{Math.round(meteoTemp)}°C</ul>
       </p>
     </div>
