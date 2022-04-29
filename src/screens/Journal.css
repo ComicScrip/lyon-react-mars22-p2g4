@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
-.pathsMainContainer {
+.journalMainContainer {
   background-image: url('../components/assets/backgroundHistory.png');
   background-attachment: fixed;
   background-size: cover;
@@ -39,7 +39,7 @@
   outline: none;
 }
 
-.pathsContainer {
+.journalContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -57,7 +57,7 @@
   border-color: #011627;
 }
 
-.cardPathContainer {
+.cardJournalContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(2, 50px);
@@ -124,7 +124,7 @@
     width: 100%;
   }
 
-  .pathsContainer {
+  .journalContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -132,7 +132,7 @@
     margin: 0px 60px;
   }
 
-  .cardPathContainer {
+  .cardJournalContainer {
     width: 22%;
     margin: 20px 0px;
     height: 100px;
