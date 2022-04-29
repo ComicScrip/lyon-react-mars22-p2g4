@@ -35,7 +35,9 @@ const pickRandomPic = (picsList) => {
 
 const reducePathPoints = (GeoJSONFile, factor = 10) => {
   const CoordinatesTab = [];
-  const coordinatesPathTab = GeoJSONFile.features[0].geometry.coordinates;
+  console.log(GeoJSONFile);
+  const parsingTrace = JSON.parse(GeoJSONFile);
+  const coordinatesPathTab = parsingTrace.features[0].geometry.coordinates;
   for (let i = 0; i < coordinatesPathTab.length / factor; i += 1) {
     CoordinatesTab.push(coordinatesPathTab[factor * i]);
   }

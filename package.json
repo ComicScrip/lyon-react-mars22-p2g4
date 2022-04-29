@@ -12,6 +12,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
+    "geojson-to-image": "^0.0.0",
     "html-react-parser": "^1.4.10",
     "images": "^3.2.4",
     "jss-rtl": "^0.3.0",
