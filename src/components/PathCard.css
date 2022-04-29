@@ -48,11 +48,18 @@
   text-align: center;
 }
 
-.timePath {
+.elevationPath {
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.leaflet-container {
+  min-width: 35px;
+  min-height: 40px;
+  width: 20vw;
+  height: 20vw;
 }
 
 @media screen and (min-width: 865px) {

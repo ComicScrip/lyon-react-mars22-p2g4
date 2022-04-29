@@ -1,13 +1,12 @@
 /* eslint-disable arrow-body-style */
-import React from 'react';
+import React, { useState } from 'react';
 import './Paths.css';
 import predefinedPaths from '../components/PredefinedPaths';
 import PathCard from '../components/PathCard';
 
-export default function Paths() {
+export default function Paths({ paths }) {
   const [title, setTitle] = React.useState('');
-
-  const [foundPaths, setFoundPaths] = React.useState(predefinedPaths);
+  const [foundPaths, setFoundPaths] = useState(paths);
 
   const filter = (e) => {
     const keyword = e.target.value;
@@ -45,10 +44,13 @@ export default function Paths() {
           foundPaths.map((path) => (
             <PathCard
               key={path.id}
-              title={path.title}
-              pathMap={path.pathMap}
-              distance={path.distance}
-              time={path.time}
+              id={path.id}
+              title={path.name}
+              pathMap={path.trace}
+              distance={path.length}
+              elevation={path.elevation}
+              startingLat={path.start_lat}
+              startingLon={path.start_lon}
             />
           ))
         ) : (

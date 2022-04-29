@@ -8,7 +8,7 @@ import Summary from '../screens/Summary';
 import PathDetails from '../screens/PathDetails';
 import Paths from '../screens/Paths';
 
-export default function Main({ currentPosition, path, geolocationActived }) {
+export default function Main({ currentPosition, paths, geolocationActived }) {
   return (
     <main>
       {!geolocationActived && (
@@ -19,15 +19,15 @@ export default function Main({ currentPosition, path, geolocationActived }) {
         <Route path="/about" element={<About />} />
         <Route path="/journal" element={<Journal />} />
         <Route
-          path="/pathdetails"
-          element={<PathDetails path={path} position={currentPosition} />}
+          path="/pathdetails/:id"
+          element={<PathDetails path={paths} position={currentPosition} />}
         />
         <Route
           path="/liveview"
-          element={<LiveView path={path} position={currentPosition} />}
+          element={<LiveView path={paths} position={currentPosition} />}
         />
         <Route path="/summary" element={<Summary />} />
-        <Route path="/paths" element={<Paths />} />
+        <Route path="/paths" element={<Paths paths={paths} />} />
       </Routes>
     </main>
   );

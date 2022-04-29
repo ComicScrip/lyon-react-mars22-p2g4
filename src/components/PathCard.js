@@ -1,22 +1,33 @@
 /* eslint-disable object-curly-newline */
-import React from 'react';
 import './PathCard.css';
 import { Link } from 'react-router-dom';
+import DisplayMap from './DisplayMap';
 
-export default function PathCard({ title, pathMap, distance, time }) {
+export default function PathCard({
+  id,
+  title,
+  pathMap,
+  distance,
+  elevation,
+  startingLat,
+  startingLon,
+}) {
   return (
-    <Link to="/pathdetails" className="cardHistoryContainer">
-      <img src={pathMap} className="pathMap" alt={`map of ${title}`} />
+    <Link to={`/pathdetails/${id}`} className="cardHistoryContainer">
       <div className="pathCardInfo">
+        <DisplayMap
+          className="pathMap"
+          path={pathMap}
+          position={[startingLat, startingLon]}
+        />
         <h1 className="namePath">{title}</h1>
-
         <p className="distancePath">
           Distance : <br />
-          {distance}
+          {distance} km
         </p>
-        <p className="timePath">
-          Temps : <br />
-          {time}
+        <p className="elevationPath">
+          Dénivelé : <br />
+          {elevation} m
         </p>
       </div>
     </Link>
