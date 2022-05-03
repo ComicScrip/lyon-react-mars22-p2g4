@@ -23,7 +23,7 @@ export default function Main({ currentPosition, geolocationActived }) {
           path="/liveview/:id"
           element={<LiveView position={currentPosition} />}
         />
-        <Route path="/summary" element={<Summary />} />
+        <Route path="/summary/:id" element={<Summary />} />
         <Route path="/paths" element={<Paths />} />
       </Routes>
     </main>

@@ -28,8 +28,9 @@ code {
 }
 
 .leaflet-container {
-  min-width: 350px;
+  margin: 10px;
+  min-width: 300px;
   min-height: 400px;
-  width: 30vw;
+  width: 50vw;
   height: 30vw;
 }

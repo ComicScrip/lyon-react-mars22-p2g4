@@ -5,7 +5,7 @@ export default function DisplayMap({ path }) {
   return (
     <div className="map m-1 p-1 flex justify-center items-center">
       <LeafletMap
-        center={[path.start_lon, path.start_lat]}
+        center={[path.start_lat, path.start_lon]}
         zoom={13}
         scrollWheelZoom={false}
       >

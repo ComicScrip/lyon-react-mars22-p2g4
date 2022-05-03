@@ -4,6 +4,7 @@ import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
 import axios from 'axios';
+// import pathExample from '../ressources/pathExample.json';
 
 export default function PathDetails() {
   const [path, setPath] = useState();
@@ -22,16 +23,15 @@ export default function PathDetails() {
         setLoadingError("Impossible de charger les parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
-  }, [path]);
+  }, []);
 
   return (
     <div className="backgroundElement p-5">
       {loadingError && <p>{loadingError}</p>}
       {isLoading && <p>Chargement en cours...</p>}
-      {!isLoading && (
+      {!isLoading && path && (
         <div className="pathCard flex flex-col items-center justify-center  p-5 rounded-xl border-2 bg-white bg-opacity-80">
           <div className="pathTitle text-xl">{path.name}</div>
-
           <div className="pathInfos flex flex-row items-center justify-around m-2 text-center">
             <div className="pathDistance m-2">
               <div>{path.length} km</div>
@@ -49,15 +49,12 @@ export default function PathDetails() {
           <div className="pathMapContainer">
             <DisplayMap path={path} />
           </div>
-
           <div className="pathDescription text-justify m-2 p-2">
             {path.description}
           </div>
-
           <div className="pathPics">
-            <Photos path={path.trace} />
+            {<Photos path={path.trace.features[0].geometry.coordinates} />}
           </div>
-
           <div className="pathDate flex flex-row justify-center m-2">
             <label
               className="m-2 flex flex-row items-center"
@@ -83,7 +80,6 @@ export default function PathDetails() {
             />
             <span className="text-2xl">12 °C</span>
           </div>
-
           <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
             <Link to={`/liveview/${id}`}>Let's Go !</Link>
           </div>

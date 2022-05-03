@@ -33,13 +33,10 @@ const pickRandomPic = (picsList) => {
   return newPicsList;
 };
 
-const reducePathPoints = (GeoJSONFile, factor = 10) => {
+const reducePathPoints = (trace = [], factor = 10) => {
   const CoordinatesTab = [];
-  console.log(GeoJSONFile);
-  const parsingTrace = JSON.parse(GeoJSONFile);
-  const coordinatesPathTab = parsingTrace.features[0].geometry.coordinates;
-  for (let i = 0; i < coordinatesPathTab.length / factor; i += 1) {
-    CoordinatesTab.push(coordinatesPathTab[factor * i]);
+  for (let i = 0; i < trace.length / factor; i += 1) {
+    CoordinatesTab.push(trace[factor * i]);
   }
   return CoordinatesTab;
 };
@@ -74,7 +71,6 @@ export default function Photos({ path }) {
     for (let i = 0; i < coordinatesTab.length; i += 1) {
       const lat = coordinatesTab[i][1];
       const lon = coordinatesTab[i][0];
-
       const newPromise = new Promise((resolve) => {
         axios
           .get(
@@ -104,14 +100,13 @@ export default function Photos({ path }) {
   useEffect(() => {
     getPhotos();
   }, []);
-
   return (
     <div className="flex flex-col">
       {loadingError && <p>{loadingError}</p>}
 
       {isLoading && <p>Chargement en cours...</p>}
 
-      {!isLoading && (
+      {!isLoading && photosList.length > 0 ? (
         <div className="photoMaincomponent">
           <button
             type="button"
@@ -136,6 +131,8 @@ export default function Photos({ path }) {
             {'>'}
           </button>
         </div>
+      ) : (
+        <div>Aucune photo n'a pu être récupéré pour votre parcours</div>
       )}
     </div>
   );

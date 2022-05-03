@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
 .pathsMainContainer {
-  background-image: url('../components/assets/backgroundHistory.png');
+  background-image: url('../../public/run_bg.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
