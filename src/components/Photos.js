@@ -80,7 +80,7 @@ export default function Photos({ path }) {
           .then((data) => data.photos)
           .then((photos) => pickRandomPic(photos.photo))
           .then((randomPhoto) => {
-            if (randomPhoto !== undefined) {
+            if (typeof randomPhoto !== 'undefined') {
               resolve(randomPhoto);
             } else resolve(null);
           });
@@ -132,7 +132,7 @@ export default function Photos({ path }) {
           </button>
         </div>
       ) : (
-        <div>Aucune photo n'a pu être récupéré pour votre parcours</div>
+        <div>Aucune photo n'a pu être récupérée pour votre parcours</div>
       )}
     </div>
   );
