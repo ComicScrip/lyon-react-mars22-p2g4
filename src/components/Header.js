@@ -1,7 +1,7 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import './Header.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import CurrentMeteoIcon from './CurrentMeteoIcon';
 import MeteoTemp from './MeteoTemp';
 
@@ -18,7 +18,9 @@ function Header() {
       <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
         <div className="navbar_logo">
           <div className="container">
-            <img className="logo" alt="" src="shoe.svg" />
+            <Link to="/">
+              <img className="logo" alt="" src="shoe.svg" />
+            </Link>
             <h1>PIC 'N' MOVE</h1>
           </div>
           <div className="meteoAll">
