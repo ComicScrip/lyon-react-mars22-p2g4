@@ -27,7 +27,7 @@ export default function Paths() {
   };
 
   return (
-    <div className="historyMainContainer">
+    <div className="pathsMainContainer">
       <div className="searchBarContainer">
         <div>
           <h1>Choix du parcours</h1>
@@ -40,10 +40,11 @@ export default function Paths() {
           placeholder="Rechercher..."
         />
       </div>
-      <div className="historyContainer">
+      <div className="pathsContainer">
         {foundPaths && foundPaths.length > 0 ? (
           foundPaths.map((path) => (
             <PathCard
+              key={path.id}
               title={path.title}
               pathMap={path.pathMap}
               distance={path.distance}

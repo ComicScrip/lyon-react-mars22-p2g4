@@ -16,25 +16,41 @@ h1 {
 .container {
   display: flex;
   align-items: flex-start;
+  height: auto;
 }
 
 .navbar_logo {
   display: flex;
   align-items: center;
+  justify-content: center;
+  height: 55px;
 }
 
 .logo {
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
 }
 
-.meteo {
+.meteoDesktop {
   height: 60px;
   width: 60px;
   margin-left: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+.meteoTemp {
+  margin-left: 0%;
+  display: flex;
+  align-items: flex-start;
 }
 
-.meteo2 {
+.meteoAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.meteoBurger {
   height: 60px;
   width: 60px;
   display: none;
@@ -52,11 +68,10 @@ h1 {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 75px;
-  padding: 1rem;
+  padding: 1vh;
   background-color: red;
   color: white;
-  z-index: 1;
+  z-index: 10000;
 }
 
 .navbar_links {
@@ -73,25 +88,28 @@ h1 {
 }
 
 .navbar_burger {
-  width: 40px;
-  height: 40px;
+  width: 3vh;
+  height: 3vh;
   background: transparent;
   border: none;
   color: inherit;
   display: none;
 }
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 700px) {
   .navbar_logo {
     display: flex;
     margin-right: 150px;
   }
 
-  .meteo {
+  .meteoDesktop {
+    display: none;
+  }
+  .meteoTemp {
     display: none;
   }
 
-  .meteo2 {
+  .meteoBurger {
     height: 60px;
     width: 60px;
     display: block;
@@ -137,7 +155,7 @@ h1 {
 
   .navbar_burger {
     display: block;
-    position: fixed;
+    position: absolute;
     top: 1.5rem;
     right: 2rem;
   }

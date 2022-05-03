@@ -37,7 +37,7 @@ export default function Liveview({ path, position }) {
   });
 
   return (
-    <div className="flex-auto flex-col items-center justify-center m-5">
+    <div className="flex-auto flex-col items-center justify-center m-5 bg-white bg-opacity-80 rounded-xl">
       <DisplayMapLive
         path={path}
         currentPath={currentPath}

@@ -29,6 +29,7 @@
   background-position: top;
   position: fixed;
   height: 63vh;
+  width: 100%;
 }
 
 .container {
