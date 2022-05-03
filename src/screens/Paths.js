@@ -16,9 +16,7 @@ export default function Paths() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://lyon-react-mars22-p2g4-api.comicscrip.duckdns.org/api/paths?name=${keyword}`
-      )
+      .get(`${process.env.REACT_APP_PATHS_API_URL}/api/paths?name=${keyword}`)
       .then((response) => response.data)
       .then((pathsTab) => setFoundPaths(pathsTab))
       .catch(() => {
