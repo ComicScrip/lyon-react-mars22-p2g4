@@ -77,9 +77,6 @@ function Header() {
             <CurrentMeteoIcon />
             Lyon, <MeteoTemp />
           </div>
-          <a href="https://www.facebook.com/runinmarrakech/">
-            <img className="rezo" alt="" src="rezo.jpg" />
-          </a>
         </ul>
         <button
           type="button"

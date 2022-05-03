@@ -7,13 +7,26 @@
 .rezof {
   display: flex;
   height: 7vh;
+  width: 7vh;
 }
 
-@media screen and (max-width: 700px) {
-  .containerf .rezof {
+.rezof2 {
+  display: flex;
+  height: 6vh;
+  width: 7vh;
+  margin-left: 10vh;
+  margin-right: 10vh;
+  margin-top: 0.5vh;
+}
+
+@media screen and (max-width: 850px) {
+  .containerf .rezof .rezof2 {
     display: none;
+    height: 4vh;
+    width: 4vh;
   }
+
   .containerf {
-    background-color: white;
+    background-color: red;
   }
 }
