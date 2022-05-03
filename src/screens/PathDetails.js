@@ -4,7 +4,6 @@ import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
 import axios from 'axios';
-// import pathExample from '../ressources/pathExample.json';
 
 export default function PathDetails() {
   const [path, setPath] = useState();
@@ -14,13 +13,11 @@ export default function PathDetails() {
 
   useEffect(() => {
     axios
-      .get(
-        `https://lyon-react-mars22-p2g4-api.comicscrip.duckdns.org/api/paths/${id}`
-      )
+      .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
       .then((response) => response.data)
       .then((data) => setPath(data))
       .catch(() => {
-        setLoadingError("Impossible de charger les parcours depuis l'API");
+        setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
   }, []);

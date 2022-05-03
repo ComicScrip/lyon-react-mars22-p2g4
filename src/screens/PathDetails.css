@@ -6,6 +6,14 @@
   background-size: 'cover';
 }
 
+.pathTitle {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.pathInfos {
+  font-weight: bold;
+}
+
 @media screen and (min-width: 700px) {
   .backgroundElement {
     background-repeat: 'no-repeat';
@@ -21,6 +29,7 @@
 
   .pathTitle {
     text-align: center;
+    text-decoration: underline;
     grid-column: 1;
     grid-row: 1;
   }

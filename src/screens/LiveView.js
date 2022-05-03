@@ -16,13 +16,11 @@ export default function Liveview({ position }) {
 
   useEffect(() => {
     axios
-      .get(
-        `https://lyon-react-mars22-p2g4-api.comicscrip.duckdns.org/api/paths/${id}`
-      )
+      .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
       .then((response) => response.data)
       .then((data) => setPath(data.trace))
       .catch(() => {
-        setLoadingError("Impossible de charger les parcours depuis l'API");
+        setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
 

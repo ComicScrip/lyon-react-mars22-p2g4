@@ -15,11 +15,7 @@ function GetForecastMeteoData({ dayNumber }) {
       .then((description) => setForecastMeteoData(description));
   }, []);
 
-  return (
-    <div>
-      <ul>{forecastMeteoData}</ul>
-    </div>
-  );
+  return <div>{forecastMeteoData}</div>;
 }
 
 export default GetForecastMeteoData;

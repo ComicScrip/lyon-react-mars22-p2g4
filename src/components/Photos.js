@@ -110,7 +110,7 @@ export default function Photos({ path }) {
         <div className="photoMaincomponent">
           <button
             type="button"
-            className="photoButton text-5xl font-bold text-black"
+            className="photoButton text-5xl font-bold"
             onClick={handlePhotoIndexLeft}
           >
             {'<'}
@@ -125,7 +125,7 @@ export default function Photos({ path }) {
           </div>
           <button
             type="button"
-            className="photoButton text-5xl font-bold text-black"
+            className="photoButton text-5xl font-bold"
             onClick={handlePhotoIndexRight}
           >
             {'>'}

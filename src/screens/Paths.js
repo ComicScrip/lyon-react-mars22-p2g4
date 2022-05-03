@@ -16,7 +16,7 @@ export default function Paths() {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_PATHS_API_URL}/api/paths?name=${keyword}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/paths?name=${keyword}`)
       .then((response) => response.data)
       .then((pathsTab) => setFoundPaths(pathsTab))
       .catch(() => {
