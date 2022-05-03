@@ -4,15 +4,17 @@ import React, { useState, useEffect } from 'react';
 import Timer from './Timer/Timer';
 import ControlButtons from './ControlButtons/ControlButtons';
 import './RunInformations.css';
-import L from 'leaflet';
 
-export default function RunInformations({ currentPath }) {
-  const [isActive, setIsActive] = useState(false);
-  const [isPaused, setIsPaused] = useState(true);
+export default function RunInformations({
+  distancePath,
+  isActive,
+  setIsActive,
+  isPaused,
+  setIsPaused,
+}) {
   const [time, setTime] = useState(0);
   let speed = `${0}kmh`;
   let calorie = `${0}kcal`;
-  const distancePath = [];
 
   useEffect(() => {
     let interval = null;
@@ -43,17 +45,13 @@ export default function RunInformations({ currentPath }) {
     setTime(0);
   };
 
-  if (currentPath.length >= 2) {
-    const from = L.latLng(currentPath.at(-2));
-    const to = L.latLng(currentPath.at(-1));
-    const distance = from.distanceTo(to).toFixed(0) / 1000;
-    speed = `${distance * 720}kmh`;
-    distancePath.push(distance);
-    let distanceTotalPath = 0;
-    for (let i = 0; i < distancePath.length; i++) {
-      distanceTotalPath += distancePath[i];
-      calorie = `${Math.round(distanceTotalPath * 77.8)}kcal`;
-    }
+  const lastDistance = distancePath.at(-1);
+  speed = `${lastDistance * 720}kmh`;
+
+  let distanceTotalPath = 0;
+  for (let i = 0; i < distancePath.length; i++) {
+    distanceTotalPath += distancePath[i];
+    calorie = `${Math.round(distanceTotalPath * 77.8)}kcal`;
   }
 
   return (
