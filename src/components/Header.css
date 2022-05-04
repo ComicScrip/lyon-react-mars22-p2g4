@@ -116,13 +116,6 @@ h1 {
     margin-top: 50px;
   }
 
-  .rezo {
-    height: 60px;
-    width: 180px;
-    display: block;
-    margin-top: 200px;
-  }
-
   .navbar_links {
     flex-direction: column;
     justify-content: center;
