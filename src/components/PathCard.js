@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import './PathCard.css';
 
 const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 
@@ -20,15 +19,15 @@ export default function PathCard({
           className="pathMap"
         />
         <div className="pathCardInfo">
-          <h1 className="pathName">{title}</h1>
-          <p className="pathDistance">
+          <h2 className="pathName">{title}</h2>
+          <div className="pathDistance">
             Distance : <br />
             {distance} km
-          </p>
-          <p className="pathElevation">
+          </div>
+          <div className="pathElevation">
             Dénivelé : <br />
             {elevation} m
-          </p>
+          </div>
         </div>
       </div>
     </Link>
