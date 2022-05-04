@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Paths.css';
-import PathCard from '../components/PathCard';
 import axios from 'axios';
+import PathCard from '../components/PathCard';
 
 export default function Paths() {
   const [keyword, setKeyword] = useState('');
@@ -22,7 +22,7 @@ export default function Paths() {
         setLoadingError("Impossible de charger les parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
-  }, [foundPaths, keyword]);
+  }, [keyword]);
 
   return (
     <div className="pathsMainContainer">
