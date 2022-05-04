@@ -1,16 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-// // Get geolocalisation (longitude, latitude)
-// const currentPosition = { lat: 45.746156, lon: 4.827308 };
-// let geolocationActived = true;
-// if (navigator.geolocation) {
-//   navigator.geolocation.getCurrentPosition((position) => {
-//     currentPosition.lat = position.coords.latitude;
-//     currentPosition.lon = position.coords.longitude;
-//   });
-// } else geolocationActived = false;
-
 function GetForecastIconMeteoData({ dayNumberIcon }) {
   const [forecastIconMeteoData, setForecastIconMeteoData] = useState('');
   useEffect(() => {
@@ -29,12 +19,7 @@ function GetForecastIconMeteoData({ dayNumberIcon }) {
 
   return (
     <div>
-      {/* {!geolocationActived && (
-        <p> Erreur, la géolocalisation n'est pas activée</p>
-      )} */}
-      <ul>
-        <img src={forecastIconMeteoData} alt="meteoIcon" />
-      </ul>
+      <img src={forecastIconMeteoData} alt="meteoIcon" />
     </div>
   );
 }

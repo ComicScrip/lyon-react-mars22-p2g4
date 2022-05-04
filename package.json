@@ -13,11 +13,11 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
-    "dotenv": "^16.0.0",
     "html-react-parser": "^1.4.10",
     "images": "^3.2.4",
     "jss-rtl": "^0.3.0",
     "leaflet": "^1.8.0",
+    "leaflet-image": "^0.4.0",
     "material-ui-colors": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
@@ -28,6 +28,7 @@
     "styled-components": "^5.3.5",
     "stylis": "^4.1.0",
     "stylis-plugin-rtl": "^2.1.1",
+    "use-local-storage": "^2.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -75,6 +76,9 @@
     ],
     "*.{js,jsx,ts,tsx}": [
       "eslint --quiet --cache --fix"
+    ],
+    "sideEffects": [
+      "*.css"
     ]
   }
 }

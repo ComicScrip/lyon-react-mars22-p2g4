@@ -6,6 +6,7 @@
 }
 
 .rezof {
+  display: flex;
   height: 5vh;
 }
 
