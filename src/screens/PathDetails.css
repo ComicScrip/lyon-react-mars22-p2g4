@@ -6,26 +6,30 @@
   background-size: 'cover';
 }
 
-.pathPics {
-  display: none;
+.pathTitle {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.pathInfos {
+  font-weight: bold;
 }
 
 @media screen and (min-width: 700px) {
   .backgroundElement {
+    background-repeat: 'no-repeat';
+    background-size: 'cover';
     height: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
-
   .pathCard {
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100px, auto);
-    height: 100%;
+    grid-auto-rows: 10% 70% 20%;
   }
 
   .pathTitle {
     text-align: center;
+    text-decoration: underline;
     grid-column: 1;
     grid-row: 1;
   }
@@ -47,12 +51,10 @@
 
   .pathPics {
     grid-column: 2;
-    grid-row: 1/3;
+    grid-row: 2;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
   }
 
   .pathMeteo,
