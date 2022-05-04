@@ -76,6 +76,9 @@
     ],
     "*.{js,jsx,ts,tsx}": [
       "eslint --quiet --cache --fix"
+    ],
+    "sideEffects": [
+      "*.css"
     ]
   }
 }

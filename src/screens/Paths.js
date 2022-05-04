@@ -1,4 +1,3 @@
-/* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
 import './Paths.css';
 import PathCard from '../components/PathCard';
@@ -43,7 +42,7 @@ export default function Paths() {
               placeholder="Rechercher..."
             />
           </div>
-          <div className="pathsContainer">
+          <div className="pathsListContainer">
             {foundPaths && foundPaths.length > 0 ? (
               foundPaths.map((path) => (
                 <PathCard
