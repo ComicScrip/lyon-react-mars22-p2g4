@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
-.pathsMainContainer {
+html {
   background-image: url('../../public/run_bg.jpg');
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+}
+
+.pathsMainContainer {
   margin: 0;
+  height: 100%;
   font-family: 'Inter';
 }
 
