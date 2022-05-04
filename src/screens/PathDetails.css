@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
+
 .backgroundElement {
   background-image: url('../../public/run_bg.jpg');
   background-position: right 45% bottom 45%;
@@ -8,7 +11,10 @@
 
 .pathTitle {
   font-weight: bold;
+  font-size: x-large;
+  text-align: center;
   text-decoration: underline;
+  font-family: 'Permanent Marker';
 }
 .pathInfos {
   font-weight: bold;
