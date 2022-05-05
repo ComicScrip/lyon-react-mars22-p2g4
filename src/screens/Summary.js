@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import informationsRace from '../components/InformationsRace';
 import './Summary.css';
 import SummaryRaceInfos from '../components/SummaryRaceInfos';
 import Photos from '../components/Photos';
+import useLocalStorage from 'use-local-storage';
 
 export default function Summary() {
-  const donePath = JSON.parse(localStorage.getItem('currentPath'));
+  const [journalPaths, setJournalPaths] = useLocalStorage('journalPaths', []);
+  const realTrace = JSON.parse(localStorage.getItem('currentTrace'));
+  const path = JSON.parse(localStorage.getItem('currentPath'));
+  const date = new Date();
+
+  useEffect(() => {
+    const newDonePath = { path, realTrace, date };
+    setJournalPaths([...journalPaths, newDonePath]);
+  }, []);
+
   return (
     <div className="RecapRaceMainContainer">
-      {donePath !== [] ? (
-        <div className="pathPics">{<Photos path={donePath} />}</div>
+      {realTrace.length > 20 ? (
+        <div className="pathPics">{<Photos path={realTrace} />}</div>
       ) : null}
 
       <div className="RecapRaceContainer">

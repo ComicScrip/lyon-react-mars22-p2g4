@@ -36,7 +36,7 @@ export default function SummaryRaceInfos({ title, distance, time, calorie }) {
             <Done fontSize="large" />
           </button>
         </Link>
-        <Link to="/road">
+        <Link to="/paths">
           <button className="buttonRecapRace" type="button">
             <RestartAlt fontSize="large" />
           </button>

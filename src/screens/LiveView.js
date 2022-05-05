@@ -7,10 +7,12 @@ import RunInformations from '../components/RunInformations/RunInformations';
 
 export default function Liveview({ position }) {
   const { id } = useParams();
-  const [path, setPath] = useState();
+  const [path, setPath] = useLocalStorage('currentPath', []);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPath, setCurrentPath] = useLocalStorage('currentPath', []);
+  const [currentTrace, setcurrentTrace] = useLocalStorage('currentTrace', [
+    [position.lat, position.lon],
+  ]);
 
   let interval = null;
 
@@ -18,7 +20,7 @@ export default function Liveview({ position }) {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
       .then((response) => response.data)
-      .then((data) => setPath(data.trace))
+      .then((data) => setPath(data))
       .catch(() => {
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
@@ -26,21 +28,21 @@ export default function Liveview({ position }) {
 
     interval = setInterval(() => {
       if (position.lat !== 0 && position.lon !== 0) {
-        setCurrentPath([...currentPath, [position.lat, position.lon]]);
+        setcurrentTrace([...currentTrace, [position.lat, position.lon]]);
       }
     }, 1000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [currentPath]);
+  }, [currentTrace]);
 
   return (
     path && (
       <div className="flex-auto flex-col items-center justify-center m-5 bg-white bg-opacity-80 rounded-xl">
         <DisplayMapLive
-          path={path}
-          currentPath={currentPath}
+          path={path.trace}
+          currentTrace={currentTrace}
           position={position}
           zoom={20}
         />
