@@ -1,7 +1,8 @@
 .containerf {
   background-color: red;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .rezof {
@@ -9,11 +10,16 @@
   height: 5vh;
 }
 
-@media screen and (max-width: 700px) {
-  .containerf .rezof {
-    display: none;
-  }
+.rezof2 {
+  height: 4vh;
+}
+
+@media screen and (min-width: 700px) {
   .containerf {
-    background-color: white;
+    justify-content: center;
+  }
+  .rezof {
+    margin-left: 5vh;
+    margin-right: 5vh;
   }
 }
