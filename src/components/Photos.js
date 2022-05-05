@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
-import TestGeoJSON from '../ressources/lyon_touristic.json';
 import './Photos.css';
 
 // API Call parameter
@@ -13,16 +12,6 @@ const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
 const perPage = '100';
 const tags = 'street-art';
-const currentPosition = { lat: 45.746156, lon: 4.827308 };
-
-// Get geolocalisation (logitude, latitude)
-let geolocationActived = true;
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition((position) => {
-    currentPosition.lat = position.coords.latitude;
-    currentPosition.lon = position.coords.longitude;
-  });
-} else geolocationActived = false;
 
 // Defaut list of photos
 const defaultPhotosList = [
@@ -44,16 +33,15 @@ const pickRandomPic = (picsList) => {
   return newPicsList;
 };
 
-const reducePathPoints = (GeoJSONFile, factor = 10) => {
+const reducePathPoints = (trace = [], factor = 10) => {
   const CoordinatesTab = [];
-  const coordinatesPathTab = GeoJSONFile.features[0].geometry.coordinates;
-  for (let i = 0; i < coordinatesPathTab.length / factor; i += 1) {
-    CoordinatesTab.push(coordinatesPathTab[factor * i]);
+  for (let i = 0; i < trace.length / factor; i += 1) {
+    CoordinatesTab.push(trace[factor * i]);
   }
   return CoordinatesTab;
 };
 
-export default function Photos() {
+export default function Photos({ path }) {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
@@ -77,13 +65,12 @@ export default function Photos() {
     setLoadingError('');
     setIsLoading(true);
 
-    const coordinatesTab = reducePathPoints(TestGeoJSON);
+    const coordinatesTab = reducePathPoints(path);
     const promisesList = [];
 
     for (let i = 0; i < coordinatesTab.length; i += 1) {
       const lat = coordinatesTab[i][1];
       const lon = coordinatesTab[i][0];
-
       const newPromise = new Promise((resolve) => {
         axios
           .get(
@@ -93,7 +80,7 @@ export default function Photos() {
           .then((data) => data.photos)
           .then((photos) => pickRandomPic(photos.photo))
           .then((randomPhoto) => {
-            if (randomPhoto !== undefined) {
+            if (typeof randomPhoto !== 'undefined') {
               resolve(randomPhoto);
             } else resolve(null);
           });
@@ -113,21 +100,17 @@ export default function Photos() {
   useEffect(() => {
     getPhotos();
   }, []);
-
   return (
     <div className="flex flex-col">
       {loadingError && <p>{loadingError}</p>}
-      {!geolocationActived && (
-        <p>Erreur, la géolocalisation n'est pas activée</p>
-      )}
 
       {isLoading && <p>Chargement en cours...</p>}
 
-      {!isLoading && (
-        <div className="flex flex-row justify-center items-center max-w-xl">
+      {!isLoading && photosList.length > 0 ? (
+        <div className="photoMaincomponent">
           <button
             type="button"
-            className="text-5xl font-bold text-black"
+            className="photoButton text-5xl font-bold"
             onClick={handlePhotoIndexLeft}
           >
             {'<'}
@@ -142,12 +125,14 @@ export default function Photos() {
           </div>
           <button
             type="button"
-            className="text-5xl font-bold text-black"
+            className="photoButton text-5xl font-bold"
             onClick={handlePhotoIndexRight}
           >
             {'>'}
           </button>
         </div>
+      ) : (
+        <div>Aucune photo n'a pu être récupérée pour votre parcours</div>
       )}
     </div>
   );
