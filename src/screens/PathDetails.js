@@ -1,8 +1,11 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
+import MeteoForecastIcon from '../components/MeteoForecastIcon';
+import MeteoForecast from '../components/MeteoForecast';
 
 export default function PathDetails({ path, position }) {
   return (
@@ -40,26 +43,22 @@ export default function PathDetails({ path, position }) {
         </div>
 
         <div className="pathDate flex flex-row justify-center m-2">
-          <label className="m-2 flex flex-row items-center" htmlFor="datetime">
-            Départ
-            <input
-              className="m-2"
-              id="datetime"
-              onChange={() => 'Cette fonctionne devra modifier la météo'}
-              type="datetime-local"
-              value="2022-04-22T19:30"
-              min="2022-04-22T19:30"
-              max="2022-04-30T19:30"
-            />
-          </label>
-        </div>
-        <div className="pathMeteo flex flex-row justify-around items-center m-2 p-2">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/66/66275.png"
-            alt="meteo icon"
-            className="w-10 h-10"
+          <label
+            className="m-2 flex flex-row items-center"
+            htmlFor="datetime"
           />
-          <span className="text-2xl">12 °C</span>
+          Départ
+          <input
+            className="m-2"
+            name="datetime"
+            id="datetime"
+            onChange={() => 'Cette fonctionne devra modifier la météo'}
+            type="datetime-local"
+          />
+        </div>
+        <div>
+          <MeteoForecastIcon dayNumberIcon={1} />
+          <MeteoForecast dayNumber={1} />
         </div>
 
         <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
