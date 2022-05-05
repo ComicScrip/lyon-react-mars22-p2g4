@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-function GetForecastMeteoData({ dayNumber }) {
+function ForecastMeteoData({ dayNumber }) {
   const [forecastMeteoData, setForecastMeteoData] = useState('');
   useEffect(() => {
     axios
@@ -18,4 +18,4 @@ function GetForecastMeteoData({ dayNumber }) {
   return <div>{forecastMeteoData}</div>;
 }
 
-export default GetForecastMeteoData;
+export default ForecastMeteoData;

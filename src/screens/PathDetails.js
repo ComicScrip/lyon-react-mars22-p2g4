@@ -2,10 +2,11 @@
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
-import MeteoForecast from '../components/MeteoForecast';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
+import MeteoForecast from '../components/MeteoForecast';
+import MeteoForecastIcon from '../components/MeteoForecastIcon';
 
 export default function PathDetails() {
   const [path, setPath] = useState();
@@ -70,7 +71,25 @@ export default function PathDetails() {
             />
           </div>
           <div>
+            <h2>Prévisions météo</h2>
+            Demain <MeteoForecastIcon dayNumberIcon={1} />
             <MeteoForecast dayNumber={1} />
+            Après-Demain <MeteoForecastIcon dayNumberIcon={2} />
+            <MeteoForecast dayNumber={2} />
+            J+3 <MeteoForecastIcon dayNumberIcon={3} />
+            <MeteoForecast dayNumber={3} />
+            J+4
+            <MeteoForecastIcon dayNumberIcon={4} />
+            <MeteoForecast dayNumber={4} />
+            J+5
+            <MeteoForecastIcon dayNumberIcon={5} />
+            <MeteoForecast dayNumber={5} />
+            J+6
+            <MeteoForecastIcon dayNumberIcon={6} />
+            <MeteoForecast dayNumber={6} />
+            J+7
+            <MeteoForecastIcon dayNumberIcon={7} />
+            <MeteoForecast dayNumber={7} />
           </div>
           <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
             <Link to={`/liveview/${id}`}>Let's Go !</Link>
