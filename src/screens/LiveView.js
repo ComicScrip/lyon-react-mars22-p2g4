@@ -10,9 +10,7 @@ export default function Liveview({ position }) {
   const [path, setPath] = useLocalStorage('currentPath', []);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [currentTrace, setcurrentTrace] = useLocalStorage('currentTrace', [
-    [position.lat, position.lon],
-  ]);
+  const [currentTrace, setcurrentTrace] = useLocalStorage('currentTrace', []);
 
   let interval = null;
 
@@ -27,15 +25,13 @@ export default function Liveview({ position }) {
       .finally(() => setIsLoading(false));
 
     interval = setInterval(() => {
-      if (position.lat !== 0 && position.lon !== 0) {
-        setcurrentTrace([...currentTrace, [position.lat, position.lon]]);
-      }
-    }, 1000);
+      setcurrentTrace([...currentTrace, [position.lat, position.lon]]);
+    }, 2000);
 
     return () => {
       clearInterval(interval);
     };
-  }, [currentTrace]);
+  }, [position]);
 
   return (
     path && (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import About from '../screens/About';
 import Home from '../screens/Home';
@@ -9,6 +9,8 @@ import PathDetails from '../screens/PathDetails';
 import Paths from '../screens/Paths';
 
 export default function Main({ currentPosition, geolocationActived }) {
+  useEffect(() => {}, [currentPosition]);
+
   return (
     <main>
       {!geolocationActived && (

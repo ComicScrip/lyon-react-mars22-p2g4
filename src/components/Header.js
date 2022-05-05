@@ -17,12 +17,13 @@ function Header() {
     <nav className="all">
       <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
         <div className="navbar_logo">
-          <div className="container">
-            <Link to="/">
+          <Link to="/">
+            <div className="container">
               <img className="logo" alt="" src="shoe.svg" />
-            </Link>
-            <h1>PIC 'N' MOVE</h1>
-          </div>
+              <h1>PIC 'N' MOVE</h1>
+            </div>
+          </Link>
+
           <div className="meteoAll">
             <div className="meteoDesktop">
               <CurrentMeteoIcon />

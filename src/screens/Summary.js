@@ -14,13 +14,14 @@ export default function Summary() {
   useEffect(() => {
     const newDonePath = { path, realTrace, date };
     setJournalPaths([...journalPaths, newDonePath]);
+    console.log('u', realTrace);
   }, []);
 
   return (
     <div className="RecapRaceMainContainer">
-      {realTrace.length > 20 ? (
-        <div className="pathPics">{<Photos path={realTrace} />}</div>
-      ) : null}
+      <div className="pathPics">
+        <Photos path={realTrace} />
+      </div>
 
       <div className="RecapRaceContainer">
         <SummaryRaceInfos

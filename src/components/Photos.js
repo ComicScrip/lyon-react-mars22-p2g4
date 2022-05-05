@@ -34,11 +34,11 @@ const pickRandomPic = (picsList) => {
 };
 
 const reducePathPoints = (trace = [], factor = 10) => {
-  const CoordinatesTab = [];
-  for (let i = 0; i < trace.length / factor; i += 1) {
-    CoordinatesTab.push(trace[factor * i]);
+  const tab = [];
+  for (let i = 0; i < trace.length; i += factor) {
+    tab.push(trace[i]);
   }
-  return CoordinatesTab;
+  return tab;
 };
 
 export default function Photos({ path }) {
@@ -46,6 +46,7 @@ export default function Photos({ path }) {
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [coordinatesTab] = useState(reducePathPoints(path));
 
   const handlePhotoIndexRight = () => {
     if (photoIndex < photosList.length - 1) {
@@ -61,11 +62,10 @@ export default function Photos({ path }) {
     } else setPhotoIndex(photosList.length - 1);
   };
 
-  const getPhotos = () => {
+  useEffect(() => {
     setLoadingError('');
     setIsLoading(true);
 
-    const coordinatesTab = reducePathPoints(path);
     const promisesList = [];
 
     for (let i = 0; i < coordinatesTab.length; i += 1) {
@@ -95,18 +95,15 @@ export default function Photos({ path }) {
         setLoadingError("Impossible de charger les photos depuis l'API");
       })
       .finally(() => setIsLoading(false));
-  };
-
-  useEffect(() => {
-    getPhotos();
   }, []);
+
   return (
     <div className="flex flex-col">
       {loadingError && <p>{loadingError}</p>}
 
       {isLoading && <p>Chargement en cours...</p>}
 
-      {!isLoading && photosList.length > 0 ? (
+      {!isLoading && photosList.length > 10 ? (
         <div className="photoMaincomponent">
           <button
             type="button"
@@ -131,9 +128,7 @@ export default function Photos({ path }) {
             {'>'}
           </button>
         </div>
-      ) : (
-        <div>Aucune photo n'a pu être récupérée pour votre parcours</div>
-      )}
+      ) : null}
     </div>
   );
 }

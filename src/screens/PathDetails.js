@@ -20,6 +20,8 @@ export default function PathDetails() {
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
+
+    return () => localStorage.setItem('currentTrace', []);
   }, []);
 
   return (
