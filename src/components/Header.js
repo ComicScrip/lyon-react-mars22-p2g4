@@ -1,7 +1,9 @@
 /* eslint-disable consistent-return */
 import React, { useState } from 'react';
 import './Header.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import CurrentMeteoIcon from './CurrentMeteoIcon';
+import MeteoTemp from './MeteoTemp';
 
 const getActiveLinkStyle = ({ isActive }) => {
   if (isActive) return { color: 'white' };
@@ -16,23 +18,37 @@ function Header() {
       <nav className={`navbar ${showLinks ? 'show-nav' : 'hide-nav'}`}>
         <div className="navbar_logo">
           <div className="container">
-            <img className="logo" alt="" src="shoe.svg" />
+            <Link to="/">
+              <img className="logo" alt="" src="shoe.svg" />
+            </Link>
             <h1>PIC 'N' MOVE</h1>
-            <img className="meteo" alt="" src="meteo.png" />
+          </div>
+          <div className="meteoAll">
+            <div className="meteoDesktop">
+              <CurrentMeteoIcon />
+            </div>
+            <div className="meteoTemp">
+              <MeteoTemp />
+            </div>
           </div>
         </div>
-
         <ul className="navbar_links">
           <li className="navbar_items">
-            <NavLink style={getActiveLinkStyle} to="/" className="navbar_link">
+            <NavLink
+              style={getActiveLinkStyle}
+              to="/"
+              className="navbar_link"
+              onClick={handleShowLinks}
+            >
               Accueil
             </NavLink>
           </li>
           <li className="navbar_items">
             <NavLink
               style={getActiveLinkStyle}
-              to="/road"
+              to="/paths"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               Parcours
             </NavLink>
@@ -43,6 +59,7 @@ function Header() {
               style={getActiveLinkStyle}
               to="/journal"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               Journal
             </NavLink>
@@ -53,14 +70,15 @@ function Header() {
               style={getActiveLinkStyle}
               to="/about"
               className="navbar_link"
+              onClick={handleShowLinks}
             >
               À propos
             </NavLink>
           </li>
-          <img className="meteo2" alt="" src="meteo.png" />
-          <a href="https://www.facebook.com/runinmarrakech/">
-            <img className="rezo" alt="" src="rezo.jpg" />
-          </a>
+          <div className="meteoBurger">
+            <CurrentMeteoIcon />
+            Lyon, <MeteoTemp />
+          </div>
         </ul>
         <button
           type="button"

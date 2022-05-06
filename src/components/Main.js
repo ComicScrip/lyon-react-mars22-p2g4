@@ -5,9 +5,10 @@ import Home from '../screens/Home';
 import Journal from '../screens/Journal';
 import LiveView from '../screens/LiveView';
 import Summary from '../screens/Summary';
+import PathDetails from '../screens/PathDetails';
 import Paths from '../screens/Paths';
 
-export default function Main({ currentPosition, path, geolocationActived }) {
+export default function Main({ currentPosition, geolocationActived }) {
   return (
     <main>
       {!geolocationActived && (
@@ -17,11 +18,12 @@ export default function Main({ currentPosition, path, geolocationActived }) {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/journal" element={<Journal />} />
+        <Route path="/pathdetails/:id" element={<PathDetails />} />
         <Route
-          path="/liveview"
-          element={<LiveView path={path} position={currentPosition} />}
+          path="/liveview/:id"
+          element={<LiveView position={currentPosition} />}
         />
-        <Route path="/summary" element={<Summary />} />
+        <Route path="/summary/:id" element={<Summary />} />
         <Route path="/paths" element={<Paths />} />
       </Routes>
     </main>

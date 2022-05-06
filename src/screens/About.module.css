@@ -16,6 +16,7 @@
 .title {
   font-size: 3vh;
   font-family: 'Permanent Marker';
+  margin-bottom: 1vh;
 }
 
 .text {
@@ -32,6 +33,7 @@
   font-size: 100%;
   background-color: rgba(221, 212, 212, 0.562);
   padding-bottom: 1vh;
+  margin-bottom: 1vh;
 }
 
 .form {
@@ -48,13 +50,12 @@
   padding: 10px;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 850px) {
   .cadre {
     width: 50%;
     height: 92%;
     margin-top: 2%;
     margin-left: 2vh;
-    padding-bottom: 0;
   }
   .boxes {
     display: flex;
@@ -66,5 +67,8 @@
   }
   .title {
     margin-bottom: 1vh;
+  }
+  .text {
+    font-size: 1.3vh;
   }
 }

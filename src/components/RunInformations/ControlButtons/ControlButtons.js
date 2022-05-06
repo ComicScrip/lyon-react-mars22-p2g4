@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React from 'react';
 import './ControlButtons.css';
 
@@ -9,6 +9,8 @@ export default function ControlButtons({
   active,
   isPaused,
 }) {
+  const { id } = useParams();
+
   const StartButton = (
     <div className="btn btn-one btn-start" onClick={handleStart}>
       Start
@@ -16,14 +18,14 @@ export default function ControlButtons({
   );
   const ActiveButtons = (
     <div className="btn-grp">
-      <Link to="/summary">
+      <div className="btn btn-one" onClick={handlePauseResume}>
+        {isPaused ? 'Resume' : 'Pause'}
+      </div>
+      <Link to={`/summary/${id}`}>
         <div className="btn btn-two" onClick={handleReset}>
           Stop
         </div>
       </Link>
-      <div className="btn btn-one" onClick={handlePauseResume}>
-        {isPaused ? 'Resume' : 'Pause'}
-      </div>
     </div>
   );
 
