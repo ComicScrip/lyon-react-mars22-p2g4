@@ -12,9 +12,10 @@ export default function Summary() {
   const date = new Date();
 
   useEffect(() => {
-    const newDonePath = { path, realTrace, date };
-    setJournalPaths([...journalPaths, newDonePath]);
-    console.log('u', realTrace);
+    if (realTrace.length > 0) {
+      const newDonePath = { path, realTrace, date };
+      setJournalPaths([...journalPaths, newDonePath]);
+    }
   }, []);
 
   return (
