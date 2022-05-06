@@ -51,7 +51,7 @@ export default function PathDetails() {
           <div className="pathDescription text-justify m-2 p-2">
             {path.description}
           </div>
-          <div className="pathPics">
+          <div className="pathPics w-50 h-50">
             {<Photos path={path.trace.features[0].geometry.coordinates} />}
           </div>
           <div className="pathDate flex flex-row justify-center m-2">
