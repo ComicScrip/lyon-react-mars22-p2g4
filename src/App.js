@@ -1,7 +1,6 @@
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
-import lyonTouristic from './ressources/lyon_touristic.json';
 import Main from './components/Main';
 import { useState } from 'react';
 
@@ -34,8 +33,8 @@ function App() {
       <Main
         geolocationActived={geolocationActived}
         currentPosition={currentPosition}
-        path={lyonTouristic}
       />
+
       <Footer />
     </>
   );

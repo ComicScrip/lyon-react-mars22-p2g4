@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React from 'react';
 import './ControlButtons.css';
 import { PlayArrow, Stop, Pause } from '@mui/icons-material';
@@ -10,6 +10,8 @@ export default function ControlButtons({
   active,
   isPaused,
 }) {
+  const { id } = useParams();
+
   const StartButton = (
     <div className="btn btn-one btn-start" onClick={handleStart}>
       <PlayArrow fontSize="large" />
@@ -20,7 +22,7 @@ export default function ControlButtons({
       <div className="btn btn-one" onClick={handlePauseResume}>
         {isPaused ? 'Resume' : 'Pause'}
       </div>
-      <Link to="/summary">
+      <Link to={`/summary/${id}`}>
         <div className="btn btn-two" onClick={handleReset}>
           <Stop fontSize="large" />
         </div>
