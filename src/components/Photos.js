@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
-import './Photos.css';
+import styles from './Photos.module.css';
 
 // API Call parameter
 const apiKey = process.env.REACT_APP_FLICKR_APIKEY;
@@ -103,26 +103,26 @@ export default function Photos({ path }) {
 
       {isLoading && <p>Chargement en cours...</p>}
 
-      {!isLoading && photosList.length > 10 ? (
-        <div className="photoMaincomponent">
+      {!isLoading && photosList.length > 1 ? (
+        <div className={styles.photoMaincomponent}>
           <button
             type="button"
-            className="photoButton text-5xl font-bold"
+            className={`${styles.photoButton} text-5xl font-bold`}
             onClick={handlePhotoIndexLeft}
           >
             {'<'}
           </button>
-          <div className="photo-container">
+          <div className={styles.photo_container}>
             <img
               key={photosList[photoIndex].id}
               src={`https://live.staticflickr.com/${photosList[photoIndex].server}/${photosList[photoIndex].id}_${photosList[photoIndex].secret}_z.jpg`}
               alt={parse(photosList[photoIndex].description._content)}
-              className="photo object-contain"
+              className={`${styles.photo} ${styles.img} object-contain`}
             />
           </div>
           <button
             type="button"
-            className="photoButton text-5xl font-bold"
+            className={`${styles.photoButton} text-5xl font-bold`}
             onClick={handlePhotoIndexRight}
           >
             {'>'}

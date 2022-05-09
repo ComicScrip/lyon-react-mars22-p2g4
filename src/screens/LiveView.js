@@ -9,21 +9,22 @@ export default function Liveview({ position }) {
   const { id } = useParams();
   const [path, setPath] = useLocalStorage('currentPath', []);
   const [loadingError, setLoadingError] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [currentTrace, setcurrentTrace] = useLocalStorage('currentTrace', []);
 
   let interval = null;
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
-      .then((response) => response.data)
-      .then((data) => setPath(data))
-      .catch(() => {
-        setLoadingError("Impossible de charger le parcours depuis l'API");
-      })
-      .finally(() => setIsLoading(false));
-
+    if (isLoading) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
+        .then((response) => response.data)
+        .then((data) => setPath(data))
+        .catch(() => {
+          setLoadingError("Impossible de charger le parcours depuis l'API");
+        })
+        .finally(() => setIsLoading(false));
+    }
     interval = setInterval(() => {
       setcurrentTrace([...currentTrace, [position.lat, position.lon]]);
     }, 2000);

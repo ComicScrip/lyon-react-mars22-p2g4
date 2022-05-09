@@ -51,7 +51,7 @@ export default function PathDetails() {
           <div className="pathDescription text-justify m-2 p-2">
             {path.description}
           </div>
-          <div className="pathPics w-50 h-50">
+          <div className="pathPics h-50 w-50">
             {<Photos path={path.trace.features[0].geometry.coordinates} />}
           </div>
           <div className="pathDate flex flex-row justify-center m-2">
@@ -79,7 +79,7 @@ export default function PathDetails() {
             />
             <span className="text-2xl">12 °C</span>
           </div>
-          <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
+          <div className="pathButton">
             <Link to={`/liveview/${id}`}>Let's Go !</Link>
           </div>
         </div>

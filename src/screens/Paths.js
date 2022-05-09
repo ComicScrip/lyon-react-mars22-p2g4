@@ -7,13 +7,14 @@ export default function Paths() {
   const [keyword, setKeyword] = useState('');
   const [foundPaths, setFoundPaths] = useState([]);
   const [loadingError, setLoadingError] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const filter = (e) => {
     setKeyword(e.target.value);
   };
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths?name=${keyword}`)
       .then((response) => response.data)
@@ -26,8 +27,6 @@ export default function Paths() {
 
   return (
     <div className="pathsMainContainer">
-      {loadingError && <p>{loadingError}</p>}
-      {isLoading && <p>Chargement en cours...</p>}
       {!isLoading && (
         <div>
           <div className="searchBarContainer">
@@ -59,8 +58,10 @@ export default function Paths() {
             ) : (
               <div className="alertFilter">
                 <h1>
-                  Nous sommes désolés, mais aucun parcours ne correspond à votre
-                  recherche
+                  {loadingError ? { loadingError } : ''}
+                  {isLoading
+                    ? 'Chargement en cours...'
+                    : 'Nous sommes désolés, mais aucun parcours ne correspond à votre recherche'}
                 </h1>
               </div>
             )}

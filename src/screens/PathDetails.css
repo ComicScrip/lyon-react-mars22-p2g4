@@ -20,6 +20,20 @@
   font-weight: bold;
 }
 
+.pathButton {
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  height: 7vh;
+  width: 20vh;
+  border-radius: 6px;
+  font-size: 3vh;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  filter: drop-shadow(0 0 0.25rem grey);
+}
+
 @media screen and (min-width: 700px) {
   .backgroundElement {
     background-repeat: 'no-repeat';
