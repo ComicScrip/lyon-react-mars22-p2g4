@@ -28,14 +28,14 @@
   background-size: cover;
   background-position: top;
   position: fixed;
-  height: 60vh;
+  height: 55vh;
   width: 100%;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  margin-top: 56vh;
+  margin-top: 51vh;
 }
 
 .button {
