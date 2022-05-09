@@ -52,7 +52,7 @@ export default function Liveview({ position }) {
         clearInterval(interval);
       };
     }
-  }, [currentPath]);
+  }, [position]);
 
   return (
     path && (

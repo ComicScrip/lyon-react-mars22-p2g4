@@ -19,9 +19,6 @@ export default function ControlButtons({
   );
   const ActiveButtons = (
     <div className="btn-grp">
-      <div className="btn btn-one" onClick={handlePauseResume}>
-        {isPaused ? 'Resume' : 'Pause'}
-      </div>
       <Link to={`/summary/${id}`}>
         <div className="btn btn-two" onClick={handleReset}>
           <Stop fontSize="large" />

@@ -13,8 +13,8 @@ export default function RunInformations({
   setIsPaused,
 }) {
   const [time, setTime] = useState(0);
-  let speed = `${0}kmh`;
-  let calorie = `${0}kcal`;
+  const [speed, setSpeed] = useState(`${0}kmh`);
+  const [calorie, setCalorie] = useState(`${0}kcal`);
 
   useEffect(() => {
     let interval = null;
@@ -26,10 +26,18 @@ export default function RunInformations({
     } else {
       clearInterval(interval);
     }
+    const lastDistance = distancePath.at(-1);
+    setSpeed(`${lastDistance * 720}kmh`);
+
+    let distanceTotalPath = 0;
+    for (let i = 0; i < distancePath.length; i++) {
+      distanceTotalPath += distancePath[i];
+      setCalorie(`${Math.round(distanceTotalPath * 77.8)}kcal`);
+    }
     return () => {
       clearInterval(interval);
     };
-  }, [isActive, isPaused, time]);
+  }, [isActive, isPaused, time, distancePath]);
 
   const handleStart = () => {
     setIsActive(true);
@@ -44,15 +52,6 @@ export default function RunInformations({
     setIsActive(false);
     setTime(0);
   };
-
-  const lastDistance = distancePath.at(-1);
-  speed = `${lastDistance * 720}kmh`;
-
-  let distanceTotalPath = 0;
-  for (let i = 0; i < distancePath.length; i++) {
-    distanceTotalPath += distancePath[i];
-    calorie = `${Math.round(distanceTotalPath * 77.8)}kcal`;
-  }
 
   return (
     <div className="run-infos">
