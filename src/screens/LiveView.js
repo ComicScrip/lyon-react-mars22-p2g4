@@ -12,7 +12,7 @@ export default function Liveview({ position }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [currentPath, setCurrentPath] = useLocalStorage('currentPath', []);
-  const [distancePath, setDistancePath] = useState([]);
+  const [distancePath, setDistancePath] = useState([0]);
   const { id } = useParams();
   const [path, setPath] = useState();
   const [loadingError, setLoadingError] = useState();
@@ -32,10 +32,10 @@ export default function Liveview({ position }) {
     if (isActive && isPaused === false) {
       let interval = null;
 
+      console.log(isActive);
+
       interval = setInterval(() => {
-        if (position.lat !== 0 && position.lon !== 0) {
-          setCurrentPath([...currentPath, [position.lat, position.lon]]);
-        }
+        setCurrentPath([...currentPath, [position.lat, position.lon]]);
 
         if (currentPath.length >= 2) {
           const from = L.latLng(currentPath.at(-2));
@@ -45,8 +45,6 @@ export default function Liveview({ position }) {
 
         setDistancePath([...distancePath, distance]);
       }, 1000);
-
-      console.log(distancePath);
 
       return () => {
         clearInterval(interval);
