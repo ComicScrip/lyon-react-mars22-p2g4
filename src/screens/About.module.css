@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
 
-.avatarUrl {
-  border-radius: 5px;
-}
-
 .item {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   font-family: 'Inter';
+  font-size: 2.5vh;
 }
 
 .title {
@@ -30,7 +27,6 @@
 .cadre {
   border-radius: 10px;
   text-align: center;
-  font-size: 100%;
   background-color: rgba(221, 212, 212, 0.562);
   padding-bottom: 1vh;
   margin-bottom: 1vh;
@@ -53,7 +49,6 @@
 @media screen and (min-width: 850px) {
   .cadre {
     width: 50%;
-    height: 92%;
     margin-top: 2%;
     margin-left: 2vh;
   }
@@ -69,6 +64,6 @@
     margin-bottom: 1vh;
   }
   .text {
-    font-size: 1.3vh;
+    font-size: 1.2rem;
   }
 }
