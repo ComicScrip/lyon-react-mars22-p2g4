@@ -14,8 +14,12 @@ function ForecastMeteoData({ dayNumber }) {
       .then((weather) => weather[0].description)
       .then((description) => setForecastMeteoData(description));
   }, []);
-
-  return <div>{forecastMeteoData}</div>;
+  return (
+    <div>
+      {' '}
+      {forecastMeteoData.charAt(0).toUpperCase() + forecastMeteoData.slice(1)}
+    </div>
+  );
 }
 
 export default ForecastMeteoData;

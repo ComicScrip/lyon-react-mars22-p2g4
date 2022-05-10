@@ -1,3 +1,5 @@
+/* eslint-disable no-array-constructor */
+/* eslint-disable no-sequences */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
@@ -13,6 +15,16 @@ export default function PathDetails() {
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
+  const theDate = new Date();
+  const tabJour = new Array(
+    'Dimanche',
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi'
+  );
 
   useEffect(() => {
     axios
@@ -70,26 +82,52 @@ export default function PathDetails() {
               type="datetime-local"
             />
           </div>
-          <div>
-            <h2>Prévisions météo</h2>
-            Demain <MeteoForecastIcon dayNumberIcon={1} />
-            <MeteoForecast dayNumber={1} />
-            Après-Demain <MeteoForecastIcon dayNumberIcon={2} />
-            <MeteoForecast dayNumber={2} />
-            J+3 <MeteoForecastIcon dayNumberIcon={3} />
-            <MeteoForecast dayNumber={3} />
-            J+4
-            <MeteoForecastIcon dayNumberIcon={4} />
-            <MeteoForecast dayNumber={4} />
-            J+5
-            <MeteoForecastIcon dayNumberIcon={5} />
-            <MeteoForecast dayNumber={5} />
-            J+6
-            <MeteoForecastIcon dayNumberIcon={6} />
-            <MeteoForecast dayNumber={6} />
-            J+7
-            <MeteoForecastIcon dayNumberIcon={7} />
-            <MeteoForecast dayNumber={7} />
+          <div className="meteo">
+            <h2 className="title">Prévisions météo</h2>
+            <div className="first">
+              <p>
+                Aujourd'hui <MeteoForecastIcon dayNumberIcon={0} />
+                <MeteoForecast dayNumber={0} />
+              </p>
+              <p>
+                {tabJour[theDate.getDay()]}{' '}
+                <MeteoForecastIcon dayNumberIcon={1} />
+                <MeteoForecast dayNumber={1} />
+              </p>
+            </div>
+            <div className="second">
+              <p>
+                {tabJour[theDate.getDay()]}{' '}
+                <MeteoForecastIcon dayNumberIcon={2} />
+                <MeteoForecast dayNumber={2} />
+              </p>
+              <p>
+                {tabJour[theDate.getDay()]}{' '}
+                <MeteoForecastIcon dayNumberIcon={3} />
+                <MeteoForecast dayNumber={3} />
+              </p>
+            </div>
+            <div className="third">
+              <p>
+                {tabJour[theDate.getDay()]}
+                <MeteoForecastIcon dayNumberIcon={4} />
+                <MeteoForecast dayNumber={4} />
+              </p>
+              <p>
+                <MeteoForecastIcon dayNumberIcon={5} />
+                <MeteoForecast dayNumber={5} />
+              </p>
+            </div>
+            <div className="four">
+              <p>
+                <MeteoForecastIcon dayNumberIcon={6} />
+                <MeteoForecast dayNumber={6} />
+              </p>
+              <p>
+                <MeteoForecastIcon dayNumberIcon={7} />
+                <MeteoForecast dayNumber={7} />
+              </p>
+            </div>
           </div>
           <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
             <Link to={`/liveview/${id}`}>Let's Go !</Link>
