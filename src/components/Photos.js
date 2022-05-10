@@ -43,8 +43,8 @@ const reducePathPoints = (trace = [], factor = 10) => {
 
 export default function Photos({ path }) {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
-  const [loadingError, setLoadingError] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [photoIndex, setPhotoIndex] = useState(0);
   const [coordinatesTab] = useState(reducePathPoints(path));
 
@@ -63,39 +63,38 @@ export default function Photos({ path }) {
   };
 
   useEffect(() => {
-    setLoadingError('');
-    setIsLoading(true);
-
     const promisesList = [];
 
-    for (let i = 0; i < coordinatesTab.length; i += 1) {
-      const lat = coordinatesTab[i][0];
-      const lon = coordinatesTab[i][1];
-      const newPromise = new Promise((resolve) => {
-        axios
-          .get(
-            `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
-          )
-          .then((response) => response.data)
-          .then((data) => data.photos)
-          .then((photos) => pickRandomPic(photos.photo))
-          .then((randomPhoto) => {
-            if (typeof randomPhoto !== 'undefined') {
-              resolve(randomPhoto);
-            } else resolve(null);
-          });
-      });
-      promisesList.push(newPromise);
-    }
+    if (isLoading) {
+      for (let i = 0; i < coordinatesTab.length; i += 1) {
+        const lat = coordinatesTab[i][1];
+        const lon = coordinatesTab[i][0];
+        const newPromise = new Promise((resolve) => {
+          axios
+            .get(
+              `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
+            )
+            .then((response) => response.data)
+            .then((data) => data.photos)
+            .then((photos) => pickRandomPic(photos.photo))
+            .then((randomPhoto) => {
+              if (typeof randomPhoto !== 'undefined') {
+                resolve(randomPhoto);
+              } else resolve(null);
+            });
+        });
+        promisesList.push(newPromise);
+      }
 
-    Promise.all(promisesList)
-      .then((randomPhotos) => randomPhotos.filter((p) => p !== null))
-      .then((photos) => setPhotosList(photos))
-      .catch(() => {
-        setLoadingError("Impossible de charger les photos depuis l'API");
-      })
-      .finally(() => setIsLoading(false));
-  }, []);
+      Promise.all(promisesList)
+        .then((randomPhotos) => randomPhotos.filter((p) => p !== null))
+        .then((photos) => setPhotosList(photos))
+        .catch(() => {
+          setLoadingError("Impossible de charger les photos depuis l'API");
+        })
+        .finally(() => setIsLoading(false));
+    }
+  }, [setPhotoIndex]);
 
   return (
     <div className="flex flex-col">
@@ -103,7 +102,7 @@ export default function Photos({ path }) {
 
       {isLoading && <p>Chargement en cours...</p>}
 
-      {!isLoading && photosList.length >= 0 ? (
+      {!isLoading && photosList.length > 0 ? (
         <div className={styles.photoMaincomponent}>
           <button
             type="button"

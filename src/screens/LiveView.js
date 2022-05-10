@@ -26,7 +26,7 @@ export default function Liveview({ position }) {
         .finally(() => setIsLoading(false));
     }
     interval = setInterval(() => {
-      setcurrentTrace([...currentTrace, [position.lat, position.lon]]);
+      setcurrentTrace([...currentTrace, [position.lon, position.lat]]);
     }, 2000);
 
     return () => {
