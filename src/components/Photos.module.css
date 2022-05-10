@@ -1,10 +1,10 @@
 .photoMaincomponent {
   display: flex;
+  width: 100%;
+  height: 100%;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 .photoButton {
@@ -13,29 +13,30 @@
   background-color: red;
   border-radius: 100%;
   border: solid black;
-  width: 80px;
-  height: 80px;
+  width: auto;
+  height: auto;
+  min-width: 60px;
+  min-height: 60px;
   color: black;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  z-index: 2;
 }
 
-.carousel-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.photo-container {
+.photo_container {
   padding: 10px;
   display: flex;
+  width: auto;
+  height: auto;
+  max-width: 500px;
+  max-height: 500px;
   justify-content: center;
   align-items: center;
+  z-index: 1;
 }
 
-img {
+.img {
   border-radius: 20px;
-  max-height: 600px;
+  min-width: 30vw;
+  max-height: 500px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }

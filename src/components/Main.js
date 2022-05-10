@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import About from '../screens/About';
 import Home from '../screens/Home';
@@ -7,8 +7,11 @@ import LiveView from '../screens/LiveView';
 import Summary from '../screens/Summary';
 import PathDetails from '../screens/PathDetails';
 import Paths from '../screens/Paths';
+import NotFoundPage from '../screens/NotFoundPage';
 
 export default function Main({ currentPosition, geolocationActived }) {
+  useEffect(() => {}, [currentPosition]);
+
   return (
     <main>
       {!geolocationActived && (
@@ -25,6 +28,7 @@ export default function Main({ currentPosition, geolocationActived }) {
         />
         <Route path="/summary/:id" element={<Summary />} />
         <Route path="/paths" element={<Paths />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
   );

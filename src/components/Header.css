@@ -169,7 +169,6 @@ h1 {
   .burger_bar::after {
     content: '';
     position: absolute;
-    left: 0;
   }
 
   .burger_bar::before {
@@ -187,9 +186,11 @@ h1 {
 
   .show-nav .burger_bar::before {
     transform: rotate(45deg);
+    position: fixed;
   }
 
   .show-nav .burger_bar::after {
     transform: rotate(-45deg);
+    position: fixed;
   }
 }

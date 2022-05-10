@@ -1,0 +1,45 @@
+.InformationsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+  font-weight: bold;
+  padding: 2px;
+}
+
+.distanceRace {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.timeRace {
+  margin: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.calorieRace {
+  margin: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.numberImagesRace {
+  margin: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

@@ -1,46 +1,106 @@
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable no-return-assign */
 import React, { useEffect, useState } from 'react';
 import './Paths.css';
 import axios from 'axios';
+import { useSearchParams } from 'react-router-dom';
 import PathCard from '../components/PathCard';
 
+function toObject(searchParams) {
+  const res = {};
+  searchParams.forEach((value, key) => (res[key] = value));
+  return res;
+}
+
 export default function Paths() {
-  const [keyword, setKeyword] = useState('');
   const [foundPaths, setFoundPaths] = useState([]);
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
-  const filter = (e) => {
-    setKeyword(e.target.value);
-  };
+  const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    setIsLoading(true);
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/paths?name=${keyword}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/paths?${searchParams}`)
       .then((response) => response.data)
       .then((pathsTab) => setFoundPaths(pathsTab))
       .catch(() => {
         setLoadingError("Impossible de charger les parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
-  }, [keyword]);
+  }, [searchParams]);
 
   return (
     <div className="pathsMainContainer">
-      {loadingError && <p>{loadingError}</p>}
-      {isLoading && <p>Chargement en cours...</p>}
       {!isLoading && (
         <div>
-          <div className="searchBarContainer">
-            <div>
-              <h1>Choix du parcours</h1>
+          <div className="searchSelectContainer">
+            <div className="searchSelect">
+              <h2>Distance maximum</h2>
+              <select
+                className="select"
+                value={searchParams.get('length') || ''}
+                onChange={(e) =>
+                  setSearchParams({
+                    ...toObject(searchParams),
+                    length: e.target.value,
+                  })
+                }
+              >
+                <option key={''} value={''}>
+                  All
+                </option>
+                {[4, 8, 12, 21].map((length) => (
+                  <option key={length} value={length}>
+                    {length}
+                  </option>
+                ))}
+              </select>
             </div>
-            <input
-              type="search"
-              value={keyword}
-              onChange={filter}
-              className="searchBar"
-              placeholder="Rechercher..."
-            />
+            <div className="searchSelect">
+              <h2>Difficulté</h2>
+              <select
+                className="select"
+                value={searchParams.get('difficulty') || ''}
+                onChange={(e) =>
+                  setSearchParams({
+                    ...toObject(searchParams),
+                    difficulty: e.target.value,
+                  })
+                }
+              >
+                <option key={''} value={''}>
+                  All
+                </option>
+                {[1, 2, 3, 4, 5].map((difficulty) => (
+                  <option key={difficulty} value={difficulty}>
+                    {difficulty}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="searchSelect">
+              <h2>Localisation</h2>
+              <select
+                className="select"
+                value={searchParams.get('city_location') || ''}
+                onChange={(e) =>
+                  setSearchParams({
+                    ...toObject(searchParams),
+                    city_location: e.target.value,
+                  })
+                }
+              >
+                <option key={''} value={''}>
+                  All
+                </option>
+                {['Lyon'].map((location) => (
+                  <option key={location} value={location}>
+                    {location}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="pathsListContainer">
             {foundPaths && foundPaths.length > 0 ? (
@@ -59,8 +119,10 @@ export default function Paths() {
             ) : (
               <div className="alertFilter">
                 <h1>
-                  Nous sommes désolés, mais aucun parcours ne correspond à votre
-                  recherche
+                  {loadingError ? { loadingError } : ''}
+                  {isLoading
+                    ? 'Chargement en cours...'
+                    : 'Nous sommes désolés, mais aucun parcours ne correspond à votre recherche'}
                 </h1>
               </div>
             )}
