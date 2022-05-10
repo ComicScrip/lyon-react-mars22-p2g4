@@ -20,7 +20,7 @@ export default function Paths() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/paths?${searchParams}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/paths?${searchParams}`)
       .then((response) => response.data)
       .then((pathsTab) => setFoundPaths(pathsTab))
       .catch(() => {
