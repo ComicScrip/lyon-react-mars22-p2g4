@@ -93,6 +93,8 @@ export default function Photos({ path }) {
           setLoadingError("Impossible de charger les photos depuis l'API");
         })
         .finally(() => setIsLoading(false));
+
+      localStorage.setItem('currentPhotosList', photosList);
     }
   }, [setPhotoIndex]);
 

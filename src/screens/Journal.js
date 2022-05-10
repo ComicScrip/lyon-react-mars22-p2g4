@@ -5,11 +5,8 @@ import JournalCard from '../components/JournalCard';
 
 export default function Journal() {
   const [keyword, setKeyword] = useState('');
-  const [journalPaths, setjournalPaths] = useState([]);
-
   const pathsStorage = JSON.parse(localStorage.getItem('journalPaths'));
-
-  if (pathsStorage) setjournalPaths(pathsStorage);
+  const [journalPaths, setjournalPaths] = useState(pathsStorage);
 
   const filter = (e) => {
     const newKeyword = e.target.value;

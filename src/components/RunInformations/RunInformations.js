@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Timer from './Timer/Timer';
 import ControlButtons from './ControlButtons/ControlButtons';
 import './RunInformations.css';
+import useLocalStorage from 'use-local-storage';
 
 export default function RunInformations({
   distancePath,
@@ -13,9 +14,9 @@ export default function RunInformations({
   setIsPaused,
 }) {
   const [time, setTime] = useState(0);
-  let speed = 0;
-  let calorie = 0;
-  let distance = 0;
+  const [speed, setSpeed] = useLocalStorage('speed', 0);
+  const [calorie, setCalorie] = useLocalStorage('calorie', 0);
+  const [distance, setDistance] = useLocalStorage('distance', 0);
 
   useEffect(() => {
     let interval = null;
@@ -27,8 +28,20 @@ export default function RunInformations({
     } else {
       clearInterval(interval);
     }
+
+    const lastDistance = distancePath.at(-1);
+    setSpeed(Math.round(lastDistance * 720 * 10) / 10);
+
+    let distanceTotalPath = 0;
+    for (let i = 0; i < distancePath.length; i++) {
+      distanceTotalPath += distancePath[i];
+    }
+    setCalorie(Math.round(distanceTotalPath * 77.8));
+    setDistance(Math.round(distanceTotalPath * 10) / 10);
+
     return () => {
       clearInterval(interval);
+      localStorage.setItem('time', time);
     };
   }, [isActive, isPaused, time]);
 
@@ -45,18 +58,6 @@ export default function RunInformations({
     setIsActive(false);
     setTime(0);
   };
-
-  const lastDistance = distancePath.at(-1);
-  speed = Math.round(lastDistance * 720 * 10) / 10;
-
-  let distanceTotalPath = 0;
-  for (let i = 0; i < distancePath.length; i++) {
-    distanceTotalPath += distancePath[i];
-    calorie = Math.round(distanceTotalPath * 77.8);
-    distance = Math.round(distanceTotalPath * 10) / 10;
-  }
-
-  console.log(distanceTotalPath);
 
   return (
     <div className="run-infos">

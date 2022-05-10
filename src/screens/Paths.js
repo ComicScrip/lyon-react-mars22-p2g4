@@ -39,7 +39,7 @@ export default function Paths() {
               <h2>Distance maximum</h2>
               <select
                 className="select"
-                value={searchParams.get('length')}
+                value={searchParams.get('length') || ''}
                 onChange={(e) =>
                   setSearchParams({
                     ...toObject(searchParams),
@@ -61,7 +61,7 @@ export default function Paths() {
               <h2>Difficulté</h2>
               <select
                 className="select"
-                value={searchParams.get('difficulty')}
+                value={searchParams.get('difficulty') || ''}
                 onChange={(e) =>
                   setSearchParams({
                     ...toObject(searchParams),
@@ -83,7 +83,7 @@ export default function Paths() {
               <h2>Localisation</h2>
               <select
                 className="select"
-                value={searchParams.get('city_location')}
+                value={searchParams.get('city_location') || ''}
                 onChange={(e) =>
                   setSearchParams({
                     ...toObject(searchParams),
