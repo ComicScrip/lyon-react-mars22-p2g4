@@ -76,23 +76,10 @@ export default function PathDetails() {
           <div className="pathPics h-50 w-50">
             {<Photos path={path.trace.features[0].geometry.coordinates} />}
           </div>
-          <div className="pathDate flex flex-row justify-center m-2">
-            <label
-              className="m-2 flex flex-row items-center"
-              htmlFor="datetime"
-            >
-              Départ
-              <input
-                className="m-2"
-                name="datetime"
-                id="datetime"
-                type="datetime-local"
-              />
-            </label>
-          </div>
+
           <div className="meteo">
             <h2 className="title">Prévisions météo</h2>
-            <div className="first">
+            <div className="day">
               <p>
                 Aujourd'hui <MeteoForecastIcon dayNumberIcon={0} />
               </p>
@@ -101,7 +88,7 @@ export default function PathDetails() {
                 <MeteoForecastIcon dayNumberIcon={1} />
               </p>
             </div>
-            <div className="second">
+            <div className="day">
               <p>
                 {tabJour[theDate.getDay() + 2]}{' '}
                 <MeteoForecastIcon dayNumberIcon={2} />
@@ -111,7 +98,7 @@ export default function PathDetails() {
                 <MeteoForecastIcon dayNumberIcon={3} />
               </p>
             </div>
-            <div className="third">
+            <div className="day">
               <p>
                 {tabJour[theDate.getDay() + 4]}
                 <MeteoForecastIcon dayNumberIcon={4} />
@@ -121,7 +108,7 @@ export default function PathDetails() {
                 <MeteoForecastIcon dayNumberIcon={5} />
               </p>
             </div>
-            <div className="four">
+            <div className="day">
               <p>
                 {tabJour[theDate.getDay() + 6]}
                 <MeteoForecastIcon dayNumberIcon={6} />

@@ -70,7 +70,6 @@ h1 {
   width: 100%;
   padding: 1vh;
   background-color: red;
-  color: white;
   z-index: 10000;
 }
 
@@ -110,10 +109,13 @@ h1 {
   }
 
   .meteoBurger {
-    height: 60px;
-    width: 60px;
-    display: block;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 50px;
+    font-size: 1.5rem;
   }
 
   .navbar_links {
