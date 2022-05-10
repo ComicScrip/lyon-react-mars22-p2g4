@@ -1,18 +1,23 @@
+/* eslint-disable consistent-return */
+/* eslint-disable no-console */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useLocalStorage from 'use-local-storage';
 import DisplayMapLive from '../components/DisplayMapLive';
 import RunInformations from '../components/RunInformations/RunInformations';
+import L from 'leaflet';
 
 export default function Liveview({ position }) {
+  const [isActive, setIsActive] = useState(false);
+  const [isPaused, setIsPaused] = useState(true);
+  const [currentPath, setCurrentPath] = useLocalStorage('currentPath', []);
+  const [distancePath, setDistancePath] = useState([0]);
   const { id } = useParams();
   const [path, setPath] = useState();
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [currentPath, setCurrentPath] = useLocalStorage('currentPath', []);
-
-  let interval = null;
+  let distance = 0;
 
   useEffect(() => {
     axios
@@ -24,16 +29,28 @@ export default function Liveview({ position }) {
       })
       .finally(() => setIsLoading(false));
 
-    interval = setInterval(() => {
-      if (position.lat !== 0 && position.lon !== 0) {
-        setCurrentPath([...currentPath, [position.lat, position.lon]]);
-      }
-    }, 1000);
+    if (isActive && isPaused === false) {
+      let interval = null;
 
-    return () => {
-      clearInterval(interval);
-    };
-  }, [currentPath]);
+      console.log(isActive);
+
+      interval = setInterval(() => {
+        setCurrentPath([...currentPath, [position.lat, position.lon]]);
+
+        if (currentPath.length >= 2) {
+          const from = L.latLng(currentPath.at(-2));
+          const to = L.latLng(currentPath.at(-1));
+          distance = from.distanceTo(to).toFixed(0) / 1000;
+        }
+
+        setDistancePath([...distancePath, distance]);
+      }, 1000);
+
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [position]);
 
   return (
     path && (
@@ -45,7 +62,13 @@ export default function Liveview({ position }) {
           zoom={20}
         />
 
-        <RunInformations />
+        <RunInformations
+          distancePath={distancePath}
+          isActive={isActive}
+          setIsActive={setIsActive}
+          isPaused={isPaused}
+          setIsPaused={setIsPaused}
+        />
         {loadingError && <p>{loadingError}</p>}
         {isLoading && <p>Chargement en cours...</p>}
       </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import L from 'leaflet';
 import {
@@ -11,8 +12,8 @@ import {
 // eslint-disable-next-line object-curly-newline
 export default function DisplayMapLive({ path, currentPath, position, zoom }) {
   const curseur = L.icon({
-    iconUrl: 'curseur.png',
-    iconSize: [50, 50],
+    iconUrl: '/curseur.png',
+    iconSize: [25, 25],
   });
 
   return (
