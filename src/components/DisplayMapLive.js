@@ -12,7 +12,7 @@ import {
 // eslint-disable-next-line object-curly-newline
 export default function DisplayMapLive({ path, currentPath, position, zoom }) {
   const curseur = L.icon({
-    iconUrl: 'curseur.png',
+    iconUrl: '/curseur.png',
     iconSize: [25, 25],
   });
 
