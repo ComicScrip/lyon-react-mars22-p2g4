@@ -49,9 +49,13 @@
 
 .pathsListContainer {
   display: flex;
+  width: 100vw;
+  height: 60vh;
   flex-direction: column;
   align-items: center;
   overflow: auto;
+  border-radius: 20px;
+  box-shadow: inset 4px 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .alertFilter {
@@ -88,6 +92,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    overflow: auto;
   }
 
   .alertFilter {

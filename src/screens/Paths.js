@@ -19,6 +19,7 @@ export default function Paths() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths?${searchParams}`)
       .then((response) => response.data)
@@ -31,8 +32,6 @@ export default function Paths() {
 
   return (
     <div className="pathsMainContainer">
-      {loadingError && <p>{loadingError}</p>}
-      {isLoading && <p>Chargement en cours...</p>}
       {!isLoading && (
         <div>
           <div className="searchSelectContainer">
@@ -40,7 +39,7 @@ export default function Paths() {
               <h2>Distance maximum</h2>
               <select
                 className="select"
-                value={searchParams.get('length')}
+                value={searchParams.get('length') || ''}
                 onChange={(e) =>
                   setSearchParams({
                     ...toObject(searchParams),
@@ -62,7 +61,7 @@ export default function Paths() {
               <h2>Difficulté</h2>
               <select
                 className="select"
-                value={searchParams.get('difficulty')}
+                value={searchParams.get('difficulty') || ''}
                 onChange={(e) =>
                   setSearchParams({
                     ...toObject(searchParams),
@@ -84,7 +83,7 @@ export default function Paths() {
               <h2>Localisation</h2>
               <select
                 className="select"
-                value={searchParams.get('city_location')}
+                value={searchParams.get('city_location') || ''}
                 onChange={(e) =>
                   setSearchParams({
                     ...toObject(searchParams),
@@ -120,8 +119,10 @@ export default function Paths() {
             ) : (
               <div className="alertFilter">
                 <h1>
-                  Nous sommes désolés, mais aucun parcours ne correspond à votre
-                  recherche
+                  {loadingError ? { loadingError } : ''}
+                  {isLoading
+                    ? 'Chargement en cours...'
+                    : 'Nous sommes désolés, mais aucun parcours ne correspond à votre recherche'}
                 </h1>
               </div>
             )}

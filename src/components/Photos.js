@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import parse from 'html-react-parser';
-import './Photos.css';
+import styles from './Photos.module.css';
 
 // API Call parameter
 const apiKey = process.env.REACT_APP_FLICKR_APIKEY;
@@ -34,18 +34,19 @@ const pickRandomPic = (picsList) => {
 };
 
 const reducePathPoints = (trace = [], factor = 10) => {
-  const CoordinatesTab = [];
-  for (let i = 0; i < trace.length / factor; i += 1) {
-    CoordinatesTab.push(trace[factor * i]);
+  const tab = [];
+  for (let i = 0; i < trace.length; i += factor) {
+    tab.push(trace[i]);
   }
-  return CoordinatesTab;
+  return tab;
 };
 
 export default function Photos({ path }) {
   const [photosList, setPhotosList] = useState(defaultPhotosList);
-  const [loadingError, setLoadingError] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [loadingError, setLoadingError] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [coordinatesTab] = useState(reducePathPoints(path));
 
   const handlePhotoIndexRight = () => {
     if (photoIndex < photosList.length - 1) {
@@ -61,45 +62,42 @@ export default function Photos({ path }) {
     } else setPhotoIndex(photosList.length - 1);
   };
 
-  const getPhotos = () => {
-    setLoadingError('');
-    setIsLoading(true);
-
-    const coordinatesTab = reducePathPoints(path);
+  useEffect(() => {
     const promisesList = [];
 
-    for (let i = 0; i < coordinatesTab.length; i += 1) {
-      const lat = coordinatesTab[i][1];
-      const lon = coordinatesTab[i][0];
-      const newPromise = new Promise((resolve) => {
-        axios
-          .get(
-            `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
-          )
-          .then((response) => response.data)
-          .then((data) => data.photos)
-          .then((photos) => pickRandomPic(photos.photo))
-          .then((randomPhoto) => {
-            if (typeof randomPhoto !== 'undefined') {
-              resolve(randomPhoto);
-            } else resolve(null);
-          });
-      });
-      promisesList.push(newPromise);
+    if (isLoading) {
+      for (let i = 0; i < coordinatesTab.length; i += 1) {
+        const lat = coordinatesTab[i][1];
+        const lon = coordinatesTab[i][0];
+        const newPromise = new Promise((resolve) => {
+          axios
+            .get(
+              `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&radius=${radius}&safe_search=${safeSearch}&content_type=${contentType}&lat=${lat}&lon=${lon}&per_page=${perPage}&min_taken_date=${minUploadDate}&tags=${tags}&extras=description,geo&format=json&nojsoncallback=1`
+            )
+            .then((response) => response.data)
+            .then((data) => data.photos)
+            .then((photos) => pickRandomPic(photos.photo))
+            .then((randomPhoto) => {
+              if (typeof randomPhoto !== 'undefined') {
+                resolve(randomPhoto);
+              } else resolve(null);
+            });
+        });
+        promisesList.push(newPromise);
+      }
+
+      Promise.all(promisesList)
+        .then((randomPhotos) => randomPhotos.filter((p) => p !== null))
+        .then((photos) => setPhotosList(photos))
+        .catch(() => {
+          setLoadingError("Impossible de charger les photos depuis l'API");
+        })
+        .finally(() => setIsLoading(false));
+
+      localStorage.setItem('currentPhotosList', photosList);
     }
+  }, [setPhotoIndex]);
 
-    Promise.all(promisesList)
-      .then((randomPhotos) => randomPhotos.filter((p) => p !== null))
-      .then((photos) => setPhotosList(photos))
-      .catch(() => {
-        setLoadingError("Impossible de charger les photos depuis l'API");
-      })
-      .finally(() => setIsLoading(false));
-  };
-
-  useEffect(() => {
-    getPhotos();
-  }, []);
   return (
     <div className="flex flex-col">
       {loadingError && <p>{loadingError}</p>}
@@ -107,33 +105,31 @@ export default function Photos({ path }) {
       {isLoading && <p>Chargement en cours...</p>}
 
       {!isLoading && photosList.length > 0 ? (
-        <div className="photoMaincomponent">
+        <div className={styles.photoMaincomponent}>
           <button
             type="button"
-            className="photoButton text-5xl font-bold"
+            className={`${styles.photoButton} text-5xl font-bold`}
             onClick={handlePhotoIndexLeft}
           >
             {'<'}
           </button>
-          <div className="photo-container">
+          <div className={styles.photo_container}>
             <img
               key={photosList[photoIndex].id}
               src={`https://live.staticflickr.com/${photosList[photoIndex].server}/${photosList[photoIndex].id}_${photosList[photoIndex].secret}_z.jpg`}
               alt={parse(photosList[photoIndex].description._content)}
-              className="photo object-contain"
+              className={`${styles.photo} ${styles.img} object-contain`}
             />
           </div>
           <button
             type="button"
-            className="photoButton text-5xl font-bold"
+            className={`${styles.photoButton} text-5xl font-bold`}
             onClick={handlePhotoIndexRight}
           >
             {'>'}
           </button>
         </div>
-      ) : (
-        <div>Aucune photo n'a pu être récupérée pour votre parcours</div>
-      )}
+      ) : null}
     </div>
   );
 }

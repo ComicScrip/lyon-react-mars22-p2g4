@@ -1,5 +1,4 @@
 /* eslint-disable consistent-return */
-/* eslint-disable no-console */
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -11,35 +10,38 @@ import L from 'leaflet';
 export default function Liveview({ position }) {
   const [isActive, setIsActive] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
-  const [currentPath, setCurrentPath] = useLocalStorage('currentPath', []);
   const [distancePath, setDistancePath] = useState([0]);
   const { id } = useParams();
-  const [path, setPath] = useState();
+  const [path, setPath] = useLocalStorage('currentPath', []);
   const [loadingError, setLoadingError] = useState();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentTrace, setcurrentTrace] = useLocalStorage('currentTrace', [
+    [position.lon, position.lat],
+  ]);
+
   let distance = 0;
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
-      .then((response) => response.data)
-      .then((data) => setPath(data.trace))
-      .catch(() => {
-        setLoadingError("Impossible de charger le parcours depuis l'API");
-      })
-      .finally(() => setIsLoading(false));
+    if (isLoading) {
+      axios
+        .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
+        .then((response) => response.data)
+        .then((data) => setPath(data))
+        .catch(() => {
+          setLoadingError("Impossible de charger le parcours depuis l'API");
+        })
+        .finally(() => setIsLoading(false));
+    }
 
     if (isActive && isPaused === false) {
       let interval = null;
 
-      console.log(isActive);
-
       interval = setInterval(() => {
-        setCurrentPath([...currentPath, [position.lat, position.lon]]);
+        setcurrentTrace([...currentTrace, [position.lon, position.lat]]);
 
-        if (currentPath.length >= 2) {
-          const from = L.latLng(currentPath.at(-2));
-          const to = L.latLng(currentPath.at(-1));
+        if (currentTrace.length >= 2) {
+          const from = L.latLng(currentTrace.at(-2));
+          const to = L.latLng(currentTrace.at(-1));
           distance = from.distanceTo(to).toFixed(0) / 1000;
         }
 
@@ -56,8 +58,8 @@ export default function Liveview({ position }) {
     path && (
       <div className="flex-auto flex-col items-center justify-center m-5 bg-white bg-opacity-80 rounded-xl">
         <DisplayMapLive
-          path={path}
-          currentPath={currentPath}
+          path={path.trace}
+          currentTrace={currentTrace}
           position={position}
           zoom={20}
         />

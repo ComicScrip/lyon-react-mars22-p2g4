@@ -42,6 +42,8 @@ export default function PathDetails() {
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
+
+    return () => localStorage.setItem('currentTrace', []);
   }, []);
 
   return (
@@ -71,7 +73,7 @@ export default function PathDetails() {
           <div className="pathDescription text-justify m-2 p-2">
             {path.description}
           </div>
-          <div className="pathPics">
+          <div className="pathPics h-50 w-50">
             {<Photos path={path.trace.features[0].geometry.coordinates} />}
           </div>
           <div className="pathDate flex flex-row justify-center m-2">
@@ -130,7 +132,7 @@ export default function PathDetails() {
               </p>
             </div>
           </div>
-          <div className="pathButton w-1/2 h-10 flex justify-center items-center text-black rounded-md bg-[#F71735] hover:bg-red-900 shadow-lg border-black">
+          <div className="pathButton">
             <Link to={`/liveview/${id}`}>Let's Go !</Link>
           </div>
         </div>
