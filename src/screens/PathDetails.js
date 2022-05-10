@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
@@ -11,13 +11,7 @@ export default function PathDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
 
-  /* const location = useLocation();
   const navigate = useNavigate();
-  if (location.key === 'default') {
-    navigate('/NotFoundPage');
-  }
-  console.log(location); */
-
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
@@ -25,7 +19,7 @@ export default function PathDetails() {
       .then((data) => setPath(data))
       .catch((err) => {
         if (err.response.status === 404) {
-          window.location.href = '/PageNotFound';
+          navigate('/NotFoundPage');
         }
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
