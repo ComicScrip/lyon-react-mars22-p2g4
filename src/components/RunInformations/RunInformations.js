@@ -1,12 +1,21 @@
+/* eslint-disable no-console */
+/* eslint-disable no-plusplus */
 import React, { useState, useEffect } from 'react';
 import Timer from './Timer/Timer';
 import ControlButtons from './ControlButtons/ControlButtons';
 import './RunInformations.css';
 
-export default function RunInformations() {
-  const [isActive, setIsActive] = useState(false);
-  const [isPaused, setIsPaused] = useState(true);
+export default function RunInformations({
+  distancePath,
+  isActive,
+  setIsActive,
+  isPaused,
+  setIsPaused,
+}) {
   const [time, setTime] = useState(0);
+  let speed = 0;
+  let calorie = 0;
+  let distance = 0;
 
   useEffect(() => {
     let interval = null;
@@ -37,20 +46,32 @@ export default function RunInformations() {
     setTime(0);
   };
 
+  const lastDistance = distancePath.at(-1);
+  speed = Math.round(lastDistance * 720 * 10) / 10;
+
+  let distanceTotalPath = 0;
+  for (let i = 0; i < distancePath.length; i++) {
+    distanceTotalPath += distancePath[i];
+    calorie = Math.round(distanceTotalPath * 77.8);
+    distance = Math.round(distanceTotalPath * 10) / 10;
+  }
+
+  console.log(distanceTotalPath);
+
   return (
     <div className="run-infos">
       <Timer time={time} />
       <div className="flex flex-row justify-between space-x-10 align-center">
         <div className="flex flex-col">
-          <div className="text-xl">0 km</div>
+          <div className="text-xl">{distance}km</div>
           <div> Distance</div>
         </div>
         <div className="flex flex-col">
-          <div className="text-xl">0 Cal</div>
+          <div className="text-xl">{calorie}kcal</div>
           <div> Calorie</div>
         </div>
         <div className="flex flex-col">
-          <div className="text-xl">0 km/h</div>
+          <div className="text-xl">{speed}kmh</div>
           <div> Rythme</div>
         </div>
       </div>

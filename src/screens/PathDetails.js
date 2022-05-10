@@ -1,8 +1,8 @@
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import MeteoForecastIcon from '../components/MeteoForecastIcon';
 
@@ -29,12 +29,16 @@ export default function PathDetails() {
     'Samedi',
   ];
 
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
       .then((response) => response.data)
       .then((data) => setPath(data))
-      .catch(() => {
+      .catch((err) => {
+        if (err.response.status === 404) {
+          navigate('/NotFoundPage');
+        }
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));

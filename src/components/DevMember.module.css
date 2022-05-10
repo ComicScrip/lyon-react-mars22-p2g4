@@ -1,6 +1,6 @@
 .avatar {
   width: 12vh;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .dev {
@@ -17,8 +17,5 @@
   .container {
     margin-left: 8%;
     margin-right: 8%;
-  }
-  .avatar {
-    width: 8vw;
   }
 }

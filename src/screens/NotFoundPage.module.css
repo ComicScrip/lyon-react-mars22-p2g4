@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&');
+
+.box {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.link {
+  font-size: 2.3em;
+  font-family: 'Permanent Marker';
+}
+
+@media screen and (min-width: 700px) {
+  .link {
+    font-size: 3em;
+  }
+}
