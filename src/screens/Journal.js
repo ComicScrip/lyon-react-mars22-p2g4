@@ -52,6 +52,9 @@ export default function Journal() {
                 startLat={journal.realTrace[0][0]}
                 startLon={journal.realTrace[0][1]}
                 date={journal.date}
+                time={journal.time}
+                distance={journal.distance}
+                calorie={journal.calorie}
               />
             ))
           ) : (

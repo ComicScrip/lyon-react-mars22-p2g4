@@ -5,12 +5,24 @@ const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;
 export default function JournalCard({
   id,
   title,
-  distance,
   startLat,
   startLon,
   date,
+  time,
+  distance,
+  calorie,
 }) {
   const formatDate = new Date(date);
+
+  const hours = Math.floor(time / 1000 / 3600);
+  const minutes = Math.floor((time / 1000 - hours * 3600) / 60);
+  const seconds = Math.floor(time / 1000 - hours * 3600 - minutes * 60);
+
+  const timeString = `${hours.toString().padStart(2, '0')} 
+     : 
+    ${minutes.toString().padStart(2, '0')}
+     : 
+    ${seconds.toString().padStart(2, '0')}`;
 
   return (
     <Link
@@ -37,14 +49,30 @@ export default function JournalCard({
           className="hidden md:flex items-center justify-center text-center "
         >
           {distance} km
-          <br />
-          Distance
+        </div>
+        <div
+          id="pathDistance"
+          className="hidden md:flex items-center justify-center text-center "
+        >
+          {timeString}
+        </div>
+        <div
+          id="pathDistance"
+          className="hidden md:flex items-center justify-center text-center "
+        >
+          {calorie} kCal
         </div>
         <div
           id="pathDate"
           className="flex items-center justify-center text-center text-xs"
         >
-          {`Effectué le : ${formatDate.getDate()} / ${formatDate.getMonth()} /
+          {`Effectué le : ${formatDate
+            .getDate()
+            .toString()
+            .padStart(2, '0')} / ${formatDate
+            .getMonth()
+            .toString()
+            .padStart(2, '0')} /
           ${formatDate.getFullYear()}`}{' '}
           <br />
         </div>
