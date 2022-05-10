@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import informationsRace from '../components/InformationsRace';
-import './Summary.css';
+import styles from './Summary.module.css';
 import SummaryRaceInfos from '../components/SummaryRaceInfos';
 import Photos from '../components/Photos';
 import useLocalStorage from 'use-local-storage';
+import SummaryButtons from '../components/SummaryButtons';
 
 export default function Summary() {
   const [journalPaths, setJournalPaths] = useLocalStorage('journalPaths', []);
@@ -19,19 +20,21 @@ export default function Summary() {
   }, []);
 
   return (
-    <div className="RecapRaceMainContainer">
-      <div className="pathPics">
-        <Photos path={realTrace} />
-      </div>
+    <div className={styles.RecapRaceMainContainer}>
+      <div className={styles.RecapRaceContainer}>
+        <h1 className={styles.nameRace}>Lyon</h1>
+        <p className={styles.p}>Jolie parcours ! Voici quelques souvenirs : </p>
+        <Photos className={styles.pathPics} path={realTrace} />
 
-      <div className="RecapRaceContainer">
         <SummaryRaceInfos
-          title={informationsRace.title}
+          className={styles.summaryInfos}
           distance={informationsRace.distance}
           time={informationsRace.time}
           calorie={informationsRace.calorie}
+          imageNumber={informationsRace.imageNumber}
         />
       </div>
+      <SummaryButtons className={styles.summaryButtons} />
     </div>
   );
 }

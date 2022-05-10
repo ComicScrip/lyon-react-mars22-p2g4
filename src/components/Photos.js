@@ -69,8 +69,8 @@ export default function Photos({ path }) {
     const promisesList = [];
 
     for (let i = 0; i < coordinatesTab.length; i += 1) {
-      const lat = coordinatesTab[i][1];
-      const lon = coordinatesTab[i][0];
+      const lat = coordinatesTab[i][0];
+      const lon = coordinatesTab[i][1];
       const newPromise = new Promise((resolve) => {
         axios
           .get(
@@ -103,7 +103,7 @@ export default function Photos({ path }) {
 
       {isLoading && <p>Chargement en cours...</p>}
 
-      {!isLoading && photosList.length > 1 ? (
+      {!isLoading && photosList.length >= 0 ? (
         <div className={styles.photoMaincomponent}>
           <button
             type="button"

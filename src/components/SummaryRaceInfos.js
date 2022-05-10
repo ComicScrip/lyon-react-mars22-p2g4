@@ -1,47 +1,30 @@
 import React from 'react';
-import '../screens/Summary.css';
-import { RestartAlt, Done } from '@mui/icons-material';
-import Photos from './Photos';
-import { Link } from 'react-router-dom';
+import styles from './SummaryRaceInfos.module.css';
 
-// eslint-disable-next-line object-curly-newline
-export default function SummaryRaceInfos({ title, distance, time, calorie }) {
+export default function SummaryRaceInfos({
+  distance,
+  time,
+  calorie,
+  imageNumber,
+}) {
   return (
-    <div className="InformationsRaceMainContainer">
-      <div className="InformationsRaceContainer">
-        <h1 className="nameRace">{title}</h1>
-        <div className="imagesRace">
-          <Photos />
-        </div>
-        <p className="distanceRace">
-          Distance : <br />
-          {distance}
-        </p>
-        <p className="timeRace">
-          Temps : <br />
-          {time}
-        </p>
-        <p className="calorieRace">
-          Calories : <br />
-          {calorie}
-        </p>
-        <p className="numberImagesRace">
-          Images : <br />
-          {10}
-        </p>
-      </div>
-      <div className="buttonRecapRaceContainer">
-        <Link to="/journal">
-          <button className="buttonRecapRace" type="button">
-            <Done fontSize="large" />
-          </button>
-        </Link>
-        <Link to="/paths">
-          <button className="buttonRecapRace" type="button">
-            <RestartAlt fontSize="large" />
-          </button>
-        </Link>
-      </div>
+    <div className={styles.InformationsContainer}>
+      <p className={styles.distanceRace}>
+        Distance : <br />
+        {distance}
+      </p>
+      <p className={styles.timeRace}>
+        Temps : <br />
+        {time}
+      </p>
+      <p className={styles.calorieRace}>
+        Calories : <br />
+        {calorie}
+      </p>
+      <p className={styles.numberImagesRace}>
+        Images : <br />
+        {imageNumber}
+      </p>
     </div>
   );
 }
