@@ -46,14 +46,16 @@
   overflow: auto;
 }
 
-.alertFilter {
+.journalAlertFilter {
   display: flex;
   justify-content: center;
-  width: 90%;
+  align-items: center;
+  width: 80%;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   border: 2px solid;
+  padding: 5px;
   border-color: #011627;
 }
 
@@ -77,7 +79,9 @@
     padding-left: 50px;
   }
 
-  .alertFilter {
-    width: 100%;
+  .journalAlertFilter {
+    position: relative;
+    top: -40%;
+    width: 80%;
   }
 }

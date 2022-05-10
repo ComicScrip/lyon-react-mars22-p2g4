@@ -5,9 +5,11 @@ import JournalCard from '../components/JournalCard';
 
 export default function Journal() {
   const [keyword, setKeyword] = useState('');
-  const [journalPaths, setjournalPaths] = useState(
-    JSON.parse(localStorage.getItem('journalPaths'))
-  );
+  const [journalPaths, setjournalPaths] = useState([]);
+
+  const pathsStorage = JSON.parse(localStorage.getItem('journalPaths'));
+
+  if (pathsStorage) setjournalPaths(pathsStorage);
 
   const filter = (e) => {
     const newKeyword = e.target.value;
@@ -56,10 +58,10 @@ export default function Journal() {
               />
             ))
           ) : (
-            <div className="alertFilter">
+            <div className="journalAlertFilter">
               <h1>
-                Nous sommes désolés, mais aucun parcours ne correspond à votre
-                recherche
+                Nous sommes désolés, mais aucun historique de parcours ne
+                correspond à votre recherche.
               </h1>
             </div>
           )}
