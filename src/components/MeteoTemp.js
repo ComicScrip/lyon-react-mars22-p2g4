@@ -14,7 +14,13 @@ function GetMeteoDataTemp() {
       .then((temp) => setMeteoTemp(temp));
   }, []);
 
-  return <div>{Math.round(meteoTemp)}°C</div>;
+  return (
+    <div>
+      <p>
+        <ul>{Math.round(meteoTemp)}°C</ul>
+      </p>
+    </div>
+  );
 }
 
 export default GetMeteoDataTemp;

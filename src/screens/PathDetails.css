@@ -1,9 +1,10 @@
 .backgroundElement {
   background-image: url('../../public/run_bg.jpg');
-  background-position: right 45% bottom 45%;
+  background-position: right 40% bottom 45%;
   margin: 0;
-  background-repeat: 'no-repeat';
-  background-size: 'cover';
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: fixed;
 }
 
 .pathTitle {
@@ -14,9 +15,51 @@
   font-weight: bold;
 }
 
+.pathButton {
+  margin-top: 5vh;
+  border: solid 4px;
+  font-weight: bold;
+}
+
+.meteo {
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 2vh;
+  border: 2px solid grey;
+  border-radius: 15px;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.first {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.second {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.third {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 3vh;
+}
+
+.four {
+  margin-top: 3vh;
+  display: flex;
+  justify-content: space-around;
+}
+
 @media screen and (min-width: 700px) {
   .backgroundElement {
-    background-repeat: 'no-repeat';
     background-size: 'cover';
     height: 100%;
   }
@@ -60,6 +103,10 @@
   .pathMeteo,
   .pathDate,
   .pathButton {
+    display: none;
+  }
+
+  .meteo {
     display: none;
   }
 }

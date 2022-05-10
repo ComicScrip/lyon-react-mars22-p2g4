@@ -1,12 +1,12 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-function GetForecastIconMeteoData({ dayNumberIcon }) {
+function ForecastIconMeteoData({ dayNumberIcon }) {
   const [forecastIconMeteoData, setForecastIconMeteoData] = useState('');
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=45,75939&lon=4,82898&lang=fr&exclude=minutely,hourly&appid=${process.env.REACT_APP_SECRET_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=45,75939&lon=4,82898&exclude=minutely,hourly&appid=${process.env.REACT_APP_SECRET_API_KEY}`
       )
       .then((response) => response.data)
       .then((data) => data.daily)
@@ -19,9 +19,11 @@ function GetForecastIconMeteoData({ dayNumberIcon }) {
 
   return (
     <div>
-      <img src={forecastIconMeteoData} alt="meteoIcon" />
+      <ul>
+        <img src={forecastIconMeteoData} alt="forecastMeteoIcon" />
+      </ul>
     </div>
   );
 }
 
-export default GetForecastIconMeteoData;
+export default ForecastIconMeteoData;
