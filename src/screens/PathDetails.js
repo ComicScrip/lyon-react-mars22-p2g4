@@ -1,22 +1,44 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import MeteoForecastIcon from '../components/MeteoForecastIcon';
 
 export default function PathDetails() {
   const [path, setPath] = useState();
   const [loadingError, setLoadingError] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
+  const theDate = new Date();
+  const tabJour = [
+    'Dimanche',
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi',
+    'Dimanche',
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi',
+  ];
 
+  const navigate = useNavigate();
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
       .then((response) => response.data)
       .then((data) => setPath(data))
-      .catch(() => {
+      .catch((err) => {
+        if (err.response.status === 404) {
+          navigate('/NotFoundPage');
+        }
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
@@ -62,22 +84,53 @@ export default function PathDetails() {
               Départ
               <input
                 className="m-2"
+                name="datetime"
                 id="datetime"
-                onChange={() => 'Cette fonctionne devra modifier la météo'}
                 type="datetime-local"
-                value="2022-04-22T19:30"
-                min="2022-04-22T19:30"
-                max="2022-04-30T19:30"
               />
             </label>
           </div>
-          <div className="pathMeteo flex flex-row justify-around items-center m-2 p-2">
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/66/66275.png"
-              alt="meteo icon"
-              className=" w-10 h-10"
-            />
-            <span className="text-2xl">12 °C</span>
+          <div className="meteo">
+            <h2 className="title">Prévisions météo</h2>
+            <div className="first">
+              <p>
+                Aujourd'hui <MeteoForecastIcon dayNumberIcon={0} />
+              </p>
+              <p>
+                {tabJour[theDate.getDay() + 1]}{' '}
+                <MeteoForecastIcon dayNumberIcon={1} />
+              </p>
+            </div>
+            <div className="second">
+              <p>
+                {tabJour[theDate.getDay() + 2]}{' '}
+                <MeteoForecastIcon dayNumberIcon={2} />
+              </p>
+              <p>
+                {tabJour[theDate.getDay() + 3]}{' '}
+                <MeteoForecastIcon dayNumberIcon={3} />
+              </p>
+            </div>
+            <div className="third">
+              <p>
+                {tabJour[theDate.getDay() + 4]}
+                <MeteoForecastIcon dayNumberIcon={4} />
+              </p>
+              <p>
+                {tabJour[theDate.getDay() + 5]}
+                <MeteoForecastIcon dayNumberIcon={5} />
+              </p>
+            </div>
+            <div className="four">
+              <p>
+                {tabJour[theDate.getDay() + 6]}
+                <MeteoForecastIcon dayNumberIcon={6} />
+              </p>
+              <p>
+                {tabJour[theDate.getDay() + 7]}
+                <MeteoForecastIcon dayNumberIcon={7} />
+              </p>
+            </div>
           </div>
           <div className="pathButton">
             <Link to={`/liveview/${id}`}>Let's Go !</Link>

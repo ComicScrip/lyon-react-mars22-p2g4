@@ -29,11 +29,7 @@ function CurrentMeteoData() {
       {!geolocationActived && (
         <p> Erreur, la géolocalisation n'est pas activée</p>
       )}
-      ;
-      <p>
-        <h2> </h2>{' '}
-      </p>
-      <ul>{results}</ul>
+      ;<ul>{results}</ul>
     </div>
   );
 }

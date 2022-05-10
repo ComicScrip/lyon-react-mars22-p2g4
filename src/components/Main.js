@@ -7,6 +7,7 @@ import LiveView from '../screens/LiveView';
 import Summary from '../screens/Summary';
 import PathDetails from '../screens/PathDetails';
 import Paths from '../screens/Paths';
+import NotFoundPage from '../screens/NotFoundPage';
 
 export default function Main({ currentPosition, geolocationActived }) {
   useEffect(() => {}, [currentPosition]);
@@ -27,6 +28,7 @@ export default function Main({ currentPosition, geolocationActived }) {
         />
         <Route path="/summary/:id" element={<Summary />} />
         <Route path="/paths" element={<Paths />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </main>
   );
