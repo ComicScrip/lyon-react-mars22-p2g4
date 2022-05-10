@@ -1,5 +1,3 @@
-/* eslint-disable no-array-constructor */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
 import Photos from '../components/Photos';
@@ -14,7 +12,7 @@ export default function PathDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
   const theDate = new Date();
-  const tabJour = new Array(
+  const tabJour = [
     'Dimanche',
     'Lundi',
     'Mardi',
@@ -28,8 +26,8 @@ export default function PathDetails() {
     'Mercredi',
     'Jeudi',
     'Vendredi',
-    'Samedi'
-  );
+    'Samedi',
+  ];
 
   useEffect(() => {
     axios
@@ -78,13 +76,13 @@ export default function PathDetails() {
               htmlFor="datetime"
             >
               Départ
+              <input
+                className="m-2"
+                name="datetime"
+                id="datetime"
+                type="datetime-local"
+              />
             </label>
-            <input
-              className="m-2"
-              name="datetime"
-              id="datetime"
-              type="datetime-local"
-            />
           </div>
           <div className="meteo">
             <h2 className="title">Prévisions météo</h2>
