@@ -1,5 +1,4 @@
 /* eslint-disable no-array-constructor */
-/* eslint-disable no-sequences */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import DisplayMap from '../components/DisplayMap';
 import './PathDetails.css';
@@ -7,7 +6,6 @@ import Photos from '../components/Photos';
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import MeteoForecast from '../components/MeteoForecast';
 import MeteoForecastIcon from '../components/MeteoForecastIcon';
 
 export default function PathDetails() {
@@ -17,6 +15,13 @@ export default function PathDetails() {
   const { id } = useParams();
   const theDate = new Date();
   const tabJour = new Array(
+    'Dimanche',
+    'Lundi',
+    'Mardi',
+    'Mercredi',
+    'Jeudi',
+    'Vendredi',
+    'Samedi',
     'Dimanche',
     'Lundi',
     'Mardi',
@@ -78,7 +83,6 @@ export default function PathDetails() {
               className="m-2"
               name="datetime"
               id="datetime"
-              onChange={() => 'Cette fonctionne devra modifier la météo'}
               type="datetime-local"
             />
           </div>
@@ -87,45 +91,40 @@ export default function PathDetails() {
             <div className="first">
               <p>
                 Aujourd'hui <MeteoForecastIcon dayNumberIcon={0} />
-                <MeteoForecast dayNumber={0} />
               </p>
               <p>
-                {tabJour[theDate.getDay()]}{' '}
+                {tabJour[theDate.getDay() + 1]}{' '}
                 <MeteoForecastIcon dayNumberIcon={1} />
-                <MeteoForecast dayNumber={1} />
               </p>
             </div>
             <div className="second">
               <p>
-                {tabJour[theDate.getDay()]}{' '}
+                {tabJour[theDate.getDay() + 2]}{' '}
                 <MeteoForecastIcon dayNumberIcon={2} />
-                <MeteoForecast dayNumber={2} />
               </p>
               <p>
-                {tabJour[theDate.getDay()]}{' '}
+                {tabJour[theDate.getDay() + 3]}{' '}
                 <MeteoForecastIcon dayNumberIcon={3} />
-                <MeteoForecast dayNumber={3} />
               </p>
             </div>
             <div className="third">
               <p>
-                {tabJour[theDate.getDay()]}
+                {tabJour[theDate.getDay() + 4]}
                 <MeteoForecastIcon dayNumberIcon={4} />
-                <MeteoForecast dayNumber={4} />
               </p>
               <p>
+                {tabJour[theDate.getDay() + 5]}
                 <MeteoForecastIcon dayNumberIcon={5} />
-                <MeteoForecast dayNumber={5} />
               </p>
             </div>
             <div className="four">
               <p>
+                {tabJour[theDate.getDay() + 6]}
                 <MeteoForecastIcon dayNumberIcon={6} />
-                <MeteoForecast dayNumber={6} />
               </p>
               <p>
+                {tabJour[theDate.getDay() + 7]}
                 <MeteoForecastIcon dayNumberIcon={7} />
-                <MeteoForecast dayNumber={7} />
               </p>
             </div>
           </div>

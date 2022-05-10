@@ -25,6 +25,8 @@
   text-align: center;
   justify-content: center;
   margin-bottom: 2vh;
+  border: 2px solid grey;
+  border-radius: 15px;
 }
 
 .title {
@@ -47,13 +49,13 @@
   margin-top: 3vh;
   display: flex;
   justify-content: space-around;
+  margin-bottom: 3vh;
 }
 
 .four {
   margin-top: 3vh;
   display: flex;
   justify-content: space-around;
-  display: none;
 }
 
 @media screen and (min-width: 700px) {
