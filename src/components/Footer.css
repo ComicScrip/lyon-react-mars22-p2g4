@@ -7,11 +7,13 @@
 
 .rezof {
   display: flex;
-  height: 5vh;
+  height: 4vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 .rezof2 {
-  height: 4vh;
+  height: 3vh;
 }
 
 @media screen and (min-width: 700px) {
