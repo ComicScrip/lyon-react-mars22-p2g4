@@ -11,12 +11,22 @@ export default function PathDetails() {
   const [isLoading, setIsLoading] = useState(false);
   const { id } = useParams();
 
+  /* const location = useLocation();
+  const navigate = useNavigate();
+  if (location.key === 'default') {
+    navigate('/NotFoundPage');
+  }
+  console.log(location); */
+
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_API_URL}/api/paths/${id}`)
       .then((response) => response.data)
       .then((data) => setPath(data))
-      .catch(() => {
+      .catch((err) => {
+        if (err.response.status === 404) {
+          window.location.href = '/PageNotFound';
+        }
         setLoadingError("Impossible de charger le parcours depuis l'API");
       })
       .finally(() => setIsLoading(false));
