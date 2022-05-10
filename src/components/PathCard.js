@@ -1,3 +1,6 @@
+/* eslint-disable object-curly-newline */
+import React from 'react';
+import '../screens/Paths.css';
 import { Link } from 'react-router-dom';
 
 const accessToken = process.env.REACT_APP_MAPBOX_TOKEN;

@@ -11,33 +11,40 @@
   background-position: center;
 }
 
-.searchBarContainer h1 {
-  font-size: 3vh;
-  font-family: 'Permanent Marker';
-}
-
-.searchBarContainer {
+.searchSelectContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   padding: 20px;
 }
 
-.searchBar {
-  width: 75%;
-  height: 40px;
-  margin: 20px 0px;
+.searchSelectContainer h2 {
+  font-size: 2vh;
+  font-family: 'Permanent Marker';
+}
+
+.searchSelect {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0px;
   background-color: rgba(255, 255, 255, 0.8);
-  font-size: large;
   border-radius: 10px;
   border: 2px solid;
   border-color: #011627;
+  padding: 10px 20px;
 }
 
-.searchBar:focus {
-  border: 3px solid;
-  border-color: #f71735;
-  outline: none;
+.select {
+  margin-left: 20px;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid;
+  border-color: #011627;
+  text-align: center;
+  width: 60px;
 }
 
 .pathsListContainer {
@@ -61,6 +68,15 @@
 }
 
 @media screen and (min-width: 865px) {
+  .searchSelectContainer {
+    flex-direction: row;
+  }
+
+  .searchSelect {
+    margin: 0px 30px;
+    padding: 10px 20px;
+  }
+
   .pathsMainContainer {
     display: flex;
     flex-direction: column;
@@ -75,10 +91,6 @@
     align-items: center;
     justify-content: center;
     overflow: auto;
-  }
-
-  .searchBarContainer h1 {
-    padding-left: 50px;
   }
 
   .alertFilter {

@@ -7,9 +7,15 @@ import {
   Polyline,
 } from 'react-leaflet';
 import ChangeMapCenter from './ChangeMapCenter';
+import L from 'leaflet';
 
 // eslint-disable-next-line object-curly-newline
 export default function DisplayMapLive({ path, currentTrace, position, zoom }) {
+  const curseur = L.icon({
+    iconUrl: '/curseur.png',
+    iconSize: [25, 25],
+  });
+
   return (
     <div className="map m-1 p-1 flex justify-center items-center">
       <LeafletMap center={position} zoom={zoom} scrollWheelZoom={false}>
@@ -21,9 +27,9 @@ export default function DisplayMapLive({ path, currentTrace, position, zoom }) {
         <GeoJSON data={path} pathOptions={{ color: 'red' }} />
         <Polyline
           positions={currentTrace}
-          pathOptions={{ color: 'green', weight: '12' }}
+          pathOptions={{ color: 'orange', weight: '12' }}
         />
-        <Marker position={position} />
+        <Marker position={position} icon={curseur} />
       </LeafletMap>
     </div>
   );
