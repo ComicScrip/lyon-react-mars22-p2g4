@@ -19,7 +19,7 @@ function Header() {
         <div className="navbar_logo">
           <Link to="/">
             <div className="container">
-              <img className="logo" alt="" src="shoe.svg" />
+              <img className="logo" alt="" src="/shoe.svg" />
               <h1>PIC 'N' MOVE</h1>
             </div>
           </Link>
