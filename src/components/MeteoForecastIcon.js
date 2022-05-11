@@ -1,3 +1,5 @@
+/* eslint-disable function-paren-newline */
+/* eslint-disable implicit-arrow-linebreak */
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
@@ -12,16 +14,16 @@ function ForecastIconMeteoData({ dayNumberIcon }) {
       .then((data) => data.daily)
       .then((daily) => daily[dayNumberIcon].weather)
       .then((weather) => weather[0].icon)
-      .then((icon) => setForecastIconMeteoData(
-        `http://openweathermap.org/img/wn/${icon}@2x.png`
-      ));
+      .then((icon) =>
+        setForecastIconMeteoData(
+          `http://openweathermap.org/img/wn/${icon}@2x.png`
+        )
+      );
   }, []);
 
   return (
     <div>
-      <ul>
-        <img src={forecastIconMeteoData} alt="forecastMeteoIcon" />
-      </ul>
+      <img src={forecastIconMeteoData} alt="forecastMeteoIcon" />
     </div>
   );
 }

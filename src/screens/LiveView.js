@@ -56,7 +56,7 @@ export default function Liveview({ position }) {
 
   return (
     path && (
-      <div className="flex-auto flex-col items-center justify-center m-5 bg-white bg-opacity-80 rounded-xl">
+      <div className="flex-auto flex-col items-center justify-center m-2 bg-white bg-opacity-80 rounded-xl">
         <DisplayMapLive
           path={path.trace}
           currentTrace={currentTrace}

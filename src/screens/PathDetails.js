@@ -80,43 +80,43 @@ export default function PathDetails() {
           <div className="meteo">
             <h2 className="title">Prévisions météo</h2>
             <div className="day">
-              <p>
+              <div>
                 Aujourd'hui <MeteoForecastIcon dayNumberIcon={0} />
-              </p>
-              <p>
+              </div>
+              <div>
                 {tabJour[theDate.getDay() + 1]}{' '}
                 <MeteoForecastIcon dayNumberIcon={1} />
-              </p>
+              </div>
             </div>
             <div className="day">
-              <p>
+              <div>
                 {tabJour[theDate.getDay() + 2]}{' '}
                 <MeteoForecastIcon dayNumberIcon={2} />
-              </p>
-              <p>
+              </div>
+              <div>
                 {tabJour[theDate.getDay() + 3]}{' '}
                 <MeteoForecastIcon dayNumberIcon={3} />
-              </p>
+              </div>
             </div>
             <div className="day">
-              <p>
+              <div>
                 {tabJour[theDate.getDay() + 4]}
                 <MeteoForecastIcon dayNumberIcon={4} />
-              </p>
-              <p>
+              </div>
+              <div>
                 {tabJour[theDate.getDay() + 5]}
                 <MeteoForecastIcon dayNumberIcon={5} />
-              </p>
+              </div>
             </div>
             <div className="day">
-              <p>
+              <div>
                 {tabJour[theDate.getDay() + 6]}
                 <MeteoForecastIcon dayNumberIcon={6} />
-              </p>
-              <p>
+              </div>
+              <div>
                 {tabJour[theDate.getDay() + 7]}
                 <MeteoForecastIcon dayNumberIcon={7} />
-              </p>
+              </div>
             </div>
           </div>
           <div className="pathButton">
