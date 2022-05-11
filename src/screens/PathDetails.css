@@ -33,7 +33,7 @@
   text-align: center;
   padding: 8px;
   filter: drop-shadow(0 0 0.25rem grey);
-  margin-top: 5vh;
+  margin: 10px;
   border: solid 4px;
   font-weight: bold;
 }
@@ -41,36 +41,20 @@
 .meteo {
   text-align: center;
   justify-content: center;
-  margin-bottom: 2vh;
+  width: 100%;
+  margin: 10px;
   border: 2px solid grey;
   border-radius: 15px;
 }
 
 .title {
+  margin-top: 10px;
   font-weight: bold;
+  font-size: 1.2rem;
 }
 
-.first {
-  margin-top: 3vh;
-  display: flex;
-  justify-content: space-around;
-}
-
-.second {
-  margin-top: 3vh;
-  display: flex;
-  justify-content: space-around;
-}
-
-.third {
-  margin-top: 3vh;
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 3vh;
-}
-
-.four {
-  margin-top: 3vh;
+.day {
+  margin-top: 10px;
   display: flex;
   justify-content: space-around;
 }

@@ -78,7 +78,7 @@ function Header() {
           </li>
           <div className="meteoBurger">
             <CurrentMeteoIcon />
-            Lyon, <MeteoTemp />
+            <MeteoTemp />
           </div>
         </ul>
         <button
