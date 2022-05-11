@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 /* eslint-disable arrow-body-style */
 import React, { useEffect, useState } from 'react';
 import './Journal.css';
@@ -13,7 +14,7 @@ export default function Journal() {
 
     if (keyword !== '') {
       const results = journalPaths.filter((paths) => {
-        return paths.path.title.toLowerCase().startsWith(keyword.toLowerCase());
+        return paths.path.name.toLowerCase().startsWith(keyword.toLowerCase());
       });
       setjournalPaths(results);
     } else {
@@ -43,21 +44,21 @@ export default function Journal() {
           />
         </div>
         <div className="pathsListContainer">
-          {journalPaths.length > 0 ? (
+          {journalPaths &&
             journalPaths.map((journal) => (
               <JournalCard
                 key={`id:${journal.path.id} date:${journal.date}`}
                 id={journal.path.id}
                 title={journal.path.name}
-                startLat={journal.realTrace[0][0]}
-                startLon={journal.realTrace[0][1]}
+                startLat={journal.realTrace[0][1]}
+                startLon={journal.realTrace[0][0]}
                 date={journal.date}
                 time={journal.time}
                 distance={journal.distance}
                 calorie={journal.calorie}
               />
-            ))
-          ) : (
+            ))}
+          {(!journalPaths || journalPaths.length === 0) && (
             <div className="journalAlertFilter">
               <h1>
                 Nous sommes désolés, mais aucun historique de parcours ne
