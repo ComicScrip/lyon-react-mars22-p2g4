@@ -11,7 +11,7 @@ const safeSearch = '1';
 const contentType = '1';
 const minUploadDate = '2000-01-01 00:00:01';
 const perPage = '100';
-const tags = 'street-art';
+const tags = 'street-art, historic';
 
 // Defaut list of photos
 const defaultPhotosList = [
