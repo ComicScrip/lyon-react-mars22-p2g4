@@ -45,6 +45,7 @@
   border-color: #011627;
   text-align: center;
   width: 60px;
+  cursor: pointer;
 }
 
 .pathsListContainer {
